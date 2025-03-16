@@ -18,6 +18,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "hono": "^4.7.4"
+    "hono": "^4.7.4",
+    "neverthrow": "^8.2.0"
   }
 }

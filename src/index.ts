@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 
 import { calculateJulianDate } from "@/lib/calculateJulianDate.ts";
-import { getPlanetaryPositionsForDate } from "@/lib/getPlanetaryPositionsForDate.ts";
+import { getOrbitalAspects } from "@/lib/getOrbitalAspects.ts";
 
 const app = new Hono();
 
@@ -37,9 +37,17 @@ app.get("/planetary-positions", (c) => {
     const latitude = parseFloat(latitudeString);
     const longitude = parseFloat(longitudeString);
 
-    const jd = calculateJulianDate(birthDate);
+    const jd = calculateJulianDate(birthDate).value;
 
-    return c.json(getPlanetaryPositionsForDate(jd, latitude, longitude));
+    const positions = getOrbitalAspects(jd, latitude, longitude);
+
+    if (positions.isErr()) {
+        return c.json({
+            error: positions.error,
+        });
+    }
+
+    return c.json(positions.value);
 });
 
 export default app;

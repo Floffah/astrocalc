@@ -1,10 +1,11 @@
 // These calculations are based on the work of Paul Schlyter
 // https://stjarnhimlen.se/comp/ppcomp.html#3
+import { ok } from "neverthrow";
 
 const rad = (deg: number) => (deg * Math.PI) / 180;
 const deg = (rad: number) => (rad * 180) / Math.PI;
 
-export function getPlanetaryPositionsForDate(
+export function getOrbitalAspects(
     // 3. The time scale
     julianDate: number,
     observerLatitude: number,
@@ -106,14 +107,14 @@ export function getPlanetaryPositionsForDate(
         const GMST = GMST0 + UT;
         const LST = GMST + observerLongitude / 15;
 
-        return {
+        return ok({
             GMST0,
             GMST,
             LST,
-        };
+        });
     }
 
-    const siderealTime = getSiderealTime();
+    const siderealTime = getSiderealTime().value;
 
     function getSunPosition() {
         // 5. The position of the sun
@@ -195,7 +196,7 @@ export function getPlanetaryPositionsForDate(
             topDec = Dec - mpar * rho * Math.sin(-Dec) * Math.cos(HA);
         }
 
-        return {
+        return ok({
             E,
             xv,
             yv,
@@ -221,10 +222,10 @@ export function getPlanetaryPositionsForDate(
             topRA,
             topDec,
             g,
-        };
+        });
     }
 
-    const sunFullPosition = getSunPosition();
+    const sunFullPosition = getSunPosition().value;
 
     function planetWithPosition(
         elements: typeof moonBaseElements,
@@ -421,7 +422,7 @@ export function getPlanetaryPositionsForDate(
             topDec = Dec - mpar * rho * Math.sin(-Dec) * Math.cos(HA);
         }
 
-        return {
+        return ok({
             ...elements,
             a: a_corrected,
             E,
@@ -456,7 +457,7 @@ export function getPlanetaryPositionsForDate(
             g,
             topRA,
             topDec,
-        };
+        });
     }
 
     function getPlutoPosition() {
@@ -564,7 +565,7 @@ export function getPlanetaryPositionsForDate(
             topDec = Dec - mpar * rho * Math.sin(-Dec) * Math.cos(HA);
         }
 
-        return {
+        return ok({
             lonecl,
             latecl,
             r,
@@ -593,23 +594,23 @@ export function getPlanetaryPositionsForDate(
             g,
             topRA,
             topDec,
-        };
+        });
     }
 
-    return {
+    return ok({
         sun: {
             ...sunBaseElements,
             ...sunFullPosition,
         },
-        moon: planetWithPosition(moonBaseElements, "moon"),
-        mercury: planetWithPosition(mercuryBaseElements, "mercury"),
-        venus: planetWithPosition(venusBaseElements, "venus"),
-        mars: planetWithPosition(marsBaseElements, "mars"),
-        jupiter: planetWithPosition(jupiterBaseElements, "jupiter"),
-        saturn: planetWithPosition(saturnBaseElements, "saturn"),
-        uranus: planetWithPosition(uranusBaseElements, "uranus"),
-        neptune: planetWithPosition(neptuneBaseElements, "neptune"),
-        pluto: getPlutoPosition(),
+        moon: planetWithPosition(moonBaseElements, "moon").value,
+        mercury: planetWithPosition(mercuryBaseElements, "mercury").value,
+        venus: planetWithPosition(venusBaseElements, "venus").value,
+        mars: planetWithPosition(marsBaseElements, "mars").value,
+        jupiter: planetWithPosition(jupiterBaseElements, "jupiter").value,
+        saturn: planetWithPosition(saturnBaseElements, "saturn").value,
+        uranus: planetWithPosition(uranusBaseElements, "uranus").value,
+        neptune: planetWithPosition(neptuneBaseElements, "neptune").value,
+        pluto: getPlutoPosition().value,
         siderealTime: siderealTime,
-    };
+    });
 }
