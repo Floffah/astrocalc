@@ -119,46 +119,58 @@ export function getPlanetaryPositionsForDate(
         // 5. The position of the sun
         const ecl = 23.4393 - 3.563e-7 * julianDate;
 
+        // Eccentric anomaly (degrees)
         const E =
             sunBaseElements.M +
-            sunBaseElements.e *
-                (180 / Math.PI) *
-                Math.sin(sunBaseElements.M) *
-                (1 + sunBaseElements.e * Math.cos(sunBaseElements.M));
+            deg(
+                sunBaseElements.e *
+                    Math.sin(rad(sunBaseElements.M)) *
+                    (1 + sunBaseElements.e * Math.cos(rad(sunBaseElements.M))),
+            );
 
-        const xv = Math.cos(E) - sunBaseElements.e;
-        const yv =
-            Math.sqrt(1.0 - sunBaseElements.e * sunBaseElements.e) *
-            Math.sin(E);
-        const v = Math.atan2(yv, xv);
-        const r = Math.sqrt(xv * xv + yv * yv);
+        // Coordinates in orbital plane (AU)
+        const xv = Math.cos(rad(E)) - sunBaseElements.e;
+        const yv = Math.sqrt(1.0 - sunBaseElements.e ** 2) * Math.sin(rad(E));
 
-        const lon = v + sunBaseElements.w;
+        // True anomaly and distance (degrees, AU)
+        const v = deg(Math.atan2(yv, xv));
+        const r = Math.sqrt(xv ** 2 + yv ** 2);
 
-        const xs = r * Math.cos(lon);
-        const ys = r * Math.sin(lon);
+        // Ecliptic longitude (degrees)
+        const lon = (v + sunBaseElements.w) % 360;
 
+        // Rectangular coordinates (AU)
+        const xs = r * Math.cos(rad(lon));
+        const ys = r * Math.sin(rad(lon));
+
+        // Ecliptic to equatorial (degrees)
         const xe = xs;
-        const ye = ys * Math.cos(ecl);
-        const ze = ys * Math.sin(ecl);
+        const ye = ys * Math.cos(rad(ecl));
+        const ze = ys * Math.sin(rad(ecl));
 
-        const RA = Math.atan2(ye, xe);
-        const Dec = Math.atan2(ze, Math.sqrt(xe * xe + ye * ye));
+        // Equatorial coordinates (degrees)
+        const RA = (deg(Math.atan2(ye, xe)) + 360) % 360;
+        const Dec = deg(Math.atan2(ze, Math.sqrt(xe ** 2 + ye ** 2)));
 
-        const HA = siderealTime.LST - RA;
+        // Hour Angle (degrees)
+        const HA = (siderealTime.LST * 15 - RA + 360) % 360;
 
-        const x = Math.cos(HA) * Math.cos(Dec);
-        const y = Math.sin(HA) * Math.cos(Dec);
-        const z = Math.sin(Dec);
+        // Rectangular coordinates (degrees)
+        const x = Math.cos(rad(HA)) * Math.cos(rad(Dec));
+        const y = Math.sin(rad(HA)) * Math.cos(rad(Dec));
+        const z = Math.sin(rad(Dec));
 
+        // Horizontal coordinates (degrees)
         const xhor =
-            x * Math.sin(observerLatitude) - z * Math.cos(observerLatitude);
+            x * Math.sin(rad(observerLatitude)) -
+            z * Math.cos(rad(observerLatitude));
         const yhor = y;
         const zhor =
-            x * Math.cos(observerLatitude) + z * Math.sin(observerLatitude);
+            x * Math.cos(rad(observerLatitude)) +
+            z * Math.sin(rad(observerLatitude));
 
-        const az = Math.atan2(yhor, xhor) + Math.PI;
-        const alt = Math.asin(zhor);
+        const az = (deg(Math.atan2(yhor, xhor)) + 180) % 360;
+        const alt = deg(Math.asin(zhor));
 
         let alt_topoc = alt;
         let topRA = RA;
@@ -219,12 +231,15 @@ export function getPlanetaryPositionsForDate(
         name: string,
     ) {
         // 6. The position of the Moon and of the planets
+
+        // Mean anomaly correction (degrees)
         let E =
             elements.M +
-            elements.e *
-                (180 / Math.PI) *
-                Math.sin(elements.M) *
-                (1 + elements.e * Math.cos(elements.M));
+            deg(
+                elements.e *
+                    Math.sin(rad(elements.M)) *
+                    (1 + elements.e * Math.cos(rad(elements.M))),
+            );
         let E0 = E;
         let E1 = 0.0;
 
@@ -233,37 +248,40 @@ export function getPlanetaryPositionsForDate(
                 E1 = E0;
                 E0 =
                     E -
-                    (E - elements.e * Math.sin(E) - elements.M) /
-                        (1 - elements.e * Math.cos(E));
+                    (E - deg(elements.e * Math.sin(rad(E))) - elements.M) /
+                        (1 - elements.e * Math.cos(rad(E)));
             }
             E = E0;
         }
 
-        // (planet distance and true anomaly)
-        const xv = elements.a * (Math.cos(E) - elements.e);
+        // Orbital coordinates (AU)
+        const xv = elements.a * (Math.cos(rad(E)) - elements.e);
         const yv =
-            elements.a * (Math.sqrt(1 - elements.e * elements.e) * Math.sin(E));
+            elements.a * Math.sqrt(1 - elements.e ** 2) * Math.sin(rad(E));
 
-        const v = Math.atan2(yv, xv);
-        const r = Math.sqrt(xv * xv + yv * yv);
+        // True anomaly and distance (degrees, AU)
+        const v = deg(Math.atan2(yv, xv));
+        const r = Math.sqrt(xv ** 2 + yv ** 2);
 
-        // 7. The position in space
+        // Heliocentric coordinates (AU)
         const xh =
             r *
-            (Math.cos(elements.N) * Math.cos(v + elements.w) -
-                Math.sin(elements.N) *
-                    Math.sin(v + elements.w) *
-                    Math.cos(elements.i));
+            (Math.cos(rad(elements.N)) * Math.cos(rad(v + elements.w)) -
+                Math.sin(rad(elements.N)) *
+                    Math.sin(rad(v + elements.w)) *
+                    Math.cos(rad(elements.i)));
         const yh =
             r *
-            (Math.sin(elements.N) * Math.cos(v + elements.w) +
-                Math.cos(elements.N) *
-                    Math.sin(v + elements.w) *
-                    Math.cos(elements.i));
-        const zh = r * (Math.sin(v + elements.w) * Math.sin(elements.i));
+            (Math.sin(rad(elements.N)) * Math.cos(rad(v + elements.w)) +
+                Math.cos(rad(elements.N)) *
+                    Math.sin(rad(v + elements.w)) *
+                    Math.cos(rad(elements.i)));
+        const zh =
+            r * (Math.sin(rad(v + elements.w)) * Math.sin(rad(elements.i)));
 
-        let lonecl = Math.atan2(yh, xh);
-        let latecl = Math.atan2(zh, Math.sqrt(xh * xh + yh * yh));
+        // Ecliptic coordinates (degrees)
+        let lonecl = deg(Math.atan2(yh, xh));
+        let latecl = deg(Math.atan2(zh, Math.sqrt(xh ** 2 + yh ** 2)));
 
         let a_corrected = elements.a;
 
@@ -272,31 +290,33 @@ export function getPlanetaryPositionsForDate(
             const Ms = sunBaseElements.M;
             const Mm = elements.M;
             const Nm = 125.1228 - 0.0529538083 * julianDate;
-            const ws = 282.9404 + 4.70935e-5 * julianDate;
+            const ws = sunBaseElements.w;
             const wm = elements.w;
-            const Ls = Ms + ws;
-            const Lm = Mm + wm + Nm;
-            const D = Lm - Ls;
-            const F = Lm - Nm;
+            const Ls = (Ms + ws) % 360;
+            const Lm = (Mm + wm + Nm) % 360;
+            const D = (Lm - Ls + 360) % 360;
+            const F = (Lm - Nm + 360) % 360;
 
-            lonecl += -1.274 * Math.sin(Mm - 2 * D);
-            lonecl += 0.658 * Math.sin(2 * D);
-            lonecl += -0.186 * Math.sin(Ms);
-            lonecl += -0.059 * Math.sin(2 * Mm - 2 * D);
-            lonecl += -0.057 * Math.sin(Mm - 2 * D + Ms);
-            lonecl += 0.053 * Math.sin(Mm + 2 * D);
-            lonecl += 0.046 * Math.sin(2 * D - Ms);
-            lonecl += 0.041 * Math.sin(Mm - Ms);
-            lonecl += -0.035 * Math.sin(D);
-            lonecl += -0.031 * Math.sin(Mm + Ms);
-            lonecl += -0.015 * Math.sin(2 * F - 2 * D);
-            lonecl += 0.011 * Math.sin(Mm - 4 * D);
+            lonecl +=
+                -1.274 * Math.sin(rad(Mm - 2 * D)) +
+                0.658 * Math.sin(rad(2 * D)) -
+                0.186 * Math.sin(rad(Ms)) -
+                0.059 * Math.sin(rad(2 * Mm - 2 * D)) -
+                0.057 * Math.sin(rad(Mm - 2 * D + Ms)) +
+                0.053 * Math.sin(rad(Mm + 2 * D)) +
+                0.046 * Math.sin(rad(2 * D - Ms)) +
+                0.041 * Math.sin(rad(Mm - Ms)) -
+                0.035 * Math.sin(rad(D)) -
+                0.031 * Math.sin(rad(Mm + Ms)) -
+                0.015 * Math.sin(rad(2 * F - 2 * D)) +
+                0.011 * Math.sin(rad(Mm - 4 * D));
 
-            latecl += -0.173 * Math.sin(F - 2 * D);
-            latecl += -0.055 * Math.sin(Mm - F - 2 * D);
-            latecl += -0.046 * Math.sin(Mm + F - 2 * D);
-            latecl += 0.033 * Math.sin(F + 2 * D);
-            latecl += 0.017 * Math.sin(2 * Mm + F);
+            latecl +=
+                -0.173 * Math.sin(rad(F - 2 * D)) -
+                0.055 * Math.sin(rad(Mm - F - 2 * D)) -
+                0.046 * Math.sin(rad(Mm + F - 2 * D)) +
+                0.033 * Math.sin(rad(F + 2 * D)) +
+                0.017 * Math.sin(rad(2 * Mm + F));
 
             a_corrected += -0.58 * Math.cos(Mm - 2 * D);
             a_corrected += -0.46 * Math.cos(2 * D);
@@ -441,9 +461,8 @@ export function getPlanetaryPositionsForDate(
 
     function getPlutoPosition() {
         // 14. The position of Pluto
-
-        const S = 50.03 + 0.033459652 * julianDate;
-        const P = 238.95 + 0.003968789 * julianDate;
+        const S = (50.03 + 0.033459652 * julianDate) % 360;
+        const P = (238.95 + 0.003968789 * julianDate) % 360;
 
         const lonecl =
             238.9508 +

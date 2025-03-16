@@ -5,38 +5,41 @@ import { getPlanetaryPositionsForDate } from "@/lib/getPlanetaryPositionsForDate
 
 const app = new Hono();
 
-app.get("/birth-chart", (c) => {
-    const birthDate = new Date(Date.UTC(2004, 12, 17, 4, 21));
-    const latitude = 56.119911;
-    const longitude = -3.17311;
+app.get("/planetary-positions", (c) => {
+    const yearString = c.req.query("year");
+    const monthString = c.req.query("month");
+    const dayString = c.req.query("day");
+    const hourString = c.req.query("hour") || "0";
+    const minuteString = c.req.query("minute") || "0";
+
+    if (!yearString || !monthString || !dayString) {
+        return c.json({
+            error: "Missing required parameters",
+        });
+    }
+
+    const year = parseInt(yearString);
+    const month = parseInt(monthString);
+    const day = parseInt(dayString);
+    const hour = parseInt(hourString);
+    const minute = parseInt(minuteString);
+
+    const latitudeString = c.req.query("latitude");
+    const longitudeString = c.req.query("longitude");
+
+    if (!latitudeString || !longitudeString) {
+        return c.json({
+            error: "Missing required parameters",
+        });
+    }
+
+    const birthDate = new Date(Date.UTC(year, month, day, hour, minute));
+    const latitude = parseFloat(latitudeString);
+    const longitude = parseFloat(longitudeString);
 
     const jd = calculateJulianDate(birthDate);
-    //
-    // const marsHeliocentric = getHeliocentricCoordinates(mars as any, jd);
-    // const earthHeliocentric = getHeliocentricCoordinates(earth as any, jd);
-    //
-    // const geocentric = heliocentricToGeocentric(
-    //     marsHeliocentric,
-    //     earthHeliocentric,
-    // );
-    //
-    // const spherical = rectangularToSpherical(geocentric);
-    //
-    // const lonDegrees = radiansToDegrees(spherical.longitude);
-    //
-    // const zodiacPosition = getZodiacSign(lonDegrees);
-    //
-    // return c.json({
-    //     jd,
-    //     marsHeliocentric,
-    //     earthHeliocentric,
-    //     geocentric,
-    //     zodiacPosition,
-    // });
 
-    return c.json({
-        orbitalElements: getPlanetaryPositionsForDate(jd, latitude, longitude),
-    });
+    return c.json(getPlanetaryPositionsForDate(jd, latitude, longitude));
 });
 
 export default app;
