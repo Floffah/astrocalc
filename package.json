@@ -9,6 +9,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.22.0",
+        "@redocly/cli": "^1.33.1",
         "@trivago/prettier-plugin-sort-imports": "^5.2.2",
         "@types/bun": "latest",
         "eslint": "^9.22.0",

@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: AstroCalc
+  description: Astronomy & astrology microservice for working out planetary positions & birth charts
+  version: 0.0.1
+servers:
+  - url: "https://astrocalc-api.onrender.com"
+security: []
+components:
+  schemas:
+    BirthChartSign:
+      type: object
+      properties:
+        sign:
+          type: string
+          examples:
+            - "Sagittarius"
+        degree:
+          type: number
+          examples:
+            - 265.5819247317688
+        cuspWith:
+          type: [ string, "null" ]
+          examples:
+            - "Libra"
+            - null
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+            - "Missing required parameters"
+            - "Invalid date"
+            - "Invalid location"
+paths:
+  /birth-chart:
+    get:
+      operationId: calculateBirthChart
+      summary: Calculate a birth chart
+      description: |
+        This endpoint calculates a birth chart for a given date, time, and location.
+        It will give information such as: signs, houses, and aspects of the planets.
+      parameters:
+        - name: year
+          in: query
+          description: The year of birth
+          required: true
+          schema:
+            type: integer
+            minimum: 1900
+            maximum: 2100
+        - name: month
+          in: query
+          description: The month of birth. NOT zero-indexed.
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 12
+        - name: day
+          in: query
+          description: The day of birth
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 31
+        - name: hour
+          in: query
+          description: The hour of birth
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 23
+        - name: minute
+          in: query
+          description: The minute of birth
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 59
+        - name: latitude
+          in: query
+          description: The latitude of birth
+          required: true
+          schema:
+            type: number
+            minimum: -90
+            maximum: 90
+        - name: longitude
+          in: query
+          description: The longitude of birth
+          required: true
+          schema:
+            type: number
+            minimum: -180
+            maximum: 180
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  signs:
+                    type: object
+                    properties:
+                      sun:
+                        $ref: "#/components/schemas/BirthChartSign"
+                      moon:
+                        $ref: "#/components/schemas/BirthChartSign"
+                      ascendant:
+                        $ref: "#/components/schemas/BirthChartSign"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"

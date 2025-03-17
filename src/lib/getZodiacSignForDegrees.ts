@@ -1,5 +1,7 @@
 import { err, ok } from "neverthrow";
 
+import { deg } from "@/lib/degrees.ts";
+
 export enum ZodiacSign {
     Aries = "Aries",
     Taurus = "Taurus",
@@ -15,7 +17,7 @@ export enum ZodiacSign {
     Pisces = "Pisces",
 }
 
-export function getZodiacSignFromDegrees(degrees: number) {
+export function getZodiacSignForDegrees(degrees: number) {
     const idx = Math.floor(degrees / 30);
 
     switch (idx) {
@@ -45,5 +47,17 @@ export function getZodiacSignFromDegrees(degrees: number) {
             return ok(ZodiacSign.Pisces);
         default:
             return err("Invalid degrees");
+    }
+}
+
+export function getZodiacSignCusp(degrees: number) {
+    const remainder = degrees % 30;
+
+    if (remainder > 28) {
+        return getZodiacSignForDegrees((degrees + 5) % 360);
+    } else if (remainder < 2) {
+        return getZodiacSignForDegrees((degrees + 355) % 360);
+    } else {
+        return ok(null);
     }
 }

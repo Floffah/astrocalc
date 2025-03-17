@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 
-import { getBirthChart } from "@/lib/getBirthChart.ts";
+import { calculateBirthChart } from "@/lib/calculateBirthChart.ts";
 
 const app = new Hono();
 
@@ -12,9 +12,12 @@ app.get("/birth-chart", async (c) => {
     const minuteString = c.req.query("minute") || "0";
 
     if (!yearString || !monthString || !dayString) {
-        return c.json({
-            error: "Missing required parameters",
-        });
+        return c.json(
+            {
+                error: "Missing required parameters",
+            },
+            400,
+        );
     }
 
     const year = parseInt(yearString);
@@ -27,9 +30,12 @@ app.get("/birth-chart", async (c) => {
     const longitudeString = c.req.query("longitude");
 
     if (!latitudeString || !longitudeString) {
-        return c.json({
-            error: "Missing required parameters",
-        });
+        return c.json(
+            {
+                error: "Missing required parameters",
+            },
+            400,
+        );
     }
 
     const birthDate = new Date(Date.UTC(year, month - 1, day, hour, minute));
@@ -37,12 +43,15 @@ app.get("/birth-chart", async (c) => {
     const latitude = parseFloat(latitudeString);
     const longitude = parseFloat(longitudeString);
 
-    const chart = getBirthChart(birthDate, latitude, longitude);
+    const chart = calculateBirthChart(birthDate, latitude, longitude);
 
     if (chart.isErr()) {
-        return c.json({
-            error: chart.error,
-        });
+        return c.json(
+            {
+                error: chart.error,
+            },
+            500,
+        );
     }
 
     return c.json(chart.value);
