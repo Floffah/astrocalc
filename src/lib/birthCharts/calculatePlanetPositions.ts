@@ -4,7 +4,7 @@ import sweph from "sweph";
 
 import { getZodiacFromLongitude } from "@/lib/zodiac.ts";
 
-const PLANETS = [
+export const PLANETS = [
     { id: 0, name: "Sun", flag: sweph.constants.SE_SUN },
     { id: 1, name: "Moon", flag: sweph.constants.SE_MOON },
     { id: 2, name: "Mercury", flag: sweph.constants.SE_MERCURY },

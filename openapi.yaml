@@ -46,6 +46,12 @@ components:
         - Pluto
         - Ascendant
         - Midheaven
+        - Descendant
+        - Nadir
+        - Chiron
+        - Lilith
+        - True North Node
+        - True South Node
       examples:
         - "Sun"
     BirthChartSign:
@@ -61,6 +67,24 @@ components:
           oneOf:
             - $ref: "#/components/schemas/ZodiacSign"
             - type: "null"
+    ZodiacPosition:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 0
+          maximum: 11
+        name:
+          $ref: "#/components/schemas/ZodiacSign"
+        lord:
+          type: object
+          properties:
+            id:
+              type: integer
+              minimum: 0
+              maximum: 11
+            name:
+              $ref: "#/components/schemas/ZodiacSign"
     HouseCusp:
       type: object
       properties:
@@ -86,23 +110,111 @@ components:
               examples:
                 - 16.5334031282507
             zodiac:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  minimum: 0
-                  maximum: 11
-                name:
-                  $ref: "#/components/schemas/ZodiacSign"
-                lord:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                      minimum: 0
-                      maximum: 11
-                    name:
-                      $ref: "#/components/schemas/ZodiacSign"
+              $ref: "#/components/schemas/ZodiacPosition"
+    PlanetPosition:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 0
+          maximum: 11
+        name:
+          $ref: "#/components/schemas/Planet"
+        longitude:
+          type: number
+          examples:
+            - 246.5334031282507
+        is_retrograde:
+          type: boolean
+          examples:
+            - false
+        degree:
+          type: number
+          minimum: 0
+          maximum: 30
+          examples:
+            - 16.5334031282507
+        zodiac:
+          $ref: "#/components/schemas/ZodiacPosition"
+    AnglePosition:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 0
+          maximum: 11
+        name:
+          $ref: "#/components/schemas/Planet"
+        longitude:
+          type: number
+          examples:
+            - 246.5334031282507
+        is_retrograde:
+          type: boolean
+          examples:
+            - false
+        degree:
+          type: number
+          minimum: 0
+          maximum: 30
+          examples:
+            - 16.5334031282507
+        house_number:
+          type: integer
+          minimum: 1
+          maximum: 12
+        zodiac:
+          $ref: "#/components/schemas/ZodiacPosition"
+
+    AspectType:
+      type: string
+      enum:
+        - Conjunction
+        - Opposition
+        - Trine
+        - Square
+        - Sextile
+        - Quincunx
+        - Semi Sextile
+        - Semi Square
+        - Sesquiquadrate
+        - Quintile
+        - Bi Quintile
+        - Septile
+        - Bi Septile
+        - Tri Septile
+        - Novile
+        - Quincunx
+        - Parallel
+        - Contraparallel
+
+    Aspect:
+        type: object
+        properties:
+          planet_one:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                $ref: "#/components/schemas/Planet"
+          planet_two:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                $ref: "#/components/schemas/Planet"
+          aspect:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                $ref: "#/components/schemas/AspectType"
+          orb:
+            type: number
+
     ErrorResponse:
       type: object
       properties:
@@ -198,6 +310,22 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/HouseCusp"
+                  planets:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/PlanetPosition"
+                  angles:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/AnglePosition"
+                  aspects:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Aspect"
+                  declinations:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Aspect"
 
         "400":
           description: Bad Request
