@@ -5,10 +5,10 @@ Links:
 - API Docs - https://floffah.github.io/astrocalc/
 
 TODO:
-- [ ] Get birth chart
+- [x] Get birth chart
   - [x] Get sun, moon, and rising sign
   - [x] Get houses
-  - [ ] Get aspects
+  - [x] Get aspects, angles, & declinations
 - [ ] Get transit chart
 
 - [ ] Cleanup & refactor code
@@ -18,7 +18,7 @@ TODO:
 - Western Astrology
 - Zodiac: Tropical
 - Planets: Traditional (Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn) + Uranus, Neptune, Pluto. Additionally, Chiron, Lillith, True North Node, True South Node
-- Aspects: Conjunction, Opposition, Trine, Square, Sextile
+- Aspects: Conjunction, Opposition, Trine, Square, Sextile, Semi Square, Sesquiquadrate, Semi Sextile, Quincunx, Quintile, Bi Quintile, Parallel, Contra Parallel
 - Houses: Placidius (Swiss Ephemeris)
 - Calculations based on VSOP87 data (astronomia)
 
