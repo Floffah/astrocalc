@@ -3,27 +3,44 @@ info:
   title: AstroCalc
   description: Astronomy & astrology microservice for working out planetary positions & birth charts
   version: 0.0.1
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
 servers:
   - url: "https://astrocalc-api.onrender.com"
 security: []
 components:
   schemas:
+    ZodiacSign:
+      type: string
+      enum:
+          - Aries
+          - Taurus
+          - Gemini
+          - Cancer
+          - Leo
+          - Virgo
+          - Libra
+          - Scorpio
+          - Sagittarius
+          - Capricorn
+          - Aquarius
+          - Pisces
+      examples:
+        - "Sagittarius"
     BirthChartSign:
       type: object
       properties:
         sign:
-          type: string
-          examples:
-            - "Sagittarius"
+          $ref: "#/components/schemas/ZodiacSign"
         degree:
           type: number
           examples:
             - 265.5819247317688
-        cuspWith:
-          type: [ string, "null" ]
-          examples:
-            - "Libra"
-            - null
+        cuspWarning:
+          oneOf:
+            - $ref: "#/components/schemas/ZodiacSign"
+            - type: "null"
     ErrorResponse:
       type: object
       properties:
