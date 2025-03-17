@@ -4,7 +4,7 @@ import { getBirthChart } from "@/lib/getBirthChart.ts";
 
 const app = new Hono();
 
-app.get("/planetary-positions", async (c) => {
+app.get("/birth-chart", async (c) => {
     const yearString = c.req.query("year");
     const monthString = c.req.query("month");
     const dayString = c.req.query("day");
