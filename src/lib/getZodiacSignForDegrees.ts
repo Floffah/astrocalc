@@ -1,7 +1,5 @@
 import { err, ok } from "neverthrow";
 
-import { deg } from "@/lib/degrees.ts";
-
 export enum ZodiacSign {
     Aries = "Aries",
     Taurus = "Taurus",

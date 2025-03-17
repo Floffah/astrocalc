@@ -1,11 +1,14 @@
-openapi: 3.1.0
+openapi: 3.1.1
 info:
   title: AstroCalc
   description: Astronomy & astrology microservice for working out planetary positions & birth charts
-  version: 0.0.1
+  version: 0.0.0
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
+  contact:
+    name: AstroCalc Contributors
+    url: https://github.com/floffah/astrocalc
 servers:
   - url: "https://astrocalc-api.onrender.com"
 security: []

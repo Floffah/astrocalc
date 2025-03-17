@@ -1,8 +1,12 @@
 import { Hono } from "hono";
 
-import { calculateBirthChart } from "@/lib/calculateBirthChart.ts";
+import { calculateBirthChart } from "@/lib/birthCharts/calculateBirthChart.ts";
 
 const app = new Hono();
+
+app.get("/", (c) =>
+    c.text("See API specifications at https://floffah.github.io/astrocalc/"),
+);
 
 app.get("/birth-chart", async (c) => {
     const yearString = c.req.query("year");
@@ -56,5 +60,7 @@ app.get("/birth-chart", async (c) => {
 
     return c.json(chart.value);
 });
+
+app.get("/healthz", (c) => c.json({ status: "ok" }));
 
 export default app;

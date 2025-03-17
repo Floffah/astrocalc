@@ -2,13 +2,13 @@ import * as astronomia from "astronomia";
 import data from "astronomia/data";
 import { ok } from "neverthrow";
 
-import { deg, rad } from "@/lib/degrees.ts";
+import { deg } from "@/lib/degrees.ts";
 import {
     getZodiacSignCusp,
     getZodiacSignForDegrees,
 } from "@/lib/getZodiacSignForDegrees.ts";
 
-function calculateSigns(
+export function calculateSigns(
     jde: number,
     latitude: astronomia.sexagesimal.Angle,
     longitude: astronomia.sexagesimal.Angle,
@@ -83,26 +83,5 @@ function calculateSigns(
             degree: ascDeg,
             cuspWarning: ascendantCusp.value,
         },
-    });
-}
-
-export function calculateBirthChart(
-    date: Date,
-    latitude: number,
-    longitude: number,
-) {
-    const jde = astronomia.julian.DateToJDE(date);
-
-    const latAngle = new astronomia.sexagesimal.Angle(rad(latitude));
-    const lonAngle = new astronomia.sexagesimal.Angle(rad(longitude));
-
-    const signs = calculateSigns(jde, latAngle, lonAngle);
-
-    if (signs.isErr()) {
-        return signs;
-    }
-
-    return ok({
-        signs: signs.value,
     });
 }
