@@ -3,10 +3,7 @@ import data from "astronomia/data";
 import { ok } from "neverthrow";
 
 import { deg } from "@/lib/degrees.ts";
-import {
-    getZodiacSignCusp,
-    getZodiacSignForDegrees,
-} from "@/lib/getZodiacSignForDegrees.ts";
+import { getZodiacSignCusp, getZodiacSignForDegrees } from "@/lib/zodiac.ts";
 
 export function calculateSigns(
     jde: number,

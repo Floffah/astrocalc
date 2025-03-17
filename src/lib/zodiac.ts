@@ -59,3 +59,29 @@ export function getZodiacSignCusp(degrees: number) {
         return ok(null);
     }
 }
+
+export function getZodiacFromLongitude(longitude: number) {
+    const zodiacSigns = [
+        { id: 0, name: "Aries", lord: { id: 4, name: "Mars" } },
+        { id: 1, name: "Taurus", lord: { id: 2, name: "Venus" } },
+        { id: 2, name: "Gemini", lord: { id: 3, name: "Mercury" } },
+        { id: 3, name: "Cancer", lord: { id: 1, name: "Moon" } },
+        { id: 4, name: "Leo", lord: { id: 0, name: "Sun" } },
+        { id: 5, name: "Virgo", lord: { id: 3, name: "Mercury" } },
+        { id: 6, name: "Libra", lord: { id: 2, name: "Venus" } },
+        { id: 7, name: "Scorpio", lord: { id: 4, name: "Mars" } },
+        { id: 8, name: "Sagittarius", lord: { id: 5, name: "Jupiter" } },
+        { id: 9, name: "Capricorn", lord: { id: 6, name: "Saturn" } },
+        { id: 10, name: "Aquarius", lord: { id: 6, name: "Saturn" } },
+        { id: 11, name: "Pisces", lord: { id: 5, name: "Jupiter" } },
+    ];
+
+    const signIndex = Math.floor(longitude / 30);
+    const degreeInSign = longitude % 30;
+
+    return {
+        longitude,
+        degree: degreeInSign,
+        zodiac: zodiacSigns[signIndex],
+    };
+}

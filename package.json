@@ -1,29 +1,36 @@
 {
-    "name": "astrocalc",
-    "module": "src/index.ts",
-    "type": "module",
-    "private": true,
-    "scripts": {
-        "build": "bun build --target=bun --outdir=dist src/index.ts",
-        "dev": "bun run --watch --no-clear-screen src/index.ts",
-        "lint:docs": "redocly lint openapi.yaml",
-        "build:docs": "bun redocly build-docs openapi.yaml -o docs/index.html"
-    },
-    "devDependencies": {
-        "@eslint/js": "^9.22.0",
-        "@redocly/cli": "^1.33.1",
-        "@trivago/prettier-plugin-sort-imports": "^5.2.2",
-        "@types/bun": "latest",
-        "eslint": "^9.22.0",
-        "prettier": "^3.5.3",
-        "typescript-eslint": "^8.26.1"
-    },
-    "peerDependencies": {
-        "typescript": "^5.8.2"
-    },
-    "dependencies": {
-        "astronomia": "^4.1.1",
-        "hono": "^4.7.4",
-        "neverthrow": "^8.2.0"
-    }
+  "name": "astrocalc",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bun build --target=bun --outdir=dist src/index.ts",
+    "dev": "bun run --watch --no-clear-screen src/index.ts",
+    "lint:docs": "redocly lint openapi.yaml",
+    "build:docs": "bun redocly build-docs openapi.yaml -o docs/index.html"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@redocly/cli": "^1.33.1",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/bun": "latest",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.26.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "astronomia": "^4.1.1",
+    "hono": "^4.7.4",
+    "neverthrow": "^8.2.0",
+    "sweph": "^2.10.3-4",
+    "swisseph": "^0.5.17"
+  },
+  "trustedDependencies": [
+    "protobufjs",
+    "sweph",
+    "swisseph"
+  ]
 }

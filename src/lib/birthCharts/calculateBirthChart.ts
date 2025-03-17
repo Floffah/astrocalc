@@ -1,6 +1,7 @@
 import * as astronomia from "astronomia";
 import { ok } from "neverthrow";
 
+import { calculateHouses } from "@/lib/birthCharts/calculateHouses.ts";
 import { calculateSigns } from "@/lib/birthCharts/calculateSigns.ts";
 import { rad } from "@/lib/degrees.ts";
 
@@ -20,7 +21,14 @@ export function calculateBirthChart(
         return signs;
     }
 
+    const houses = calculateHouses(jde, latAngle, lonAngle);
+
+    if (houses.isErr()) {
+        return houses;
+    }
+
     return ok({
         signs: signs.value,
+        hosues: houses.value,
     });
 }

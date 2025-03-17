@@ -11,26 +11,43 @@ info:
     url: https://github.com/floffah/astrocalc
 servers:
   - url: "https://astrocalc-api.onrender.com"
-security: []
+security: [ ]
 components:
   schemas:
     ZodiacSign:
       type: string
       enum:
-          - Aries
-          - Taurus
-          - Gemini
-          - Cancer
-          - Leo
-          - Virgo
-          - Libra
-          - Scorpio
-          - Sagittarius
-          - Capricorn
-          - Aquarius
-          - Pisces
+        - Aries
+        - Taurus
+        - Gemini
+        - Cancer
+        - Leo
+        - Virgo
+        - Libra
+        - Scorpio
+        - Sagittarius
+        - Capricorn
+        - Aquarius
+        - Pisces
       examples:
         - "Sagittarius"
+    Planet:
+      type: string
+      enum:
+        - Sun
+        - Moon
+        - Mercury
+        - Venus
+        - Mars
+        - Jupiter
+        - Saturn
+        - Uranus
+        - Neptune
+        - Pluto
+        - Ascendant
+        - Midheaven
+      examples:
+        - "Sun"
     BirthChartSign:
       type: object
       properties:
@@ -44,6 +61,48 @@ components:
           oneOf:
             - $ref: "#/components/schemas/ZodiacSign"
             - type: "null"
+    HouseCusp:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 0
+          maximum: 11
+        number:
+          type: integer
+          minimum: 1
+          maximum: 12
+        cusp:
+          type: object
+          properties:
+            longitude:
+              type: number
+              examples:
+                - 246.5334031282507
+            degree:
+              type: number
+              minimum: 0
+              maximum: 30
+              examples:
+                - 16.5334031282507
+            zodiac:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  minimum: 0
+                  maximum: 11
+                name:
+                  $ref: "#/components/schemas/ZodiacSign"
+                lord:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      minimum: 0
+                      maximum: 11
+                    name:
+                      $ref: "#/components/schemas/ZodiacSign"
     ErrorResponse:
       type: object
       properties:
@@ -135,6 +194,11 @@ paths:
                         $ref: "#/components/schemas/BirthChartSign"
                       ascendant:
                         $ref: "#/components/schemas/BirthChartSign"
+                  houses:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/HouseCusp"
+
         "400":
           description: Bad Request
           content:

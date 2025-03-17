@@ -7,11 +7,20 @@ Links:
 TODO:
 - [ ] Get birth chart
   - [x] Get sun, moon, and rising sign
-  - [ ] Get houses
+  - [x] Get houses
   - [ ] Get aspects
 - [ ] Get transit chart
 
 - [ ] Cleanup & refactor code
+
+## Astrological systems used
+
+- Western Astrology
+- Zodiac: Tropical
+- Planets: Traditional (Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn) + Uranus, Neptune, Pluto
+- Aspects: Conjunction, Opposition, Trine, Square, Sextile
+- Houses: Placidius (Swiss Ephemeris)
+- Calculations based on VSOP87 data (astronomia)
 
 # astrocalc
 
@@ -28,3 +37,7 @@ bun run index.ts
 ```
 
 This project was created using `bun init` in bun v1.2.5. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+
+## Development
+
+- Although this project uses bun, it requires node 22 to be installed (node gyp 127) so the native modules build correctly.
