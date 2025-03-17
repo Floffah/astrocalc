@@ -19,7 +19,7 @@ export function calculateMidheaven(jde: number) {
     );
 }
 
-export function getHouseCusps(
+export function calculateHouses(
     jde: number,
     latitude: astronomia.sexagesimal.Angle,
     longitude: astronomia.sexagesimal.Angle,
@@ -40,18 +40,4 @@ export function getHouseCusps(
     });
 
     return ok(houses);
-}
-
-export function calculateHouses(
-    jde: number,
-    latitude: astronomia.sexagesimal.Angle,
-    longitude: astronomia.sexagesimal.Angle,
-) {
-    const cusps = getHouseCusps(jde, latitude, longitude);
-
-    if (cusps.isErr()) {
-        return cusps;
-    }
-
-    return cusps;
 }

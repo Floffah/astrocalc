@@ -24,6 +24,7 @@ COPY --from=node:22 /usr/local/bin/node /usr/local/bin/node
 COPY ./package.json ./package.json
 COPY ./tsconfig.json ./tsconfig.json
 COPY ./bun.lock ./bun.lock
+COPY ./swisseph/ephe ./swisseph/ephe
 COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/node_modules/sweph/build /usr/src/app/dist/build
 

@@ -2,6 +2,7 @@ import * as astronomia from "astronomia";
 import { ok } from "neverthrow";
 
 import { calculateHouses } from "@/lib/birthCharts/calculateHouses.ts";
+import { getPlanetaryPositionsForDate } from "@/lib/birthCharts/calculatePlanetPositions.ts";
 import { calculateSigns } from "@/lib/birthCharts/calculateSigns.ts";
 import { rad } from "@/lib/degrees.ts";
 
@@ -27,8 +28,19 @@ export function calculateBirthChart(
         return houses;
     }
 
+    const planetPositions = getPlanetaryPositionsForDate(
+        jde,
+        latAngle,
+        lonAngle,
+    );
+
+    if (planetPositions.isErr()) {
+        return planetPositions;
+    }
+
     return ok({
         signs: signs.value,
-        hosues: houses.value,
+        houses: houses.value,
+        planets: planetPositions.value,
     });
 }

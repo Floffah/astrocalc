@@ -1,6 +1,9 @@
 import { Hono } from "hono";
 
 import { calculateBirthChart } from "@/lib/birthCharts/calculateBirthChart.ts";
+import { setSwissephPath } from "@/lib/swisseph.ts";
+
+setSwissephPath();
 
 const app = new Hono();
 

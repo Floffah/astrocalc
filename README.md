@@ -17,7 +17,7 @@ TODO:
 
 - Western Astrology
 - Zodiac: Tropical
-- Planets: Traditional (Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn) + Uranus, Neptune, Pluto
+- Planets: Traditional (Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn) + Uranus, Neptune, Pluto. Additionally, Chiron, Lillith, True North Node, True South Node
 - Aspects: Conjunction, Opposition, Trine, Square, Sextile
 - Houses: Placidius (Swiss Ephemeris)
 - Calculations based on VSOP87 data (astronomia)

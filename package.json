@@ -25,12 +25,10 @@
     "astronomia": "^4.1.1",
     "hono": "^4.7.4",
     "neverthrow": "^8.2.0",
-    "sweph": "^2.10.3-4",
-    "swisseph": "^0.5.17"
+    "sweph": "^2.10.3-4"
   },
   "trustedDependencies": [
     "protobufjs",
-    "sweph",
-    "swisseph"
+    "sweph"
   ]
 }
