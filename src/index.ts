@@ -1,11 +1,10 @@
 import { Hono } from "hono";
 
-import { calculateJulianDate } from "@/lib/calculateJulianDate.ts";
-import { getOrbitalAspects } from "@/lib/getOrbitalAspects.ts";
+import { getBirthChart } from "@/lib/getBirthChart.ts";
 
 const app = new Hono();
 
-app.get("/planetary-positions", (c) => {
+app.get("/planetary-positions", async (c) => {
     const yearString = c.req.query("year");
     const monthString = c.req.query("month");
     const dayString = c.req.query("day");
@@ -33,21 +32,20 @@ app.get("/planetary-positions", (c) => {
         });
     }
 
-    const birthDate = new Date(Date.UTC(year, month, day, hour, minute));
+    const birthDate = new Date(Date.UTC(year, month - 1, day, hour, minute));
+
     const latitude = parseFloat(latitudeString);
     const longitude = parseFloat(longitudeString);
 
-    const jd = calculateJulianDate(birthDate).value;
+    const chart = getBirthChart(birthDate, latitude, longitude);
 
-    const positions = getOrbitalAspects(jd, latitude, longitude);
-
-    if (positions.isErr()) {
+    if (chart.isErr()) {
         return c.json({
-            error: positions.error,
+            error: chart.error,
         });
     }
 
-    return c.json(positions.value);
+    return c.json(chart.value);
 });
 
 export default app;

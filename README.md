@@ -1,6 +1,8 @@
 TODO:
-- [x] Get planetary positions
 - [ ] Get birth chart
+  - [x] Get sun, moon, and rising sign
+  - [ ] Get houses
+  - [ ] Get aspects
 - [ ] Get transit chart
 
 - [ ] Cleanup & refactor code
