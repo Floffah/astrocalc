@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { logger } from "hono/logger";
 
 import { calculateBirthChart } from "@/lib/birthCharts/calculateBirthChart.ts";
 import { setSwissephPath } from "@/lib/swisseph.ts";
@@ -6,6 +7,8 @@ import { setSwissephPath } from "@/lib/swisseph.ts";
 setSwissephPath();
 
 const app = new Hono();
+
+app.use(logger());
 
 app.get("/", (c) =>
     c.text("See API specifications at https://floffah.github.io/astrocalc/"),
