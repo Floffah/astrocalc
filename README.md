@@ -2,7 +2,7 @@
 
 Links:
 - Production deployment - https://astrocalc-api.onrender.com (note that this is on the free plan, if no one has visited the site in a while it may take up to 50 seconds to load)
-- API Docs - https://astrocalc-api.onrender.com/docs
+- API Docs - https://astrocalc-api.onrender.com
 - OpenAPI JSON - https://astrocalc-api.onrender.com/openapi.json
 
 TODO:

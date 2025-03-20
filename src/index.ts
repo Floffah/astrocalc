@@ -16,10 +16,6 @@ const app = new Hono();
 
 app.use(logger());
 
-app.get("/", (c) =>
-    c.text("See API specifications at https://floffah.github.io/astrocalc/"),
-);
-
 app.get("/healthz", (c) => c.json({ status: "ok" }));
 
 app.get(
@@ -173,7 +169,7 @@ app.get(
 );
 
 app.get(
-    "/docs",
+    "/",
     apiReference({
         pageTitle: "Astrocalc API Reference",
         url: "/openapi.json",
