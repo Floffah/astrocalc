@@ -2,23 +2,61 @@ import * as astronomia from "astronomia";
 import { Result, err, ok } from "neverthrow";
 import sweph from "sweph";
 
+import type { PlanetPositionObject } from "@/defs";
+import { Planet, PlanetId } from "@/defs/enums.ts";
 import { getZodiacFromLongitude } from "@/lib/zodiac.ts";
 
 export const PLANETS = [
-    { id: 0, name: "Sun", flag: sweph.constants.SE_SUN },
-    { id: 1, name: "Moon", flag: sweph.constants.SE_MOON },
-    { id: 2, name: "Mercury", flag: sweph.constants.SE_MERCURY },
-    { id: 3, name: "Venus", flag: sweph.constants.SE_VENUS },
-    { id: 4, name: "Mars", flag: sweph.constants.SE_MARS },
-    { id: 5, name: "Jupiter", flag: sweph.constants.SE_JUPITER },
-    { id: 6, name: "Saturn", flag: sweph.constants.SE_SATURN },
-    { id: 7, name: "Uranus", flag: sweph.constants.SE_URANUS },
-    { id: 8, name: "Neptune", flag: sweph.constants.SE_NEPTUNE },
-    { id: 9, name: "Pluto", flag: sweph.constants.SE_PLUTO },
-    { id: 15, name: "Chiron", flag: sweph.constants.SE_CHIRON },
-    { id: 105, name: "Lilith", flag: sweph.constants.SE_MEAN_APOG },
-    { id: 103, name: "True North Node", flag: sweph.constants.SE_TRUE_NODE },
-    { id: 104, name: "True South Node", flag: sweph.constants.SE_TRUE_NODE },
+    { id: PlanetId.Sun, name: Planet.Sun, flag: sweph.constants.SE_SUN },
+    { id: PlanetId.Moon, name: Planet.Moon, flag: sweph.constants.SE_MOON },
+    {
+        id: PlanetId.Mercury,
+        name: Planet.Mercury,
+        flag: sweph.constants.SE_MERCURY,
+    },
+    { id: PlanetId.Venus, name: Planet.Venus, flag: sweph.constants.SE_VENUS },
+    { id: PlanetId.Mars, name: Planet.Mars, flag: sweph.constants.SE_MARS },
+    {
+        id: PlanetId.Jupiter,
+        name: Planet.Jupiter,
+        flag: sweph.constants.SE_JUPITER,
+    },
+    {
+        id: PlanetId.Saturn,
+        name: Planet.Saturn,
+        flag: sweph.constants.SE_SATURN,
+    },
+    {
+        id: PlanetId.Uranus,
+        name: Planet.Uranus,
+        flag: sweph.constants.SE_URANUS,
+    },
+    {
+        id: PlanetId.Neptune,
+        name: Planet.Neptune,
+        flag: sweph.constants.SE_NEPTUNE,
+    },
+    { id: PlanetId.Pluto, name: Planet.Pluto, flag: sweph.constants.SE_PLUTO },
+    {
+        id: PlanetId.Chiron,
+        name: Planet.Chiron,
+        flag: sweph.constants.SE_CHIRON,
+    },
+    {
+        id: PlanetId.Lilith,
+        name: Planet.Lilith,
+        flag: sweph.constants.SE_MEAN_APOG,
+    },
+    {
+        id: PlanetId.TrueNorthNode,
+        name: Planet.TrueNorthNode,
+        flag: sweph.constants.SE_TRUE_NODE,
+    },
+    {
+        id: PlanetId.TrueSouthNode,
+        name: Planet.TrueSouthNode,
+        flag: sweph.constants.SE_TRUE_NODE,
+    },
 ];
 
 function getHouseForPlanet(longitude: number, houses: number[]) {
@@ -62,11 +100,11 @@ function getPlanetPositionsForHouses(
                 id: planet.id,
                 name: planet.name,
                 longitude: lon,
-                is_retrograde: isRetrograde,
+                isRetrograde: isRetrograde,
                 degree: zodiacInfo.degree,
-                house_number: houseNumber,
+                houseNumber: houseNumber,
                 zodiac: zodiacInfo.zodiac,
-            });
+            } satisfies PlanetPositionObject);
         }),
     );
 }

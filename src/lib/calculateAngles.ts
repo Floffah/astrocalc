@@ -2,6 +2,7 @@ import * as astronomia from "astronomia";
 import { Result, ok } from "neverthrow";
 import sweph from "sweph";
 
+import { Planet, PlanetId } from "@/defs/enums.ts";
 import { getZodiacFromLongitude } from "@/lib/zodiac.ts";
 
 export function getAnglesForDate(
@@ -13,14 +14,26 @@ export function getAnglesForDate(
 
     const houseCusps = houses.data.houses;
     const angles = [
-        { id: 100, name: "Ascendant", longitude: houseCusps[0]! },
-        { id: 109, name: "MidHeaven", longitude: houseCusps[9]! },
         {
-            id: 108,
-            name: "Descendant",
+            id: PlanetId.Ascendant,
+            name: Planet.Ascendant,
+            longitude: houseCusps[0]!,
+        },
+        {
+            id: PlanetId.MidHeaven,
+            name: Planet.MidHeaven,
+            longitude: houseCusps[9]!,
+        },
+        {
+            id: PlanetId.Descendant,
+            name: Planet.Descendant,
             longitude: (houseCusps[0]! + 180) % 360,
         },
-        { id: 107, name: "Nadir", longitude: (houseCusps[9]! + 180) % 360 },
+        {
+            id: PlanetId.Nadir,
+            name: Planet.Nadir,
+            longitude: (houseCusps[9]! + 180) % 360,
+        },
     ];
 
     return Result.combine(
@@ -31,9 +44,9 @@ export function getAnglesForDate(
                 id: angle.id,
                 name: angle.name,
                 longitude: angle.longitude,
-                is_retrograde: false,
+                isRetrograde: false,
                 degree: zodiacInfo.degree,
-                house_number: getHouseForPlanet(angle.longitude, houseCusps),
+                houseNumber: getHouseForPlanet(angle.longitude, houseCusps),
                 zodiac: zodiacInfo.zodiac,
             });
         }),

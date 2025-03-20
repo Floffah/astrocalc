@@ -1,12 +1,13 @@
 import * as astronomia from "astronomia";
 import { ok } from "neverthrow";
 
-import { getAnglesForDate } from "@/lib/birthCharts/calculateAngles.ts";
-import { getAspectsForDate } from "@/lib/birthCharts/calculateAspects.ts";
-import { getDeclinationsForDate } from "@/lib/birthCharts/calculateDeclinations.ts";
+import type { CalculateBirthChartResponse } from "@/defs/responses.ts";
 import { calculateHouses } from "@/lib/birthCharts/calculateHouses.ts";
-import { getPlanetaryPositionsForDate } from "@/lib/birthCharts/calculatePlanetPositions.ts";
-import { calculateSigns } from "@/lib/birthCharts/calculateSigns.ts";
+import { getAnglesForDate } from "@/lib/calculateAngles.ts";
+import { getAspectsForDate } from "@/lib/calculateAspects.ts";
+import { getDeclinationsForDate } from "@/lib/calculateDeclinations.ts";
+import { getPlanetaryPositionsForDate } from "@/lib/calculatePlanetPositions.ts";
+import { calculateSigns } from "@/lib/calculateSigns.ts";
 import { rad } from "@/lib/degrees.ts";
 
 export function calculateBirthChart(
@@ -66,5 +67,5 @@ export function calculateBirthChart(
         angles: angles.value,
         aspects: aspects.value,
         declinations: declinations.value,
-    });
+    } satisfies CalculateBirthChartResponse);
 }

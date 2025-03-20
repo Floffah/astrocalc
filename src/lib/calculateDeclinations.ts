@@ -1,17 +1,14 @@
 import { ok } from "neverthrow";
 import sweph from "sweph";
 
-import { PLANETS } from "@/lib/birthCharts/calculatePlanetPositions.ts";
+import type { AspectObject, DeclinationObject } from "@/defs";
+import { Aspect, Planet, type PlanetId } from "@/defs/enums.ts";
+import { PLANETS } from "@/lib/calculatePlanetPositions.ts";
 
 export function computeDeclinations(
-    celestialBodies: { id: number; name: string; declination: number }[],
+    celestialBodies: { id: PlanetId; name: Planet; declination: number }[],
 ) {
-    const declinations: {
-        planet_one: { id: number; name: string };
-        planet_two: { id: number; name: string };
-        aspect: { id: number; name: string };
-        orb: number;
-    }[] = [];
+    const declinations: AspectObject[] = [];
 
     for (let i = 0; i < celestialBodies.length; i++) {
         for (let j = i + 1; j < celestialBodies.length; j++) {
@@ -25,9 +22,9 @@ export function computeDeclinations(
 
             if (declinationDiff <= orbAllowance) {
                 declinations.push({
-                    planet_one: { id: body1.id, name: body1.name },
-                    planet_two: { id: body2.id, name: body2.name },
-                    aspect: { id: 11, name: "Parallel" },
+                    planet1: { id: body1.id, name: body1.name },
+                    planet2: { id: body2.id, name: body2.name },
+                    aspect: { id: 11, name: Aspect.Parallel },
                     orb: declinationDiff,
                 });
             } else if (
@@ -36,14 +33,14 @@ export function computeDeclinations(
                 if (
                     !declinations.some(
                         (d) =>
-                            d.planet_one.id === body1.id &&
-                            d.planet_two.id === body2.id,
+                            d.planet1.id === body1.id &&
+                            d.planet2.id === body2.id,
                     )
                 ) {
                     declinations.push({
-                        planet_one: { id: body1.id, name: body1.name },
-                        planet_two: { id: body2.id, name: body2.name },
-                        aspect: { id: 12, name: "Contraparallel" },
+                        planet1: { id: body1.id, name: body1.name },
+                        planet2: { id: body2.id, name: body2.name },
+                        aspect: { id: 12, name: Aspect.Contraparallel },
                         orb: Math.abs(body1.declination + body2.declination),
                     });
                 }
@@ -55,8 +52,11 @@ export function computeDeclinations(
 }
 
 export function getDeclinationsForDate(jde: number) {
-    const celestialBodies: { id: number; name: string; declination: number }[] =
-        [];
+    const celestialBodies: {
+        id: PlanetId;
+        name: Planet;
+        declination: number;
+    }[] = [];
 
     for (const planet of PLANETS) {
         const ut = sweph.calc_ut(jde, planet.flag, sweph.constants.SEFLG_SPEED);
@@ -66,7 +66,7 @@ export function getDeclinationsForDate(jde: number) {
                 id: planet.id,
                 name: planet.name,
                 declination: lat,
-            });
+            } satisfies DeclinationObject);
         }
     }
 

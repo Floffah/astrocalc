@@ -2,6 +2,7 @@ import * as astronomia from "astronomia";
 import data from "astronomia/data";
 import { ok } from "neverthrow";
 
+import type { ZodiacSignObject } from "@/defs";
 import { deg } from "@/lib/degrees.ts";
 import { getZodiacSignCusp, getZodiacSignForDegrees } from "@/lib/zodiac.ts";
 
@@ -69,16 +70,16 @@ export function calculateSigns(
             value: sunSign.value,
             degree: sunLongitude,
             cuspWarning: sunCusp.value,
-        },
+        } satisfies ZodiacSignObject,
         moon: {
             value: moonSign.value,
             degree: moonLongitude,
             cuspWarning: moonCusp.value,
-        },
+        } satisfies ZodiacSignObject,
         ascendant: {
             value: ascendantSign.value,
             degree: ascDeg,
             cuspWarning: ascendantCusp.value,
-        },
+        } satisfies ZodiacSignObject,
     });
 }

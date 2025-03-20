@@ -2,7 +2,8 @@
 
 Links:
 - Production deployment - https://astrocalc-api.onrender.com (note that this is on the free plan, if no one has visited the site in a while it may take up to 50 seconds to load)
-- API Docs - https://floffah.github.io/astrocalc/
+- API Docs - https://astrocalc-api.onrender.com/docs
+- OpenAPI JSON - https://astrocalc-api.onrender.com/openapi.json
 
 TODO:
 - [x] Get birth chart
