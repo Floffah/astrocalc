@@ -57,7 +57,7 @@ components:
     BirthChartSign:
       type: object
       properties:
-        sign:
+        value:
           $ref: "#/components/schemas/ZodiacSign"
         degree:
           type: number
