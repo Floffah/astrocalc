@@ -3,6 +3,7 @@ import { Result, ok } from "neverthrow";
 import sweph from "sweph";
 
 import { Planet, PlanetId } from "@/defs/enums.ts";
+import { getHouseForPlanet } from "@/lib/calculatePlanetPositions.ts";
 import { getZodiacFromLongitude } from "@/lib/zodiac.ts";
 
 export function getAnglesForDate(
@@ -51,17 +52,4 @@ export function getAnglesForDate(
             });
         }),
     );
-}
-
-function getHouseForPlanet(longitude: number, houses: number[]) {
-    for (let i = 0; i < houses.length; i++) {
-        const nextHouse = houses[(i + 1) % 12]!;
-        if (
-            longitude >= houses[i]! &&
-            (longitude < nextHouse || nextHouse < houses[i]!)
-        ) {
-            return i + 1;
-        }
-    }
-    return 1;
 }

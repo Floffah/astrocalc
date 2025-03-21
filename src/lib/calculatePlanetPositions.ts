@@ -59,7 +59,7 @@ export const PLANETS = [
     },
 ];
 
-function getHouseForPlanet(longitude: number, houses: number[]) {
+export function getHouseForPlanet(longitude: number, houses: number[]) {
     for (let i = 0; i < houses.length; i++) {
         const nextHouse = houses[(i + 1) % 12]!;
         if (
@@ -100,7 +100,7 @@ function getPlanetPositionsForHouses(
                 id: planet.id,
                 name: planet.name,
                 longitude: lon,
-                latitude: lat,
+                latitude: planet.name === Planet.TrueSouthNode ? -lat : lat,
                 isRetrograde: isRetrograde,
                 degree: zodiacInfo.degree,
                 houseNumber: houseNumber,

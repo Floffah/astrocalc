@@ -1,6 +1,12 @@
 import { z } from "zod";
 
-import { Aspect, Planet, PlanetId, ZodiacSign } from "@/defs/enums.ts";
+import {
+    Aspect,
+    MoonPhase,
+    Planet,
+    PlanetId,
+    ZodiacSign,
+} from "@/defs/enums.ts";
 
 export const zodiacSignEnum = z.nativeEnum(ZodiacSign).openapi({
     ref: "ZodiacSign",
@@ -17,6 +23,21 @@ export const zodiacSignObject = z
     });
 
 export type ZodiacSignObject = z.infer<typeof zodiacSignObject>;
+
+export const moonPhaseEnum = z.nativeEnum(MoonPhase).openapi({
+    ref: "MoonPhase",
+});
+
+export const zodiacMoonSignObject = zodiacSignObject
+    .extend({
+        phase: moonPhaseEnum,
+        isVoidOfCourse: z.boolean(),
+    })
+    .openapi({
+        ref: "ZodiacMoonSignObject",
+    });
+
+export type ZodiacMoonSignObject = z.infer<typeof zodiacMoonSignObject>;
 
 export const planetEnum = z.nativeEnum(Planet).openapi({
     ref: "Planet",
@@ -87,16 +108,23 @@ export const aspectObject = z
         planet1: z.object({
             id: planetIdEnum,
             name: planetEnum,
+            fromChart: z.string().optional(),
         }),
         planet2: z.object({
             id: planetIdEnum,
             name: planetEnum,
+            fromChart: z.string().optional(),
         }),
         aspect: z.object({
             id: z.number().min(0).max(10),
             name: aspectEnum,
         }),
         orb: z.number(),
+        typeOfAspect: z.enum([
+            "transit-to-natal",
+            "natal-to-natal",
+            "transit-to-transit",
+        ]),
     })
     .openapi({
         ref: "AspectObject",
@@ -115,3 +143,14 @@ export const declinationObject = z
     });
 
 export type DeclinationObject = z.infer<typeof declinationObject>;
+
+export const ingressObject = z
+    .object({
+        planet: planetEnum,
+        enteredSign: zodiacSignEnum,
+    })
+    .openapi({
+        ref: "IngressObject",
+    });
+
+export type IngressObject = z.infer<typeof ingressObject>;

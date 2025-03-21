@@ -44,8 +44,49 @@ export function computeAspects(
                         planet2: { id: body2.id, name: body2.name },
                         aspect: { id: aspect.id, name: aspect.name },
                         orb: orb,
+                        typeOfAspect: "natal-to-natal",
                     });
                     break;
+                }
+            }
+        }
+    }
+
+    return ok(aspects);
+}
+
+export function computeAspectsBetweenCharts(
+    natalChart: { id: PlanetId; name: Planet; longitude: number }[],
+    comparisonChart: { id: PlanetId; name: Planet; longitude: number }[],
+) {
+    const aspects: AspectObject[] = [];
+
+    for (const baseTransit of natalChart) {
+        for (const comparisonTransit of comparisonChart) {
+            const angleDiff = Math.abs(
+                baseTransit.longitude - comparisonTransit.longitude,
+            );
+            // Normalize (360 wrap)
+            const adjustedDiff = angleDiff > 180 ? 360 - angleDiff : angleDiff;
+
+            for (const aspect of ASPECTS) {
+                const orb = Math.abs(adjustedDiff - aspect.angle);
+                if (orb <= aspect.orb) {
+                    aspects.push({
+                        planet1: {
+                            id: baseTransit.id,
+                            name: baseTransit.name,
+                            fromChart: "natal",
+                        },
+                        planet2: {
+                            id: comparisonTransit.id,
+                            name: comparisonTransit.name,
+                            fromChart: "comparison",
+                        },
+                        aspect: { id: aspect.id, name: aspect.name },
+                        orb,
+                        typeOfAspect: "transit-to-natal",
+                    });
                 }
             }
         }

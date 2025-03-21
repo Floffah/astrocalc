@@ -1,10 +1,11 @@
 import * as astronomia from "astronomia";
+import { addDays } from "date-fns";
 import { ok } from "neverthrow";
-import sweph from "sweph";
 
+import type { IngressObject } from "@/defs";
 import type { CalculateDailyTransitsResponse } from "@/defs/responses.ts";
 import { calculateBirthChart } from "@/lib/birthCharts/calculateBirthChart.ts";
-import { computeAspects } from "@/lib/calculateAspects.ts";
+import { computeAspectsBetweenCharts } from "@/lib/calculateAspects.ts";
 import { getPlanetaryPositionsForDate } from "@/lib/calculatePlanetPositions.ts";
 import { rad } from "@/lib/degrees.ts";
 
@@ -16,44 +17,68 @@ export function calculateTransitsForDay(
     birthLat: number,
     birthLon: number,
 ) {
-    const birthJde = sweph.julday(
-        birthDate.getUTCFullYear(),
-        birthDate.getUTCMonth() + 1,
-        birthDate.getUTCDate(),
-        birthDate.getUTCHours() + birthDate.getUTCMinutes() / 60,
-        sweph.constants.SE_GREG_CAL,
-    );
+    const transitLatAngle = new astronomia.sexagesimal.Angle(rad(transitLat));
+    const transitLonAngle = new astronomia.sexagesimal.Angle(rad(transitLon));
 
-    const birthLatAngle = new astronomia.sexagesimal.Angle(rad(birthLat));
-    const birthLonAngle = new astronomia.sexagesimal.Angle(rad(birthLon));
+    const transitNatalChart = calculateBirthChart(date, transitLat, transitLon);
 
-    const transits = calculateBirthChart(date, transitLat, transitLon);
-
-    if (transits.isErr()) {
-        return transits;
+    if (transitNatalChart.isErr()) {
+        return transitNatalChart;
     }
 
-    const birthPlanetPositions = getPlanetaryPositionsForDate(
-        birthJde,
-        birthLatAngle,
-        birthLonAngle,
-    );
+    const birthNatalChart = calculateBirthChart(birthDate, birthLat, birthLon);
 
-    if (birthPlanetPositions.isErr()) {
-        return birthPlanetPositions;
+    if (birthNatalChart.isErr()) {
+        return birthNatalChart;
     }
 
-    const transitNatalAspects = computeAspects([
-        ...birthPlanetPositions.value,
-        ...transits.value.planets,
-    ]);
+    const transitNatalAspects = computeAspectsBetweenCharts(
+        [...birthNatalChart.value.planets, ...birthNatalChart.value.angles],
+        transitNatalChart.value.planets,
+    );
 
     if (transitNatalAspects.isErr()) {
         return transitNatalAspects;
     }
 
+    const retrogradePlanets = transitNatalChart.value.planets
+        .map((planet) => (planet.isRetrograde ? planet.name : undefined))
+        .filter((name) => name !== undefined);
+
+    const yesterday = addDays(date, -1);
+    const yesterdayJd = astronomia.julian.DateToJD(yesterday);
+
+    const yesterdayPlanets = getPlanetaryPositionsForDate(
+        yesterdayJd,
+        transitLatAngle,
+        transitLonAngle,
+    );
+
+    if (yesterdayPlanets.isErr()) {
+        return yesterdayPlanets;
+    }
+
+    const ingresses: IngressObject[] = [];
+
+    for (const planet of transitNatalChart.value.planets) {
+        const yesterdayPlanet = yesterdayPlanets.value.find(
+            (p) => p.id === planet.id,
+        );
+
+        if (yesterdayPlanet && yesterdayPlanet.zodiac !== planet.zodiac) {
+            ingresses.push({
+                planet: planet.name,
+                enteredSign: planet.zodiac.name,
+            });
+        }
+    }
+
     return ok({
-        transitDetails: transits.value,
+        transitChart: transitNatalChart.value,
         transitNatalAspects: transitNatalAspects.value,
+        notableEvents: {
+            retrogradePlanets,
+            ingresses,
+        },
     } satisfies CalculateDailyTransitsResponse);
 }

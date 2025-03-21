@@ -3,7 +3,10 @@ import { z } from "zod";
 import {
     aspectObject,
     houseObject,
+    ingressObject,
+    planetEnum,
     planetPositionObject,
+    zodiacMoonSignObject,
     zodiacSignObject,
 } from "@/defs/index.ts";
 
@@ -15,7 +18,7 @@ export const calculateBirthChartResponse = z
     .object({
         signs: z.object({
             sun: zodiacSignObject,
-            moon: zodiacSignObject,
+            moon: zodiacMoonSignObject,
             ascendant: zodiacSignObject,
         }),
         houses: z.array(houseObject),
@@ -34,8 +37,12 @@ export type CalculateBirthChartResponse = z.infer<
 
 export const calculateDailyTransitsResponse = z
     .object({
-        transitDetails: calculateBirthChartResponse,
+        transitChart: calculateBirthChartResponse,
         transitNatalAspects: z.array(aspectObject),
+        notableEvents: z.object({
+            retrogradePlanets: z.array(planetEnum),
+            ingresses: z.array(ingressObject),
+        }),
     })
     .openapi({
         ref: "CalculateDailyTransitsResponse",

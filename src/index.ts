@@ -20,7 +20,9 @@ setSwissephPath();
 
 const app = new Hono();
 
-app.use(logger());
+if (process.env.NODE_ENV !== "test") {
+    app.use(logger());
+}
 
 app.get("/healthz", (c) => c.json({ status: "ok" }));
 

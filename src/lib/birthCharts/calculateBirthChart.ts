@@ -1,5 +1,5 @@
 import * as astronomia from "astronomia";
-import { ok } from "neverthrow";
+import { err, ok } from "neverthrow";
 
 import type { CalculateBirthChartResponse } from "@/defs/responses.ts";
 import { calculateHouses } from "@/lib/birthCharts/calculateHouses.ts";
@@ -15,6 +15,10 @@ export function calculateBirthChart(
     latitude: number,
     longitude: number,
 ) {
+    if (!date || isNaN(latitude) || isNaN(longitude)) {
+        return err("Invalid input");
+    }
+
     const jde = astronomia.julian.DateToJDE(date);
 
     const latAngle = new astronomia.sexagesimal.Angle(rad(latitude));

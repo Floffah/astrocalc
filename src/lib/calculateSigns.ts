@@ -2,8 +2,9 @@ import * as astronomia from "astronomia";
 import data from "astronomia/data";
 import { ok } from "neverthrow";
 
-import type { ZodiacSignObject } from "@/defs";
+import type { ZodiacMoonSignObject, ZodiacSignObject } from "@/defs";
 import { deg } from "@/lib/degrees.ts";
+import { getMoonPhase } from "@/lib/getMoonElongation.ts";
 import { getZodiacSignCusp, getZodiacSignForDegrees } from "@/lib/zodiac.ts";
 
 export function calculateSigns(
@@ -30,6 +31,9 @@ export function calculateSigns(
     const moonLongitude = deg(moonPosition.lon);
     const moonSign = getZodiacSignForDegrees(moonLongitude);
     const moonCusp = getZodiacSignCusp(moonLongitude);
+    const moonSunDiff = Math.abs(moonLongitude - sunLongitude);
+    const moonElongation = moonSunDiff > 180 ? 360 - moonSunDiff : moonSunDiff;
+    const moonPhase = getMoonPhase(moonElongation);
 
     if (moonSign.isErr()) {
         return moonSign;
@@ -75,7 +79,9 @@ export function calculateSigns(
             value: moonSign.value,
             degree: moonLongitude,
             cuspWarning: moonCusp.value,
-        } satisfies ZodiacSignObject,
+            phase: moonPhase,
+            isVoidOfCourse: false, // TODO: calculate moon VoC properly
+        } satisfies ZodiacMoonSignObject,
         ascendant: {
             value: ascendantSign.value,
             degree: ascDeg,

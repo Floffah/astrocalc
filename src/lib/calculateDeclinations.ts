@@ -26,6 +26,7 @@ export function computeDeclinations(
                     planet2: { id: body2.id, name: body2.name },
                     aspect: { id: 11, name: Aspect.Parallel },
                     orb: declinationDiff,
+                    typeOfAspect: "natal-to-natal",
                 });
             } else if (
                 Math.abs(body1.declination + body2.declination) <= orbAllowance
@@ -42,6 +43,7 @@ export function computeDeclinations(
                         planet2: { id: body2.id, name: body2.name },
                         aspect: { id: 12, name: Aspect.Contraparallel },
                         orb: Math.abs(body1.declination + body2.declination),
+                        typeOfAspect: "natal-to-natal",
                     });
                 }
             }
