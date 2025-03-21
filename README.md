@@ -11,6 +11,9 @@ TODO:
   - [x] Get houses
   - [x] Get aspects, angles, & declinations
 - [ ] Get transit chart
+  - [x] Daily
+  - [ ] Weekly
+- [ ] Look up upcoming astrological events (eclipses, retrogrades, full moons, planet sign changes, etc)
 
 - [ ] Cleanup & refactor code
 

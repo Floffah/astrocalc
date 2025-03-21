@@ -21,7 +21,7 @@ const ASPECTS = [
     { id: 10, name: Aspect.BiQuintile, angle: 144, orb: 2 },
 ];
 
-function computeAspects(
+export function computeAspects(
     celestialBodies: { id: PlanetId; name: Planet; longitude: number }[],
 ) {
     const aspects: AspectObject[] = [];

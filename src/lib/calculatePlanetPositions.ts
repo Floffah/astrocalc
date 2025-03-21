@@ -90,7 +90,7 @@ function getPlanetPositionsForHouses(
                 return err(ut.error);
             }
 
-            const [lon, , , lonSpd] = ut.data;
+            const [lon, lat, , lonSpd] = ut.data;
 
             const isRetrograde = lonSpd < 0;
             const zodiacInfo = getZodiacFromLongitude(lon);
@@ -100,6 +100,7 @@ function getPlanetPositionsForHouses(
                 id: planet.id,
                 name: planet.name,
                 longitude: lon,
+                latitude: lat,
                 isRetrograde: isRetrograde,
                 degree: zodiacInfo.degree,
                 houseNumber: houseNumber,
