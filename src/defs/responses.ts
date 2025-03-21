@@ -11,27 +11,35 @@ export const baseResponse = z.object({
     success: z.boolean(),
 });
 
-export const calculateBirthChartResponse = z.object({
-    signs: z.object({
-        sun: zodiacSignObject,
-        moon: zodiacSignObject,
-        ascendant: zodiacSignObject,
-    }),
-    houses: z.array(houseObject),
-    planets: z.array(planetPositionObject),
-    angles: z.array(planetPositionObject),
-    aspects: z.array(aspectObject),
-    declinations: z.array(aspectObject),
-});
+export const calculateBirthChartResponse = z
+    .object({
+        signs: z.object({
+            sun: zodiacSignObject,
+            moon: zodiacSignObject,
+            ascendant: zodiacSignObject,
+        }),
+        houses: z.array(houseObject),
+        planets: z.array(planetPositionObject),
+        angles: z.array(planetPositionObject),
+        aspects: z.array(aspectObject),
+        declinations: z.array(aspectObject),
+    })
+    .openapi({
+        ref: "CalculateBirthChartResponse",
+    });
 
 export type CalculateBirthChartResponse = z.infer<
     typeof calculateBirthChartResponse
 >;
 
-export const calculateDailyTransitsResponse = z.object({
-    transitDetails: calculateBirthChartResponse,
-    transitNatalAspects: z.array(aspectObject),
-});
+export const calculateDailyTransitsResponse = z
+    .object({
+        transitDetails: calculateBirthChartResponse,
+        transitNatalAspects: z.array(aspectObject),
+    })
+    .openapi({
+        ref: "CalculateDailyTransitsResponse",
+    });
 
 export type CalculateDailyTransitsResponse = z.infer<
     typeof calculateDailyTransitsResponse
