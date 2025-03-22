@@ -1,2486 +1,438 @@
 // Bun Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Valid Call calculateBirthChart with valid parameters 1`] = `
-{
-  "data": {
-    "angles": [
-      {
-        "degree": 9.140029281672582,
-        "houseNumber": 1,
-        "id": 100,
-        "isRetrograde": false,
-        "longitude": 249.14002928167258,
-        "name": "Ascendant",
-        "zodiac": {
-          "id": 8,
-          "lord": {
-            "id": 5,
-            "name": "Jupiter",
-          },
-          "name": "Sagittarius",
-        },
-      },
-      {
-        "degree": 6.622379699655255,
-        "houseNumber": 10,
-        "id": 109,
-        "isRetrograde": false,
-        "longitude": 186.62237969965526,
-        "name": "MidHeaven",
-        "zodiac": {
-          "id": 6,
-          "lord": {
-            "id": 2,
-            "name": "Venus",
-          },
-          "name": "Libra",
-        },
-      },
-      {
-        "degree": 9.140029281672582,
-        "houseNumber": 7,
-        "id": 108,
-        "isRetrograde": false,
-        "longitude": 69.14002928167258,
-        "name": "Descendant",
-        "zodiac": {
-          "id": 2,
-          "lord": {
-            "id": 3,
-            "name": "Mercury",
-          },
-          "name": "Gemini",
-        },
-      },
-      {
-        "degree": 6.622379699655255,
-        "houseNumber": 4,
-        "id": 107,
-        "isRetrograde": false,
-        "longitude": 6.622379699655255,
-        "name": "Nadir",
-        "zodiac": {
-          "id": 0,
-          "lord": {
-            "id": 4,
-            "name": "Mars",
-          },
-          "name": "Aries",
-        },
-      },
-    ],
-    "aspects": [
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 0.022326013834970126,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 0,
-          "name": "Conjunction",
-        },
-        "orb": 8.624445718094762,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 3,
-          "name": "Semi Square",
-        },
-        "orb": 2.6602196259131574,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 0.30753838882020545,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 1.3516946399687129,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 1.4931477670450022,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 0.9535495118981316,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 3.471199093915459,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 8,
-          "name": "Quincunx",
-        },
-        "orb": 0.9535495118981316,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 3.471199093915459,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 1,
-          "name": "Opposition",
-        },
-        "orb": 0.3298644026551756,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 4.724352673849637,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 6.887840357032076,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 1.374020653803683,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 1.5154737808799723,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 3,
-          "name": "Semi Square",
-        },
-        "orb": 1.6369888768159058,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 105,
-          "name": "Lilith",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 6.102931471659886,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 6.102931471659886,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 0.9312234980631615,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 8,
-          "name": "Quincunx",
-        },
-        "orb": 0.9312234980631615,
-        "planet1": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 0.2298587360288593,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 3.7153346559920806,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 6.226931320257478,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 3,
-          "name": "Semi Square",
-        },
-        "orb": 1.673527621890571,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 1.7142793472277162,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 0,
-          "name": "Conjunction",
-        },
-        "orb": 8.034869172556114,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 105,
-          "name": "Lilith",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 8,
-          "name": "Quincunx",
-        },
-        "orb": 2.49918823259992,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 8,
-          "name": "Quincunx",
-        },
-        "orb": 2.49918823259992,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 5.153246624179303,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 5.153246624179303,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 3.4854759199632213,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 10,
-          "name": "Bi Quintile",
-        },
-        "orb": 0.0029274157713814475,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 9,
-          "name": "Quintile",
-        },
-        "orb": 1.5563311141382883,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 1.9441380832565756,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 2.729046968628765,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 2.729046968628765,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 0,
-          "name": "Conjunction",
-        },
-        "orb": 7.90075494222549,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 5.383105360208162,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 1,
-          "name": "Opposition",
-        },
-        "orb": 7.90075494222549,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 5.383105360208162,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 2.5115966642654257,
-        "planet1": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "planet2": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 9,
-          "name": "Quintile",
-        },
-        "orb": 0.647318762907048,
-        "planet1": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "planet2": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 4.319534516564033,
-        "planet1": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "planet2": {
-          "id": 105,
-          "name": "Lilith",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 9,
-          "name": "Quintile",
-        },
-        "orb": 1.5534036983669353,
-        "planet1": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 7.9412106674852225,
-        "planet1": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 4,
-          "name": "Sesquiquadrate",
-        },
-        "orb": 1.2030716783209527,
-        "planet1": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "planet2": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 4,
-          "name": "Sesquiquadrate",
-        },
-        "orb": 1.344524805397242,
-        "planet1": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "planet2": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 1.807937852298636,
-        "planet1": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "planet2": {
-          "id": 105,
-          "name": "Lilith",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 4,
-          "name": "Sesquiquadrate",
-        },
-        "orb": 1.1021724735458918,
-        "planet1": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 3,
-          "name": "Semi Square",
-        },
-        "orb": 1.1021724735458776,
-        "planet1": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 4.3944882711944615,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 7.217704759687251,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 8,
-          "name": "Quincunx",
-        },
-        "orb": 1.0441562511485074,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 8,
-          "name": "Quincunx",
-        },
-        "orb": 1.1856093782247967,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 4,
-          "name": "Sesquiquadrate",
-        },
-        "orb": 1.9668532794710814,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 105,
-          "name": "Lilith",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 6.4327958743150475,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 2,
-          "name": "Square",
-        },
-        "orb": 6.4327958743150475,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 8,
-          "name": "Quincunx",
-        },
-        "orb": 1.261087900718337,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 7,
-          "name": "Semi Sextile",
-        },
-        "orb": 1.26108790071833,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 3.350332020045954,
-        "planet1": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "planet2": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 3.2088788929696648,
-        "planet1": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "planet2": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 5.655576171912799,
-        "planet1": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 5.655576171912799,
-        "planet1": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 1,
-          "name": "Opposition",
-        },
-        "orb": 0.7849088853722037,
-        "planet1": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 1,
-          "name": "Opposition",
-        },
-        "orb": 0.7849088853722037,
-        "planet1": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 5.956616858968914,
-        "planet1": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 3.438967276951587,
-        "planet1": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 5.956616858968914,
-        "planet1": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 3.438967276951587,
-        "planet1": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 0,
-          "name": "Conjunction",
-        },
-        "orb": 0.14145312707628932,
-        "planet1": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "planet2": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 7.476952125463569,
-        "planet1": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 7.476952125463569,
-        "planet1": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 0,
-          "name": "Conjunction",
-        },
-        "orb": 2.3052441518668445,
-        "planet1": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 4.822893733884172,
-        "planet1": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 1,
-          "name": "Opposition",
-        },
-        "orb": 2.3052441518668445,
-        "planet1": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 4.822893733884172,
-        "planet1": {
-          "id": 9,
-          "name": "Pluto",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 7.6184052525398585,
-        "planet1": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 7.6184052525398585,
-        "planet1": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 0,
-          "name": "Conjunction",
-        },
-        "orb": 2.446697278943134,
-        "planet1": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 4.964346860960461,
-        "planet1": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 1,
-          "name": "Opposition",
-        },
-        "orb": 2.446697278943134,
-        "planet1": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 4.964346860960461,
-        "planet1": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 0,
-          "name": "Conjunction",
-        },
-        "orb": 0,
-        "planet1": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 5.171707973596725,
-        "planet1": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 2.6540583915793974,
-        "planet1": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 5.171707973596725,
-        "planet1": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 2.6540583915793974,
-        "planet1": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 5.171707973596725,
-        "planet1": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "planet2": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 2.6540583915793974,
-        "planet1": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 5.171707973596725,
-        "planet1": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 2.6540583915793974,
-        "planet1": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 2.5176495820173272,
-        "planet1": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "planet2": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 1,
-          "name": "Opposition",
-        },
-        "orb": 0,
-        "planet1": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 2.5176495820173272,
-        "planet1": {
-          "id": 100,
-          "name": "Ascendant",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 5,
-          "name": "Trine",
-        },
-        "orb": 2.5176495820173272,
-        "planet1": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "planet2": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 1,
-          "name": "Opposition",
-        },
-        "orb": 0,
-        "planet1": {
-          "id": 109,
-          "name": "MidHeaven",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 6,
-          "name": "Sextile",
-        },
-        "orb": 2.5176495820173272,
-        "planet1": {
-          "id": 108,
-          "name": "Descendant",
-        },
-        "planet2": {
-          "id": 107,
-          "name": "Nadir",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-    ],
-    "declinations": [
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.9686097909626632,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.6586280728434608,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.23482560884036469,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.00022887341374623146,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.00022887341374623146,
-        "planet1": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.10277177511295987,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.2952084059550647,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.3099817181192024,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 12,
-          "name": "Contraparallel",
-        },
-        "orb": 0.7333264352948061,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.968380917548917,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.968380917548917,
-        "planet1": {
-          "id": 2,
-          "name": "Mercury",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 12,
-          "name": "Contraparallel",
-        },
-        "orb": 0.8102972753319657,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 12,
-          "name": "Contraparallel",
-        },
-        "orb": 0.3722493339746884,
-        "planet1": {
-          "id": 3,
-          "name": "Venus",
-        },
-        "planet2": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.19243663084210483,
-        "planet1": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "planet2": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.41275349323216226,
-        "planet1": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 12,
-          "name": "Contraparallel",
-        },
-        "orb": 0.8360982104077659,
-        "planet1": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.6051901240742671,
-        "planet1": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "planet2": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 12,
-          "name": "Contraparallel",
-        },
-        "orb": 0.9765563065676228,
-        "planet1": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "planet2": {
-          "id": 105,
-          "name": "Lilith",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.8934536816838254,
-        "planet1": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "planet2": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.6583991994297146,
-        "planet1": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.6583991994297146,
-        "planet1": {
-          "id": 7,
-          "name": "Uranus",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.2350544822541109,
-        "planet1": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "planet2": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.2350544822541109,
-        "planet1": {
-          "id": 8,
-          "name": "Neptune",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0.6473813380464919,
-        "planet1": {
-          "id": 15,
-          "name": "Chiron",
-        },
-        "planet2": {
-          "id": 105,
-          "name": "Lilith",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-      {
-        "aspect": {
-          "id": 11,
-          "name": "Parallel",
-        },
-        "orb": 0,
-        "planet1": {
-          "id": 103,
-          "name": "True North Node",
-        },
-        "planet2": {
-          "id": 104,
-          "name": "True South Node",
-        },
-        "typeOfAspect": "natal-to-natal",
-      },
-    ],
-    "houses": [
-      {
-        "cusp": {
-          "degree": 9.140029281672582,
-          "longitude": 249.14002928167258,
-          "zodiac": {
-            "id": 8,
-            "lord": {
-              "id": 5,
-              "name": "Jupiter",
-            },
-            "name": "Sagittarius",
-          },
-        },
-        "id": 0,
-        "number": 1,
-      },
-      {
-        "cusp": {
-          "degree": 14.878197481216091,
-          "longitude": 284.8781974812161,
-          "zodiac": {
-            "id": 9,
-            "lord": {
-              "id": 6,
-              "name": "Saturn",
-            },
-            "name": "Capricorn",
-          },
-        },
-        "id": 1,
-        "number": 2,
-      },
-      {
-        "cusp": {
-          "degree": 29.137955410380982,
-          "longitude": 329.137955410381,
-          "zodiac": {
-            "id": 10,
-            "lord": {
-              "id": 6,
-              "name": "Saturn",
-            },
-            "name": "Aquarius",
-          },
-        },
-        "id": 2,
-        "number": 3,
-      },
-      {
-        "cusp": {
-          "degree": 6.622379699655255,
-          "longitude": 6.622379699655255,
-          "zodiac": {
-            "id": 0,
-            "lord": {
-              "id": 4,
-              "name": "Mars",
-            },
-            "name": "Aries",
-          },
-        },
-        "id": 3,
-        "number": 4,
-      },
-      {
-        "cusp": {
-          "degree": 3.1423894793198883,
-          "longitude": 33.14238947931989,
-          "zodiac": {
-            "id": 1,
-            "lord": {
-              "id": 2,
-              "name": "Venus",
-            },
-            "name": "Taurus",
-          },
-        },
-        "id": 4,
-        "number": 5,
-      },
-      {
-        "cusp": {
-          "degree": 22.77602319857391,
-          "longitude": 52.77602319857391,
-          "zodiac": {
-            "id": 1,
-            "lord": {
-              "id": 2,
-              "name": "Venus",
-            },
-            "name": "Taurus",
-          },
-        },
+[
+  {
+    "houseNumber": 1,
+    "id": 100,
+    "isRetrograde": false,
+    "name": "Ascendant",
+    "zodiac": {
+      "id": 8,
+      "lord": {
         "id": 5,
-        "number": 6,
-      },
-      {
-        "cusp": {
-          "degree": 9.140029281672582,
-          "longitude": 69.14002928167258,
-          "zodiac": {
-            "id": 2,
-            "lord": {
-              "id": 3,
-              "name": "Mercury",
-            },
-            "name": "Gemini",
-          },
-        },
-        "id": 6,
-        "number": 7,
-      },
-      {
-        "cusp": {
-          "degree": 14.878197481216091,
-          "longitude": 104.87819748121609,
-          "zodiac": {
-            "id": 3,
-            "lord": {
-              "id": 1,
-              "name": "Moon",
-            },
-            "name": "Cancer",
-          },
-        },
-        "id": 7,
-        "number": 8,
-      },
-      {
-        "cusp": {
-          "degree": 29.137955410380982,
-          "longitude": 149.13795541038098,
-          "zodiac": {
-            "id": 4,
-            "lord": {
-              "id": 0,
-              "name": "Sun",
-            },
-            "name": "Leo",
-          },
-        },
-        "id": 8,
-        "number": 9,
-      },
-      {
-        "cusp": {
-          "degree": 6.622379699655255,
-          "longitude": 186.62237969965526,
-          "zodiac": {
-            "id": 6,
-            "lord": {
-              "id": 2,
-              "name": "Venus",
-            },
-            "name": "Libra",
-          },
-        },
-        "id": 9,
-        "number": 10,
-      },
-      {
-        "cusp": {
-          "degree": 3.1423894793198883,
-          "longitude": 213.1423894793199,
-          "zodiac": {
-            "id": 7,
-            "lord": {
-              "id": 4,
-              "name": "Mars",
-            },
-            "name": "Scorpio",
-          },
-        },
-        "id": 10,
-        "number": 11,
-      },
-      {
-        "cusp": {
-          "degree": 22.77602319857391,
-          "longitude": 232.7760231985739,
-          "zodiac": {
-            "id": 7,
-            "lord": {
-              "id": 4,
-              "name": "Mars",
-            },
-            "name": "Scorpio",
-          },
-        },
-        "id": 11,
-        "number": 12,
-      },
-    ],
-    "planets": [
-      {
-        "degree": 10.093578793570714,
-        "houseNumber": 1,
-        "id": 0,
-        "isRetrograde": false,
-        "latitude": 0.00022887341374623146,
-        "longitude": 280.0935787935707,
-        "name": "Sun",
-        "zodiac": {
-          "id": 9,
-          "lord": {
-            "id": 6,
-            "name": "Saturn",
-          },
-          "name": "Capricorn",
-        },
-      },
-      {
-        "degree": 10.071252779735744,
-        "houseNumber": 11,
-        "id": 1,
-        "isRetrograde": false,
-        "latitude": 5.210561678256162,
-        "longitude": 220.07125277973574,
-        "name": "Moon",
-        "zodiac": {
-          "id": 7,
-          "lord": {
-            "id": 4,
-            "name": "Mars",
-          },
-          "name": "Scorpio",
-        },
-      },
-      {
-        "degree": 1.469133075475952,
-        "houseNumber": 1,
-        "id": 2,
-        "isRetrograde": false,
-        "latitude": -0.968380917548917,
-        "longitude": 271.46913307547595,
-        "name": "Mercury",
-        "zodiac": {
-          "id": 9,
-          "lord": {
-            "id": 6,
-            "name": "Saturn",
-          },
-          "name": "Capricorn",
-        },
-      },
-      {
-        "degree": 1.2392743394470926,
-        "houseNumber": 12,
-        "id": 3,
-        "isRetrograde": false,
-        "latitude": 2.0738865988359474,
-        "longitude": 241.2392743394471,
-        "name": "Venus",
-        "zodiac": {
-          "id": 8,
-          "lord": {
-            "id": 5,
-            "name": "Jupiter",
-          },
-          "name": "Sagittarius",
-        },
-      },
-      {
-        "degree": 27.75379841948387,
-        "houseNumber": 2,
-        "id": 4,
-        "isRetrograde": false,
-        "latitude": -1.0711526926618768,
-        "longitude": 327.75379841948387,
-        "name": "Mars",
-        "zodiac": {
-          "id": 10,
-          "lord": {
-            "id": 6,
-            "name": "Saturn",
-          },
-          "name": "Aquarius",
-        },
-      },
-      {
-        "degree": 25.242201755218463,
-        "houseNumber": 4,
-        "id": 5,
-        "isRetrograde": false,
-        "latitude": -1.2635893235039817,
-        "longitude": 25.242201755218463,
         "name": "Jupiter",
-        "zodiac": {
-          "id": 0,
-          "lord": {
-            "id": 4,
-            "name": "Mars",
-          },
-          "name": "Aries",
-        },
       },
-      {
-        "degree": 10.401117182390912,
-        "houseNumber": 5,
-        "id": 6,
-        "isRetrograde": true,
-        "latitude": -2.446135932810636,
-        "longitude": 40.40111718239091,
-        "name": "Saturn",
-        "zodiac": {
-          "id": 1,
-          "lord": {
-            "id": 2,
-            "name": "Venus",
-          },
-          "name": "Taurus",
-        },
-      },
-      {
-        "degree": 14.795605453585381,
-        "houseNumber": 2,
-        "id": 7,
-        "isRetrograde": false,
-        "latitude": -0.6583991994297146,
-        "longitude": 314.7956054535854,
-        "name": "Uranus",
-        "zodiac": {
-          "id": 10,
-          "lord": {
-            "id": 6,
-            "name": "Saturn",
-          },
-          "name": "Aquarius",
-        },
-      },
-      {
-        "degree": 3.183412422703668,
-        "houseNumber": 2,
-        "id": 8,
-        "isRetrograde": false,
-        "latitude": 0.2350544822541109,
-        "longitude": 303.18341242270367,
-        "name": "Neptune",
-        "zodiac": {
-          "id": 10,
-          "lord": {
-            "id": 6,
-            "name": "Saturn",
-          },
-          "name": "Aquarius",
-        },
-      },
-      {
-        "degree": 11.445273433539427,
-        "houseNumber": 1,
-        "id": 9,
-        "isRetrograde": false,
-        "latitude": 10.854842241883722,
-        "longitude": 251.44527343353943,
-        "name": "Pluto",
-        "zodiac": {
-          "id": 8,
-          "lord": {
-            "id": 5,
-            "name": "Jupiter",
-          },
-          "name": "Sagittarius",
-        },
-      },
-      {
-        "degree": 11.586726560615716,
-        "houseNumber": 1,
-        "id": 15,
-        "isRetrograde": false,
-        "latitude": 4.0700735774247505,
-        "longitude": 251.58672656061572,
-        "name": "Chiron",
-        "zodiac": {
-          "id": 8,
-          "lord": {
-            "id": 5,
-            "name": "Jupiter",
-          },
-          "name": "Sagittarius",
-        },
-      },
-      {
-        "degree": 23.434263902919838,
-        "houseNumber": 1,
-        "id": 105,
-        "isRetrograde": false,
-        "latitude": 3.4226922393782586,
-        "longitude": 263.43426390291984,
-        "name": "Lilith",
-        "zodiac": {
-          "id": 8,
-          "lord": {
-            "id": 5,
-            "name": "Jupiter",
-          },
-          "name": "Sagittarius",
-        },
-      },
-      {
-        "degree": 3.9683213080758577,
-        "houseNumber": 8,
-        "id": 103,
-        "isRetrograde": true,
-        "latitude": 0,
-        "longitude": 123.96832130807586,
-        "name": "True North Node",
-        "zodiac": {
-          "id": 4,
-          "lord": {
-            "id": 0,
-            "name": "Sun",
-          },
-          "name": "Leo",
-        },
-      },
-      {
-        "degree": 3.9683213080758577,
-        "houseNumber": 8,
-        "id": 104,
-        "isRetrograde": true,
-        "latitude": 0,
-        "longitude": 123.96832130807586,
-        "name": "True South Node",
-        "zodiac": {
-          "id": 4,
-          "lord": {
-            "id": 0,
-            "name": "Sun",
-          },
-          "name": "Leo",
-        },
-      },
-    ],
-    "signs": {
-      "ascendant": {
-        "cuspWarning": null,
-        "degree": 249.14112940834244,
-        "value": "Sagittarius",
-      },
-      "moon": {
-        "cuspWarning": null,
-        "degree": 220.0662512227798,
-        "isVoidOfCourse": false,
-        "phase": "Waxing Crescent",
-        "value": "Scorpio",
-      },
-      "sun": {
-        "cuspWarning": null,
-        "degree": 280.1024785642073,
-        "value": "Capricorn",
-      },
+      "name": "Sagittarius",
     },
   },
-  "success": true,
-}
+  {
+    "houseNumber": 10,
+    "id": 109,
+    "isRetrograde": false,
+    "name": "MidHeaven",
+    "zodiac": {
+      "id": 6,
+      "lord": {
+        "id": 2,
+        "name": "Venus",
+      },
+      "name": "Libra",
+    },
+  },
+  {
+    "houseNumber": 7,
+    "id": 108,
+    "isRetrograde": false,
+    "name": "Descendant",
+    "zodiac": {
+      "id": 2,
+      "lord": {
+        "id": 3,
+        "name": "Mercury",
+      },
+      "name": "Gemini",
+    },
+  },
+  {
+    "houseNumber": 4,
+    "id": 107,
+    "isRetrograde": false,
+    "name": "Nadir",
+    "zodiac": {
+      "id": 0,
+      "lord": {
+        "id": 4,
+        "name": "Mars",
+      },
+      "name": "Aries",
+    },
+  },
+]
+`;
+
+exports[`Valid Call calculateBirthChart with valid parameters 2`] = `
+[
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 8,
+        "lord": {
+          "id": 5,
+          "name": "Jupiter",
+        },
+        "name": "Sagittarius",
+      },
+    },
+    "id": 0,
+    "number": 1,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 9,
+        "lord": {
+          "id": 6,
+          "name": "Saturn",
+        },
+        "name": "Capricorn",
+      },
+    },
+    "id": 1,
+    "number": 2,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 10,
+        "lord": {
+          "id": 6,
+          "name": "Saturn",
+        },
+        "name": "Aquarius",
+      },
+    },
+    "id": 2,
+    "number": 3,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 0,
+        "lord": {
+          "id": 4,
+          "name": "Mars",
+        },
+        "name": "Aries",
+      },
+    },
+    "id": 3,
+    "number": 4,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 1,
+        "lord": {
+          "id": 2,
+          "name": "Venus",
+        },
+        "name": "Taurus",
+      },
+    },
+    "id": 4,
+    "number": 5,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 1,
+        "lord": {
+          "id": 2,
+          "name": "Venus",
+        },
+        "name": "Taurus",
+      },
+    },
+    "id": 5,
+    "number": 6,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 2,
+        "lord": {
+          "id": 3,
+          "name": "Mercury",
+        },
+        "name": "Gemini",
+      },
+    },
+    "id": 6,
+    "number": 7,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 3,
+        "lord": {
+          "id": 1,
+          "name": "Moon",
+        },
+        "name": "Cancer",
+      },
+    },
+    "id": 7,
+    "number": 8,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 4,
+        "lord": {
+          "id": 0,
+          "name": "Sun",
+        },
+        "name": "Leo",
+      },
+    },
+    "id": 8,
+    "number": 9,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 6,
+        "lord": {
+          "id": 2,
+          "name": "Venus",
+        },
+        "name": "Libra",
+      },
+    },
+    "id": 9,
+    "number": 10,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 7,
+        "lord": {
+          "id": 4,
+          "name": "Mars",
+        },
+        "name": "Scorpio",
+      },
+    },
+    "id": 10,
+    "number": 11,
+  },
+  {
+    "cusp": {
+      "zodiac": {
+        "id": 7,
+        "lord": {
+          "id": 4,
+          "name": "Mars",
+        },
+        "name": "Scorpio",
+      },
+    },
+    "id": 11,
+    "number": 12,
+  },
+]
+`;
+
+exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
+[
+  {
+    "houseNumber": 1,
+    "id": 0,
+    "isRetrograde": false,
+    "name": "Sun",
+    "zodiac": {
+      "id": 9,
+      "lord": {
+        "id": 6,
+        "name": "Saturn",
+      },
+      "name": "Capricorn",
+    },
+  },
+  {
+    "houseNumber": 11,
+    "id": 1,
+    "isRetrograde": false,
+    "name": "Moon",
+    "zodiac": {
+      "id": 7,
+      "lord": {
+        "id": 4,
+        "name": "Mars",
+      },
+      "name": "Scorpio",
+    },
+  },
+  {
+    "houseNumber": 1,
+    "id": 2,
+    "isRetrograde": false,
+    "name": "Mercury",
+    "zodiac": {
+      "id": 9,
+      "lord": {
+        "id": 6,
+        "name": "Saturn",
+      },
+      "name": "Capricorn",
+    },
+  },
+  {
+    "houseNumber": 12,
+    "id": 3,
+    "isRetrograde": false,
+    "name": "Venus",
+    "zodiac": {
+      "id": 8,
+      "lord": {
+        "id": 5,
+        "name": "Jupiter",
+      },
+      "name": "Sagittarius",
+    },
+  },
+  {
+    "houseNumber": 2,
+    "id": 4,
+    "isRetrograde": false,
+    "name": "Mars",
+    "zodiac": {
+      "id": 10,
+      "lord": {
+        "id": 6,
+        "name": "Saturn",
+      },
+      "name": "Aquarius",
+    },
+  },
+  {
+    "houseNumber": 4,
+    "id": 5,
+    "isRetrograde": false,
+    "name": "Jupiter",
+    "zodiac": {
+      "id": 0,
+      "lord": {
+        "id": 4,
+        "name": "Mars",
+      },
+      "name": "Aries",
+    },
+  },
+  {
+    "houseNumber": 5,
+    "id": 6,
+    "isRetrograde": true,
+    "name": "Saturn",
+    "zodiac": {
+      "id": 1,
+      "lord": {
+        "id": 2,
+        "name": "Venus",
+      },
+      "name": "Taurus",
+    },
+  },
+  {
+    "houseNumber": 2,
+    "id": 7,
+    "isRetrograde": false,
+    "name": "Uranus",
+    "zodiac": {
+      "id": 10,
+      "lord": {
+        "id": 6,
+        "name": "Saturn",
+      },
+      "name": "Aquarius",
+    },
+  },
+  {
+    "houseNumber": 2,
+    "id": 8,
+    "isRetrograde": false,
+    "name": "Neptune",
+    "zodiac": {
+      "id": 10,
+      "lord": {
+        "id": 6,
+        "name": "Saturn",
+      },
+      "name": "Aquarius",
+    },
+  },
+  {
+    "houseNumber": 1,
+    "id": 9,
+    "isRetrograde": false,
+    "name": "Pluto",
+    "zodiac": {
+      "id": 8,
+      "lord": {
+        "id": 5,
+        "name": "Jupiter",
+      },
+      "name": "Sagittarius",
+    },
+  },
+  {
+    "houseNumber": 1,
+    "id": 15,
+    "isRetrograde": false,
+    "name": "Chiron",
+    "zodiac": {
+      "id": 8,
+      "lord": {
+        "id": 5,
+        "name": "Jupiter",
+      },
+      "name": "Sagittarius",
+    },
+  },
+  {
+    "houseNumber": 1,
+    "id": 105,
+    "isRetrograde": false,
+    "name": "Lilith",
+    "zodiac": {
+      "id": 8,
+      "lord": {
+        "id": 5,
+        "name": "Jupiter",
+      },
+      "name": "Sagittarius",
+    },
+  },
+  {
+    "houseNumber": 8,
+    "id": 103,
+    "isRetrograde": true,
+    "name": "True North Node",
+    "zodiac": {
+      "id": 4,
+      "lord": {
+        "id": 0,
+        "name": "Sun",
+      },
+      "name": "Leo",
+    },
+  },
+  {
+    "houseNumber": 8,
+    "id": 104,
+    "isRetrograde": true,
+    "name": "True South Node",
+    "zodiac": {
+      "id": 4,
+      "lord": {
+        "id": 0,
+        "name": "Sun",
+      },
+      "name": "Leo",
+    },
+  },
+]
 `;
 
 exports[`Invalid Call calculateBirthChart with missing parameters 1`] = `

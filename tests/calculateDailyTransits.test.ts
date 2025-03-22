@@ -13,6 +13,9 @@ describe("Valid", () => {
         params.set("birthLatitude", "50.123456");
         params.set("birthLongitude", "3.123456");
 
+        params.set("transitYear", "2025");
+        params.set("transitMonth", "3");
+        params.set("transitDay", "13");
         params.set("transitLatitude", "50.123456");
         params.set("transitLongitude", "3.123456");
 

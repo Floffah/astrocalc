@@ -4,6 +4,40 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
 [
   {
     "aspect": {
+      "id": 9,
+      "name": "Quintile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 0,
+      "name": "Sun",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 0,
+      "name": "Sun",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 0,
+      "name": "Sun",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
       "id": 2,
       "name": "Square",
     },
@@ -33,6 +67,23 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
       "fromChart": "comparison",
       "id": 3,
       "name": "Venus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 1,
+      "name": "Opposition",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 0,
+      "name": "Sun",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 4,
+      "name": "Mars",
     },
     "typeOfAspect": "transit-to-natal",
   },
@@ -89,8 +140,8 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
-      "id": 10,
-      "name": "Bi Quintile",
+      "id": 4,
+      "name": "Sesquiquadrate",
     },
     "planet1": {
       "fromChart": "natal",
@@ -106,8 +157,8 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
-      "id": 3,
-      "name": "Semi Square",
+      "id": 6,
+      "name": "Sextile",
     },
     "planet1": {
       "fromChart": "natal",
@@ -140,1140 +191,1072 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
-      "id": 10,
-      "name": "Bi Quintile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 1,
-      "name": "Moon",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 4,
-      "name": "Sesquiquadrate",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 1,
-      "name": "Moon",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 10,
-      "name": "Bi Quintile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 1,
-      "name": "Moon",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 1,
-      "name": "Moon",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 9,
-      "name": "Pluto",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 0,
-      "name": "Conjunction",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 1,
-      "name": "Moon",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 0,
-      "name": "Conjunction",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 1,
-      "name": "Moon",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 3,
-      "name": "Venus",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 10,
-      "name": "Bi Quintile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 103,
-      "name": "True North Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 104,
-      "name": "True South Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 3,
-      "name": "Venus",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 9,
-      "name": "Pluto",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 7,
-      "name": "Semi Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 103,
-      "name": "True North Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 104,
-      "name": "True South Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 4,
-      "name": "Mars",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 1,
-      "name": "Moon",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 10,
-      "name": "Bi Quintile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 4,
-      "name": "Mars",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 4,
-      "name": "Mars",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 4,
-      "name": "Mars",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 4,
-      "name": "Mars",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 15,
-      "name": "Chiron",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 4,
-      "name": "Mars",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 7,
-      "name": "Semi Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 4,
-      "name": "Mars",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 103,
-      "name": "True North Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 7,
-      "name": "Semi Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 4,
-      "name": "Mars",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 104,
-      "name": "True South Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 1,
-      "name": "Moon",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 4,
-      "name": "Mars",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 7,
-      "name": "Semi Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 7,
-      "name": "Semi Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 0,
-      "name": "Conjunction",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 15,
-      "name": "Chiron",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 4,
-      "name": "Sesquiquadrate",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 1,
-      "name": "Moon",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 9,
-      "name": "Quintile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 4,
-      "name": "Mars",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 9,
-      "name": "Pluto",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 103,
-      "name": "True North Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 104,
-      "name": "True South Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 103,
-      "name": "True North Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 7,
-      "name": "Uranus",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 104,
-      "name": "True South Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 3,
-      "name": "Venus",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 0,
-      "name": "Conjunction",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 9,
-      "name": "Pluto",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 103,
-      "name": "True North Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 104,
-      "name": "True South Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 9,
-      "name": "Pluto",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 9,
-      "name": "Pluto",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 3,
-      "name": "Venus",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 9,
-      "name": "Pluto",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 9,
-      "name": "Pluto",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 15,
-      "name": "Chiron",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 2,
-      "name": "Mercury",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 15,
-      "name": "Chiron",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 15,
-      "name": "Chiron",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 0,
-      "name": "Conjunction",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 105,
-      "name": "Lilith",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 1,
-      "name": "Moon",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
       "id": 8,
       "name": "Quincunx",
     },
     "planet1": {
       "fromChart": "natal",
+      "id": 1,
+      "name": "Moon",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 3,
+      "name": "Venus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 10,
+      "name": "Bi Quintile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 1,
+      "name": "Moon",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 4,
+      "name": "Sesquiquadrate",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 1,
+      "name": "Moon",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 6,
+      "name": "Saturn",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 10,
+      "name": "Bi Quintile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 1,
+      "name": "Moon",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 1,
+      "name": "Moon",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 0,
+      "name": "Conjunction",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 1,
+      "name": "Moon",
+    },
+    "planet2": {
+      "fromChart": "comparison",
       "id": 105,
       "name": "Lilith",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 3,
+      "name": "Venus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 10,
+      "name": "Bi Quintile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 103,
+      "name": "True North Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 104,
+      "name": "True South Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 3,
+      "name": "Venus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 3,
+      "name": "Venus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 3,
+      "name": "Venus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 4,
+      "name": "Sesquiquadrate",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 3,
+      "name": "Venus",
     },
     "planet2": {
       "fromChart": "comparison",
       "id": 4,
       "name": "Mars",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 1,
+      "name": "Opposition",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 3,
+      "name": "Venus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 3,
+      "name": "Venus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 3,
+      "name": "Venus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 3,
+      "name": "Venus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 103,
+      "name": "True North Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 3,
+      "name": "Venus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 104,
+      "name": "True South Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 4,
+      "name": "Mars",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 7,
+      "name": "Semi Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 4,
+      "name": "Mars",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 4,
+      "name": "Mars",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 7,
+      "name": "Semi Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 4,
+      "name": "Mars",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 103,
+      "name": "True North Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 7,
+      "name": "Semi Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 4,
+      "name": "Mars",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 104,
+      "name": "True South Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 4,
+      "name": "Sesquiquadrate",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 4,
+      "name": "Mars",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 7,
+      "name": "Semi Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 0,
+      "name": "Conjunction",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 15,
+      "name": "Chiron",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 1,
+      "name": "Opposition",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 3,
+      "name": "Semi Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 6,
+      "name": "Saturn",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 0,
+      "name": "Sun",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 6,
+      "name": "Saturn",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 7,
+      "name": "Semi Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 6,
+      "name": "Saturn",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 6,
+      "name": "Saturn",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 3,
+      "name": "Semi Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 6,
+      "name": "Saturn",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 103,
+      "name": "True North Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 3,
+      "name": "Semi Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 6,
+      "name": "Saturn",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 104,
+      "name": "True South Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 3,
+      "name": "Semi Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 3,
+      "name": "Semi Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 103,
+      "name": "True North Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 3,
+      "name": "Semi Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 7,
+      "name": "Uranus",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 104,
+      "name": "True South Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 10,
+      "name": "Bi Quintile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 3,
+      "name": "Venus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 0,
+      "name": "Conjunction",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 103,
+      "name": "True North Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 8,
+      "name": "Neptune",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 104,
+      "name": "True South Node",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 3,
+      "name": "Venus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 10,
+      "name": "Bi Quintile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 4,
+      "name": "Mars",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 1,
+      "name": "Opposition",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 3,
+      "name": "Semi Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 9,
+      "name": "Pluto",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 15,
+      "name": "Chiron",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 15,
+      "name": "Chiron",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 2,
+      "name": "Mercury",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 15,
+      "name": "Chiron",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 3,
+      "name": "Venus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 10,
+      "name": "Bi Quintile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 15,
+      "name": "Chiron",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 4,
+      "name": "Mars",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 1,
+      "name": "Opposition",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 15,
+      "name": "Chiron",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 5,
+      "name": "Jupiter",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 3,
+      "name": "Semi Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 15,
+      "name": "Chiron",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 0,
+      "name": "Sun",
     },
     "typeOfAspect": "transit-to-natal",
   },
@@ -1364,6 +1347,23 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 105,
+      "name": "Lilith",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
       "id": 2,
       "name": "Square",
     },
@@ -1393,23 +1393,6 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
       "fromChart": "comparison",
       "id": 104,
       "name": "True South Node",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 103,
-      "name": "True North Node",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
     },
     "typeOfAspect": "transit-to-natal",
   },
@@ -1544,23 +1527,6 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
     },
     "planet2": {
       "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 104,
-      "name": "True South Node",
-    },
-    "planet2": {
-      "fromChart": "comparison",
       "id": 2,
       "name": "Mercury",
     },
@@ -1670,25 +1636,8 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 9,
-      "name": "Quintile",
+      "id": 7,
+      "name": "Semi Sextile",
     },
     "planet1": {
       "fromChart": "natal",
@@ -1772,23 +1721,6 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 8,
-      "name": "Neptune",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
       "id": 5,
       "name": "Trine",
     },
@@ -1801,6 +1733,23 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
       "fromChart": "comparison",
       "id": 9,
       "name": "Pluto",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 6,
+      "name": "Sextile",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 109,
+      "name": "MidHeaven",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
     },
     "typeOfAspect": "transit-to-natal",
   },
@@ -1823,6 +1772,23 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 109,
+      "name": "MidHeaven",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 3,
+      "name": "Venus",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
       "id": 0,
       "name": "Conjunction",
     },
@@ -1840,8 +1806,8 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
-      "id": 3,
-      "name": "Semi Square",
+      "id": 7,
+      "name": "Semi Sextile",
     },
     "planet1": {
       "fromChart": "natal",
@@ -1850,15 +1816,15 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
     },
     "planet2": {
       "fromChart": "comparison",
-      "id": 7,
-      "name": "Uranus",
+      "id": 5,
+      "name": "Jupiter",
     },
     "typeOfAspect": "transit-to-natal",
   },
   {
     "aspect": {
-      "id": 0,
-      "name": "Conjunction",
+      "id": 8,
+      "name": "Quincunx",
     },
     "planet1": {
       "fromChart": "natal",
@@ -1867,8 +1833,8 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
     },
     "planet2": {
       "fromChart": "comparison",
-      "id": 0,
-      "name": "Sun",
+      "id": 1,
+      "name": "Moon",
     },
     "typeOfAspect": "transit-to-natal",
   },
@@ -1942,18 +1908,35 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
   },
   {
     "aspect": {
-      "id": 0,
-      "name": "Conjunction",
+      "id": 9,
+      "name": "Quintile",
     },
     "planet1": {
       "fromChart": "natal",
-      "id": 108,
-      "name": "Descendant",
+      "id": 107,
+      "name": "Nadir",
     },
     "planet2": {
       "fromChart": "comparison",
-      "id": 8,
-      "name": "Neptune",
+      "id": 0,
+      "name": "Sun",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 5,
+      "name": "Trine",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 107,
+      "name": "Nadir",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 1,
+      "name": "Moon",
     },
     "typeOfAspect": "transit-to-natal",
   },
@@ -1971,6 +1954,23 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
       "fromChart": "comparison",
       "id": 2,
       "name": "Mercury",
+    },
+    "typeOfAspect": "transit-to-natal",
+  },
+  {
+    "aspect": {
+      "id": 2,
+      "name": "Square",
+    },
+    "planet1": {
+      "fromChart": "natal",
+      "id": 107,
+      "name": "Nadir",
+    },
+    "planet2": {
+      "fromChart": "comparison",
+      "id": 3,
+      "name": "Venus",
     },
     "typeOfAspect": "transit-to-natal",
   },
@@ -2005,40 +2005,6 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
       "fromChart": "comparison",
       "id": 5,
       "name": "Jupiter",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 9,
-      "name": "Quintile",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 107,
-      "name": "Nadir",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 6,
-      "name": "Saturn",
-    },
-    "typeOfAspect": "transit-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 4,
-      "name": "Sesquiquadrate",
-    },
-    "planet1": {
-      "fromChart": "natal",
-      "id": 107,
-      "name": "Nadir",
-    },
-    "planet2": {
-      "fromChart": "comparison",
-      "id": 7,
-      "name": "Uranus",
     },
     "typeOfAspect": "transit-to-natal",
   },
@@ -2064,9 +2030,13 @@ exports[`Valid Call calculateDailyTransits with valid parameters 1`] = `
 
 exports[`Valid Call calculateDailyTransits with valid parameters 2`] = `
 {
-  "ingresses": [],
+  "ingresses": [
+    {
+      "enteredSign": "Virgo",
+      "planet": "Moon",
+    },
+  ],
   "retrogradePlanets": [
-    "Mercury",
     "Venus",
     "True North Node",
     "True South Node",

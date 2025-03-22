@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
+import type { CalculateBirthChartResponse } from "@/defs/responses.ts";
 import app from "@/index.ts";
 
 describe("Valid", () => {
@@ -16,8 +17,51 @@ describe("Valid", () => {
         params.set("longitude", "3.123456");
 
         const res = await app.request("/birth-chart?" + params.toString());
+        const body = (await res.json()) as {
+            data: CalculateBirthChartResponse;
+        };
 
-        expect(await res.json()).toMatchSnapshot();
+        expect(body.data).toBeObject();
+        expect(body.data.signs).toMatchObject({
+            ascendant: {
+                value: "Sagittarius",
+                cuspWarning: null,
+            },
+            moon: {
+                value: "Scorpio",
+                cuspWarning: null,
+                isVoidOfCourse: false,
+                phase: "Waxing Crescent",
+            },
+            sun: {
+                value: "Capricorn",
+                cuspWarning: null,
+            },
+        });
+        expect(
+            body.data.angles.map(
+                ({ degree: _, longitude: _1, ...angle }) => angle,
+            ),
+        ).toMatchSnapshot();
+
+        expect(
+            body.data.houses.map(
+                ({
+                    cusp: { degree: _, longitude: _1, ...cusp },
+                    ...house
+                }) => ({
+                    ...house,
+                    cusp,
+                }),
+            ),
+        ).toMatchSnapshot();
+
+        expect(
+            body.data.planets.map(
+                ({ degree: _, latitude: _1, longitude: _2, ...planet }) =>
+                    planet,
+            ),
+        ).toMatchSnapshot();
     });
 });
 
