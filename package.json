@@ -7,14 +7,15 @@
     "build": "bun build --target=bun --outdir=dist src/index.ts",
     "dev": "bun run --watch --no-clear-screen src/index.ts",
     "test": "bun test",
+    "coverage": "bun test --coverage",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ext .ts src"
   },
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
+    "@eslint/js": "^9.23.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/bun": "latest",
-    "eslint": "^9.22.0",
+    "eslint": "^9.23.0",
     "eslint-plugin-prettier": "^5.2.3",
     "prettier": "^3.5.3",
     "typescript-eslint": "^8.27.0"

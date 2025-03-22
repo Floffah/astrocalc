@@ -55,18 +55,28 @@ export type CalculateDailyTransitsResponse = z.infer<
 export const errorResponse = z
     .object({
         success: z.literal(false),
-        error: z.union([
-            z.string(),
-            z.object({
-                issues: z.array(
-                    z.object({
-                        code: z.string(),
-                        message: z.string(),
-                        path: z.array(z.string()),
+        error: z
+            .union([
+                z.string().openapi({
+                    title: "Error message",
+                }),
+                z
+                    .object({
+                        issues: z.array(
+                            z.object({
+                                code: z.string(),
+                                message: z.string(),
+                                path: z.array(z.string()),
+                            }),
+                        ),
+                    })
+                    .openapi({
+                        title: "ZodError input validation error",
                     }),
-                ),
+            ])
+            .openapi({
+                unionOneOf: true,
             }),
-        ]),
     })
     .openapi({
         ref: "ErrorResponse",

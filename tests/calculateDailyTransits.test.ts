@@ -20,14 +20,16 @@ describe("Valid", () => {
         params.set("transitLongitude", "3.123456");
 
         const res = await app.request("/daily-transits?" + params.toString());
-        const body = (await res.json()) as CalculateDailyTransitsResponse;
+        const body = (await res.json()) as {
+            data: CalculateDailyTransitsResponse;
+        };
 
-        expect(body.transitNatalAspects).toBeArray();
+        expect(body.data.transitNatalAspects).toBeArray();
         expect(
-            body.transitNatalAspects.map(({ orb: _, ...value }) => value),
+            body.data.transitNatalAspects.map(({ orb: _, ...value }) => value),
         ).toMatchSnapshot();
 
-        expect(body.notableEvents).toMatchSnapshot();
+        expect(body.data.notableEvents).toMatchSnapshot();
     });
 });
 

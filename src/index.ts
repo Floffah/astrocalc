@@ -283,7 +283,10 @@ app.get(
             );
         }
 
-        return c.json(transits.value);
+        return c.json({
+            success: true,
+            data: transits.value,
+        });
     },
 );
 
