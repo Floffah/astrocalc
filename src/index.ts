@@ -290,6 +290,20 @@ app.get(
     },
 );
 
+const openapiServers = [
+    {
+        description: "Production server",
+        url: "https://astrocalc-api.onrender.com",
+    },
+];
+
+if (process.env.NODE_ENV !== "production") {
+    openapiServers.push({
+        description: "Local server",
+        url: "http://localhost:3001",
+    });
+}
+
 app.get(
     "/openapi.json",
     openAPISpecs(app, {
@@ -307,7 +321,7 @@ app.get(
                     url: "https://github.com/floffah/astrocalc",
                 },
             },
-            servers: ["https://astrocalc-api.onrender.com"],
+            servers: openapiServers,
             security: [],
         },
     }),
@@ -321,10 +335,7 @@ app.get(
         url: "/openapi.json",
         theme: "bluePlanet",
         baseServerURL: "https://astrocalc-api.onrender.com",
-        servers: [
-            "https://astrocalc-api.onrender.com",
-            "http://localhost:3000",
-        ],
+        servers: openapiServers,
     }),
 );
 
