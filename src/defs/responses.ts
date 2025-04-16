@@ -38,7 +38,7 @@ export type CalculateBirthChartResponse = z.infer<
 export const calculateDailyTransitsResponse = z
     .object({
         transitChart: calculateBirthChartResponse,
-        transitNatalAspects: z.array(aspectObject),
+        transitNatalAspects: z.array(aspectObject).nullable(),
         notableEvents: z.object({
             retrogradePlanets: z.array(planetEnum),
             ingresses: z.array(ingressObject),

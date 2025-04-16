@@ -11,37 +11,44 @@ import { rad } from "@/lib/degrees.ts";
 
 export function calculateTransitsForDay(
     date: Date,
-    birthDate: Date,
     transitLat: number,
     transitLon: number,
-    birthLat: number,
-    birthLon: number,
+    birthDate: Date | null,
+    birthLat: number | null,
+    birthLon: number | null,
 ) {
     const transitLatAngle = new astronomia.sexagesimal.Angle(rad(transitLat));
     const transitLonAngle = new astronomia.sexagesimal.Angle(rad(transitLon));
 
-    const transitNatalChart = calculateBirthChart(date, transitLat, transitLon);
+    const transitChart = calculateBirthChart(date, transitLat, transitLon);
 
-    if (transitNatalChart.isErr()) {
-        return transitNatalChart;
+    if (transitChart.isErr()) {
+        return transitChart;
     }
 
-    const birthNatalChart = calculateBirthChart(birthDate, birthLat, birthLon);
+    let birthNatalChart: ReturnType<typeof calculateBirthChart> | null = null;
+    let transitNatalAspects: ReturnType<
+        typeof computeAspectsBetweenCharts
+    > | null = null;
 
-    if (birthNatalChart.isErr()) {
-        return birthNatalChart;
+    if (birthDate && birthLat && birthLon) {
+        birthNatalChart = calculateBirthChart(birthDate, birthLat, birthLon);
+
+        if (birthNatalChart.isErr()) {
+            return birthNatalChart;
+        }
+
+        transitNatalAspects = computeAspectsBetweenCharts(
+            [...birthNatalChart.value.planets, ...birthNatalChart.value.angles],
+            transitChart.value.planets,
+        );
+
+        if (transitNatalAspects.isErr()) {
+            return transitNatalAspects;
+        }
     }
 
-    const transitNatalAspects = computeAspectsBetweenCharts(
-        [...birthNatalChart.value.planets, ...birthNatalChart.value.angles],
-        transitNatalChart.value.planets,
-    );
-
-    if (transitNatalAspects.isErr()) {
-        return transitNatalAspects;
-    }
-
-    const retrogradePlanets = transitNatalChart.value.planets
+    const retrogradePlanets = transitChart.value.planets
         .map((planet) => (planet.isRetrograde ? planet.name : undefined))
         .filter((name) => name !== undefined);
 
@@ -60,7 +67,7 @@ export function calculateTransitsForDay(
 
     const ingresses: IngressObject[] = [];
 
-    for (const planet of transitNatalChart.value.planets) {
+    for (const planet of transitChart.value.planets) {
         const yesterdayPlanet = yesterdayPlanets.value.find(
             (p) => p.id === planet.id,
         );
@@ -74,8 +81,8 @@ export function calculateTransitsForDay(
     }
 
     return ok({
-        transitChart: transitNatalChart.value,
-        transitNatalAspects: transitNatalAspects.value,
+        transitChart: transitChart.value,
+        transitNatalAspects: transitNatalAspects?.value ?? null,
         notableEvents: {
             retrogradePlanets,
             ingresses,

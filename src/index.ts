@@ -130,7 +130,7 @@ app.get(
     describeRoute({
         operationId: "calculateDailyTransits",
         description:
-            "This endpoint calculates the transits for a given day at a given location. Useful for generating horoscopes.",
+            "This endpoint calculates the transits for a given day at a given location. Useful for generating horoscopes.\n\nIf birth date is omitted you just get a chart for the current day along with ingresses and retrogrades, but no comparative aspects.",
         summary: "Calculate daily transits",
         responses: {
             200: {
@@ -162,16 +162,19 @@ app.get(
                 .number()
                 .min(1900)
                 .max(2100)
+                .optional()
                 .describe("The UTC year of birth"),
             birthMonth: z.coerce
                 .number()
                 .min(1)
                 .max(12)
+                .optional()
                 .describe("The UTC month of birth. NOT zero-indexed"),
             birthDay: z.coerce
                 .number()
                 .min(1)
                 .max(31)
+                .optional()
                 .describe("The UTC day of birth"),
             birthMinute: z.coerce
                 .number()
@@ -189,11 +192,13 @@ app.get(
                 .number()
                 .min(-90)
                 .max(90)
+                .optional()
                 .describe("The latitude of the birth location"),
             birthLongitude: z.coerce
                 .number()
                 .min(-180)
                 .max(180)
+                .optional()
                 .describe("The longitude of the birth location"),
             transitYear: z.coerce
                 .number()
@@ -255,23 +260,27 @@ app.get(
             );
         }
 
-        const birthDate = new Date(
-            Date.UTC(
-                birthYear,
-                birthMonth - 1,
-                birthDay,
-                birthHour ?? 0,
-                birthMinute ?? 0,
-            ),
-        );
+        let birthDate: Date | null = null;
+
+        if (birthYear && birthMonth && birthDay) {
+            birthDate = new Date(
+                Date.UTC(
+                    birthYear,
+                    birthMonth - 1,
+                    birthDay,
+                    birthHour ?? 0,
+                    birthMinute ?? 0,
+                ),
+            );
+        }
 
         const transits = calculateTransitsForDay(
             transitDate,
-            birthDate,
             transitLatitude,
             transitLongitude,
-            birthLatitude,
-            birthLongitude,
+            birthDate,
+            birthLatitude ?? null,
+            birthLongitude ?? null,
         );
 
         if (transits.isErr()) {
