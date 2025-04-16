@@ -1,10 +1,10 @@
 import * as astronomia from "astronomia";
 import { Err, Result, ok } from "neverthrow";
 
-import type { AspectObject } from "@/defs";
+import type { AspectObject, TypeOfAspect } from "@/defs";
 import { Aspect, Planet, PlanetId } from "@/defs/enums.ts";
 import { getAnglesForDate } from "@/lib/calculateAngles.ts";
-import { getPlanetaryPositionsForDate } from "@/lib/calculatePlanetPositions.ts";
+import { getPlanetaryPositionsForDateAndLocation } from "@/lib/calculatePlanetPositions.ts";
 import type { ExtractError } from "@/types/neverthrow.ts";
 
 const ASPECTS = [
@@ -23,6 +23,7 @@ const ASPECTS = [
 
 export function computeAspects(
     celestialBodies: { id: PlanetId; name: Planet; longitude: number }[],
+    typeOfAspect: TypeOfAspect = "natal-to-natal",
 ) {
     const aspects: AspectObject[] = [];
 
@@ -44,7 +45,7 @@ export function computeAspects(
                         planet2: { id: body2.id, name: body2.name },
                         aspect: { id: aspect.id, name: aspect.name },
                         orb: orb,
-                        typeOfAspect: "natal-to-natal",
+                        typeOfAspect,
                     });
                     break;
                 }
@@ -100,7 +101,11 @@ export function getAspectsForDate(
     lat: astronomia.sexagesimal.Angle,
     lon: astronomia.sexagesimal.Angle,
 ) {
-    const planetResults = getPlanetaryPositionsForDate(jde, lat, lon);
+    const planetResults = getPlanetaryPositionsForDateAndLocation(
+        jde,
+        lat,
+        lon,
+    );
     const angleResults = getAnglesForDate(jde, lat, lon);
 
     if (planetResults.isErr() || angleResults.isErr()) {

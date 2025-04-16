@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import {
     aspectObject,
+    genericPlanetPositionObject,
     houseObject,
     ingressObject,
     planetEnum,
@@ -50,6 +51,40 @@ export const calculateDailyTransitsResponse = z
 
 export type CalculateDailyTransitsResponse = z.infer<
     typeof calculateDailyTransitsResponse
+>;
+
+export const calculateGenericChartResponse = z
+    .object({
+        signs: z.object({
+            sun: zodiacSignObject,
+            moon: zodiacMoonSignObject,
+        }),
+        planets: z.array(genericPlanetPositionObject),
+        aspects: z.array(aspectObject),
+        declinations: z.array(aspectObject),
+    })
+    .openapi({
+        ref: "CalculateGenericChartResponse",
+    });
+
+export type CalculateGenericChartResponse = z.infer<
+    typeof calculateGenericChartResponse
+>;
+
+export const calculateGenericTransitChartResponse = z
+    .object({
+        chart: calculateGenericChartResponse,
+        notableEvents: z.object({
+            retrogradePlanets: z.array(planetEnum),
+            ingresses: z.array(ingressObject),
+        }),
+    })
+    .openapi({
+        ref: "CalculateGenericTransitChartResponse",
+    });
+
+export type CalculateGenericTransitChartResponse = z.infer<
+    typeof calculateGenericTransitChartResponse
 >;
 
 export const errorResponse = z

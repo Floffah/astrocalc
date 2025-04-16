@@ -82,7 +82,7 @@ export const houseObject = z
         ref: "HouseObject",
     });
 
-export const planetPositionObject = z
+export const genericPlanetPositionObject = z
     .object({
         id: planetIdEnum,
         name: planetEnum,
@@ -90,8 +90,19 @@ export const planetPositionObject = z
         latitude: z.number().optional(),
         isRetrograde: z.boolean(),
         degree: z.number().min(0).max(30),
-        houseNumber: z.number().min(1).max(12),
         zodiac: zodiacDetailsObject,
+    })
+    .openapi({
+        ref: "GenericPlanetPositionObject",
+    });
+
+export type GenericPlanetPositionObject = z.infer<
+    typeof genericPlanetPositionObject
+>;
+
+export const planetPositionObject = genericPlanetPositionObject
+    .extend({
+        houseNumber: z.number().min(1).max(12),
     })
     .openapi({
         ref: "PlanetPositionObject",
@@ -102,6 +113,14 @@ export type PlanetPositionObject = z.infer<typeof planetPositionObject>;
 export const aspectEnum = z.nativeEnum(Aspect).openapi({
     ref: "Aspect",
 });
+
+export const typeOfAspect = z
+    .enum(["transit-to-natal", "natal-to-natal", "transit-to-transit"])
+    .openapi({
+        ref: "TypeOfAspect",
+    });
+
+export type TypeOfAspect = z.infer<typeof typeOfAspect>;
 
 export const aspectObject = z
     .object({
@@ -120,11 +139,7 @@ export const aspectObject = z
             name: aspectEnum,
         }),
         orb: z.number(),
-        typeOfAspect: z.enum([
-            "transit-to-natal",
-            "natal-to-natal",
-            "transit-to-transit",
-        ]),
+        typeOfAspect,
     })
     .openapi({
         ref: "AspectObject",

@@ -10,9 +10,11 @@ import {
     baseResponse,
     calculateBirthChartResponse,
     calculateDailyTransitsResponse,
+    calculateGenericTransitChartResponse,
     errorResponse,
 } from "@/defs/responses.ts";
 import { calculateBirthChart } from "@/lib/birthCharts/calculateBirthChart.ts";
+import { calculateGenericTransitChart } from "@/lib/calculateGenericChart.ts";
 import { calculateTransitsForDay } from "@/lib/calculateTransitsForDay.ts";
 import { setSwissephPath } from "@/lib/swisseph.ts";
 
@@ -78,12 +80,14 @@ app.get(
                 .number()
                 .min(0)
                 .max(23)
+                .default(0)
                 .optional()
                 .describe("The UTC hour of birth"),
             minute: z.coerce
                 .number()
                 .min(0)
                 .max(59)
+                .default(0)
                 .optional()
                 .describe("The UTC minute of birth"),
             latitude: z.coerce
@@ -180,12 +184,14 @@ app.get(
                 .number()
                 .min(0)
                 .max(59)
+                .default(0)
                 .optional()
                 .describe("The UTC minute of birth"),
             birthHour: z.coerce
                 .number()
                 .min(0)
                 .max(23)
+                .default(0)
                 .optional()
                 .describe("The UTC hour of birth"),
             birthLatitude: z.coerce
@@ -282,6 +288,97 @@ app.get(
             birthLatitude ?? null,
             birthLongitude ?? null,
         );
+
+        if (transits.isErr()) {
+            return c.json(
+                {
+                    error: transits.error,
+                },
+                500,
+            );
+        }
+
+        return c.json({
+            success: true,
+            data: transits.value,
+        });
+    },
+);
+
+app.get(
+    "/generic-chart",
+    describeRoute({
+        operationId: "calculateGenericTransitChart",
+        description:
+            "This endpoint calculates the transits for a given date but does not require a location or birth data.\n\n**Do not use this for personalised horoscopes**",
+        summary: "Calculate a generic transit chart",
+        responses: {
+            200: {
+                description: "OK",
+                content: {
+                    "application/json": {
+                        schema: resolver(
+                            baseResponse.extend({
+                                data: calculateGenericTransitChartResponse,
+                            }),
+                        ),
+                    },
+                },
+            },
+            400: {
+                description: "User Error",
+                content: {
+                    "application/json": {
+                        schema: resolver(errorResponse),
+                    },
+                },
+            },
+        },
+    }),
+    validator(
+        "query",
+        z.object({
+            year: z.coerce
+                .number()
+                .min(1900)
+                .max(2100)
+                .describe("The UTC year to calculate transits for"),
+            month: z.coerce
+                .number()
+                .min(1)
+                .max(12)
+                .describe(
+                    "The UTC month to calculate transits for. NOT zero-indexed",
+                ),
+            day: z.coerce
+                .number()
+                .min(1)
+                .max(31)
+                .describe("The UTC day to calculate transits for"),
+            hour: z.coerce
+                .number()
+                .min(0)
+                .max(23)
+                .default(12)
+                .optional()
+                .describe("The UTC hour to calculate transits for"),
+            minute: z.coerce
+                .number()
+                .min(0)
+                .max(59)
+                .default(0)
+                .optional()
+                .describe("The UTC minute to calculate transits for"),
+        }),
+    ),
+    async (c) => {
+        const { year, month, day, hour, minute } = c.req.valid("query");
+
+        const transitDate = new Date(
+            Date.UTC(year, month - 1, day, hour ?? 12, minute ?? 0),
+        );
+
+        const transits = calculateGenericTransitChart(transitDate);
 
         if (transits.isErr()) {
             return c.json(

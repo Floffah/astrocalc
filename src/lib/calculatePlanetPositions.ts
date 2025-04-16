@@ -2,7 +2,7 @@ import * as astronomia from "astronomia";
 import { Result, err, ok } from "neverthrow";
 import sweph from "sweph";
 
-import type { PlanetPositionObject } from "@/defs";
+import type { GenericPlanetPositionObject, PlanetPositionObject } from "@/defs";
 import { Planet, PlanetId } from "@/defs/enums.ts";
 import { getZodiacFromLongitude } from "@/lib/zodiac.ts";
 
@@ -110,7 +110,7 @@ function getPlanetPositionsForHouses(
     );
 }
 
-export function getPlanetaryPositionsForDate(
+export function getPlanetaryPositionsForDateAndLocation(
     jde: number,
     lat: astronomia.sexagesimal.Angle,
     lon: astronomia.sexagesimal.Angle,
@@ -118,4 +118,34 @@ export function getPlanetaryPositionsForDate(
     const houses = sweph.houses(jde, lat.deg(), lon.deg(), "P");
 
     return getPlanetPositionsForHouses(jde, lat, lon, houses.data.houses);
+}
+
+export function getPlanetaryPositionsForDate(jde: number) {
+    return Result.combine(
+        PLANETS.map((planet) => {
+            const ut = sweph.calc_ut(
+                jde,
+                planet.flag,
+                sweph.constants.SEFLG_SPEED,
+            );
+
+            if (ut.error) {
+                return err(ut.error);
+            }
+
+            const [lon, lat, , lonSpd] = ut.data;
+            const isRetrograde = lonSpd < 0;
+            const zodiacInfo = getZodiacFromLongitude(lon);
+
+            return ok({
+                id: planet.id,
+                name: planet.name,
+                longitude: lon,
+                latitude: planet.name === Planet.TrueSouthNode ? -lat : lat,
+                isRetrograde,
+                degree: zodiacInfo.degree,
+                zodiac: zodiacInfo.zodiac,
+            } satisfies GenericPlanetPositionObject);
+        }),
+    );
 }

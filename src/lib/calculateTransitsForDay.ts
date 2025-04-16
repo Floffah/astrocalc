@@ -6,7 +6,7 @@ import type { IngressObject } from "@/defs";
 import type { CalculateDailyTransitsResponse } from "@/defs/responses.ts";
 import { calculateBirthChart } from "@/lib/birthCharts/calculateBirthChart.ts";
 import { computeAspectsBetweenCharts } from "@/lib/calculateAspects.ts";
-import { getPlanetaryPositionsForDate } from "@/lib/calculatePlanetPositions.ts";
+import { getPlanetaryPositionsForDateAndLocation } from "@/lib/calculatePlanetPositions.ts";
 import { rad } from "@/lib/degrees.ts";
 
 export function calculateTransitsForDay(
@@ -55,7 +55,7 @@ export function calculateTransitsForDay(
     const yesterday = addDays(date, -1);
     const yesterdayJd = astronomia.julian.DateToJD(yesterday);
 
-    const yesterdayPlanets = getPlanetaryPositionsForDate(
+    const yesterdayPlanets = getPlanetaryPositionsForDateAndLocation(
         yesterdayJd,
         transitLatAngle,
         transitLonAngle,

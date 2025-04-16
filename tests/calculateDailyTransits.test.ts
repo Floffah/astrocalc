@@ -26,7 +26,7 @@ describe("Valid", () => {
 
         expect(body.data.transitNatalAspects).toBeArray();
         expect(
-            body.data.transitNatalAspects.map(({ orb: _, ...value }) => value),
+            body.data.transitNatalAspects?.map(({ orb: _, ...value }) => value),
         ).toMatchSnapshot();
 
         expect(body.data.notableEvents).toMatchSnapshot();

@@ -1,243 +1,8 @@
 // Bun Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Valid Call calculateBirthChart with valid parameters 1`] = `
+exports[`Valid Call calculateGenericChart with valid parameters 1`] = `
 [
   {
-    "houseNumber": 1,
-    "id": 100,
-    "isRetrograde": false,
-    "name": "Ascendant",
-    "zodiac": {
-      "id": 8,
-      "lord": {
-        "id": 5,
-        "name": "Jupiter",
-      },
-      "name": "Sagittarius",
-    },
-  },
-  {
-    "houseNumber": 10,
-    "id": 109,
-    "isRetrograde": false,
-    "name": "MidHeaven",
-    "zodiac": {
-      "id": 6,
-      "lord": {
-        "id": 2,
-        "name": "Venus",
-      },
-      "name": "Libra",
-    },
-  },
-  {
-    "houseNumber": 7,
-    "id": 108,
-    "isRetrograde": false,
-    "name": "Descendant",
-    "zodiac": {
-      "id": 2,
-      "lord": {
-        "id": 3,
-        "name": "Mercury",
-      },
-      "name": "Gemini",
-    },
-  },
-  {
-    "houseNumber": 4,
-    "id": 107,
-    "isRetrograde": false,
-    "name": "Nadir",
-    "zodiac": {
-      "id": 0,
-      "lord": {
-        "id": 4,
-        "name": "Mars",
-      },
-      "name": "Aries",
-    },
-  },
-]
-`;
-
-exports[`Valid Call calculateBirthChart with valid parameters 2`] = `
-[
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 8,
-        "lord": {
-          "id": 5,
-          "name": "Jupiter",
-        },
-        "name": "Sagittarius",
-      },
-    },
-    "id": 0,
-    "number": 1,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 9,
-        "lord": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "name": "Capricorn",
-      },
-    },
-    "id": 1,
-    "number": 2,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 10,
-        "lord": {
-          "id": 6,
-          "name": "Saturn",
-        },
-        "name": "Aquarius",
-      },
-    },
-    "id": 2,
-    "number": 3,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 0,
-        "lord": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "name": "Aries",
-      },
-    },
-    "id": 3,
-    "number": 4,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 1,
-        "lord": {
-          "id": 2,
-          "name": "Venus",
-        },
-        "name": "Taurus",
-      },
-    },
-    "id": 4,
-    "number": 5,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 1,
-        "lord": {
-          "id": 2,
-          "name": "Venus",
-        },
-        "name": "Taurus",
-      },
-    },
-    "id": 5,
-    "number": 6,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 2,
-        "lord": {
-          "id": 3,
-          "name": "Mercury",
-        },
-        "name": "Gemini",
-      },
-    },
-    "id": 6,
-    "number": 7,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 3,
-        "lord": {
-          "id": 1,
-          "name": "Moon",
-        },
-        "name": "Cancer",
-      },
-    },
-    "id": 7,
-    "number": 8,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 4,
-        "lord": {
-          "id": 0,
-          "name": "Sun",
-        },
-        "name": "Leo",
-      },
-    },
-    "id": 8,
-    "number": 9,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 6,
-        "lord": {
-          "id": 2,
-          "name": "Venus",
-        },
-        "name": "Libra",
-      },
-    },
-    "id": 9,
-    "number": 10,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 7,
-        "lord": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "name": "Scorpio",
-      },
-    },
-    "id": 10,
-    "number": 11,
-  },
-  {
-    "cusp": {
-      "zodiac": {
-        "id": 7,
-        "lord": {
-          "id": 4,
-          "name": "Mars",
-        },
-        "name": "Scorpio",
-      },
-    },
-    "id": 11,
-    "number": 12,
-  },
-]
-`;
-
-exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
-[
-  {
-    "houseNumber": 1,
     "id": 0,
     "isRetrograde": false,
     "name": "Sun",
@@ -251,7 +16,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 11,
     "id": 1,
     "isRetrograde": false,
     "name": "Moon",
@@ -265,7 +29,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 1,
     "id": 2,
     "isRetrograde": false,
     "name": "Mercury",
@@ -279,7 +42,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 12,
     "id": 3,
     "isRetrograde": false,
     "name": "Venus",
@@ -293,7 +55,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 2,
     "id": 4,
     "isRetrograde": false,
     "name": "Mars",
@@ -307,7 +68,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 4,
     "id": 5,
     "isRetrograde": false,
     "name": "Jupiter",
@@ -321,7 +81,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 5,
     "id": 6,
     "isRetrograde": true,
     "name": "Saturn",
@@ -335,7 +94,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 2,
     "id": 7,
     "isRetrograde": false,
     "name": "Uranus",
@@ -349,7 +107,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 2,
     "id": 8,
     "isRetrograde": false,
     "name": "Neptune",
@@ -363,7 +120,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 1,
     "id": 9,
     "isRetrograde": false,
     "name": "Pluto",
@@ -377,7 +133,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 1,
     "id": 15,
     "isRetrograde": false,
     "name": "Chiron",
@@ -391,7 +146,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 1,
     "id": 105,
     "isRetrograde": false,
     "name": "Lilith",
@@ -405,7 +159,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 8,
     "id": 103,
     "isRetrograde": true,
     "name": "True North Node",
@@ -419,7 +172,6 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
     },
   },
   {
-    "houseNumber": 8,
     "id": 104,
     "isRetrograde": true,
     "name": "True South Node",
@@ -435,7 +187,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 3`] = `
 ]
 `;
 
-exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
+exports[`Valid Call calculateGenericChart with valid parameters 2`] = `
 [
   {
     "aspect": {
@@ -450,7 +202,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 1,
       "name": "Moon",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -465,7 +217,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 2,
       "name": "Mercury",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -480,7 +232,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 4,
       "name": "Mars",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -495,7 +247,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 6,
       "name": "Saturn",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -510,7 +262,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 9,
       "name": "Pluto",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -525,67 +277,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 15,
       "name": "Chiron",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 7,
-      "name": "Semi Sextile",
-    },
-    "planet1": {
-      "id": 0,
-      "name": "Sun",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "id": 0,
-      "name": "Sun",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 8,
-      "name": "Quincunx",
-    },
-    "planet1": {
-      "id": 0,
-      "name": "Sun",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "id": 0,
-      "name": "Sun",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -600,7 +292,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 6,
       "name": "Saturn",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -615,7 +307,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 7,
       "name": "Uranus",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -630,7 +322,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 8,
       "name": "Neptune",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -645,7 +337,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 9,
       "name": "Pluto",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -660,7 +352,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 15,
       "name": "Chiron",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -675,7 +367,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 105,
       "name": "Lilith",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -690,7 +382,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 103,
       "name": "True North Node",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -705,37 +397,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 104,
       "name": "True South Node",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 7,
-      "name": "Semi Sextile",
-    },
-    "planet1": {
-      "id": 1,
-      "name": "Moon",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 8,
-      "name": "Quincunx",
-    },
-    "planet1": {
-      "id": 1,
-      "name": "Moon",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -750,7 +412,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 3,
       "name": "Venus",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -765,7 +427,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 4,
       "name": "Mars",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -780,7 +442,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 5,
       "name": "Jupiter",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -795,7 +457,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 7,
       "name": "Uranus",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -810,7 +472,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 8,
       "name": "Neptune",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -825,7 +487,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 105,
       "name": "Lilith",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -840,7 +502,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 103,
       "name": "True North Node",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -855,37 +517,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 104,
       "name": "True South Node",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 2,
-      "name": "Square",
-    },
-    "planet1": {
-      "id": 2,
-      "name": "Mercury",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -900,7 +532,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 4,
       "name": "Mars",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -915,7 +547,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 5,
       "name": "Jupiter",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -930,7 +562,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 7,
       "name": "Uranus",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -945,7 +577,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 8,
       "name": "Neptune",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -960,7 +592,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 103,
       "name": "True North Node",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -975,67 +607,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 104,
       "name": "True South Node",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 0,
-      "name": "Conjunction",
-    },
-    "planet1": {
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 3,
-      "name": "Venus",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1050,7 +622,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 5,
       "name": "Jupiter",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1065,7 +637,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 6,
       "name": "Saturn",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1080,7 +652,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 105,
       "name": "Lilith",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1095,7 +667,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 7,
       "name": "Uranus",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1110,7 +682,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 8,
       "name": "Neptune",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1125,7 +697,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 9,
       "name": "Pluto",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1140,7 +712,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 15,
       "name": "Chiron",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1155,37 +727,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 105,
       "name": "Lilith",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 4,
-      "name": "Sesquiquadrate",
-    },
-    "planet1": {
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 3,
-      "name": "Semi Square",
-    },
-    "planet1": {
-      "id": 5,
-      "name": "Jupiter",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1200,7 +742,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 7,
       "name": "Uranus",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1215,7 +757,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 8,
       "name": "Neptune",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1230,7 +772,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 9,
       "name": "Pluto",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1245,7 +787,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 15,
       "name": "Chiron",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1260,7 +802,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 105,
       "name": "Lilith",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1275,7 +817,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 103,
       "name": "True North Node",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1290,37 +832,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 104,
       "name": "True South Node",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 8,
-      "name": "Quincunx",
-    },
-    "planet1": {
-      "id": 6,
-      "name": "Saturn",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 7,
-      "name": "Semi Sextile",
-    },
-    "planet1": {
-      "id": 6,
-      "name": "Saturn",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1335,7 +847,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 9,
       "name": "Pluto",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1350,37 +862,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 15,
       "name": "Chiron",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 7,
-      "name": "Uranus",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 7,
-      "name": "Uranus",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1395,7 +877,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 103,
       "name": "True North Node",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1410,67 +892,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 104,
       "name": "True South Node",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 8,
-      "name": "Neptune",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1485,7 +907,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 15,
       "name": "Chiron",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1500,7 +922,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 103,
       "name": "True North Node",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1515,67 +937,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 104,
       "name": "True South Node",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 0,
-      "name": "Conjunction",
-    },
-    "planet1": {
-      "id": 9,
-      "name": "Pluto",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 9,
-      "name": "Pluto",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "id": 9,
-      "name": "Pluto",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 9,
-      "name": "Pluto",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1590,7 +952,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 103,
       "name": "True North Node",
     },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1605,67 +967,7 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 104,
       "name": "True South Node",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 0,
-      "name": "Conjunction",
-    },
-    "planet1": {
-      "id": 15,
-      "name": "Chiron",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 15,
-      "name": "Chiron",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "id": 15,
-      "name": "Chiron",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 15,
-      "name": "Chiron",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
   {
     "aspect": {
@@ -1680,222 +982,12 @@ exports[`Valid Call calculateBirthChart with valid parameters 4`] = `
       "id": 104,
       "name": "True South Node",
     },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 103,
-      "name": "True North Node",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 103,
-      "name": "True North Node",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 103,
-      "name": "True North Node",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 103,
-      "name": "True North Node",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 104,
-      "name": "True South Node",
-    },
-    "planet2": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 104,
-      "name": "True South Node",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 104,
-      "name": "True South Node",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 104,
-      "name": "True South Node",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "planet2": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 100,
-      "name": "Ascendant",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 5,
-      "name": "Trine",
-    },
-    "planet1": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "planet2": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 1,
-      "name": "Opposition",
-    },
-    "planet1": {
-      "id": 109,
-      "name": "MidHeaven",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
-  },
-  {
-    "aspect": {
-      "id": 6,
-      "name": "Sextile",
-    },
-    "planet1": {
-      "id": 108,
-      "name": "Descendant",
-    },
-    "planet2": {
-      "id": 107,
-      "name": "Nadir",
-    },
-    "typeOfAspect": "natal-to-natal",
+    "typeOfAspect": "transit-to-transit",
   },
 ]
 `;
 
-exports[`Valid Call calculateBirthChart with valid parameters 5`] = `
+exports[`Valid Call calculateGenericChart with valid parameters 3`] = `
 [
   {
     "aspect": {
@@ -2275,86 +1367,22 @@ exports[`Valid Call calculateBirthChart with valid parameters 5`] = `
 ]
 `;
 
-exports[`Invalid Call calculateBirthChart with missing parameters 1`] = `
+exports[`Valid Call calculateGenericChart with valid parameters 4`] = `
 {
-  "error": {
-    "issues": [
-      {
-        "code": "invalid_type",
-        "expected": "number",
-        "message": "Expected number, received nan",
-        "path": [
-          "latitude",
-        ],
-        "received": "nan",
-      },
-      {
-        "code": "invalid_type",
-        "expected": "number",
-        "message": "Expected number, received nan",
-        "path": [
-          "longitude",
-        ],
-        "received": "nan",
-      },
-    ],
-    "name": "ZodError",
-  },
-  "success": false,
-}
-`;
-
-exports[`Invalid Call calculateBirthChart with invalid parameters 1`] = `
-{
-  "error": {
-    "issues": [
-      {
-        "code": "too_big",
-        "exact": false,
-        "inclusive": true,
-        "maximum": 2100,
-        "message": "Number must be less than or equal to 2100",
-        "path": [
-          "year",
-        ],
-        "type": "number",
-      },
-      {
-        "code": "too_big",
-        "exact": false,
-        "inclusive": true,
-        "maximum": 12,
-        "message": "Number must be less than or equal to 12",
-        "path": [
-          "month",
-        ],
-        "type": "number",
-      },
-      {
-        "code": "too_small",
-        "exact": false,
-        "inclusive": true,
-        "message": "Number must be greater than or equal to 1",
-        "minimum": 1,
-        "path": [
-          "day",
-        ],
-        "type": "number",
-      },
-      {
-        "code": "too_big",
-        "exact": false,
-        "inclusive": true,
-        "maximum": 23,
-        "message": "Number must be less than or equal to 23",
-        "path": [
-          "hour",
-        ],
-        "type": "number",
-      },
-    ],
-    "name": "ZodError",
-  },
-  "success": false,
+  "ingresses": [
+    {
+      "enteredSign": "Scorpio",
+      "planet": "Moon",
+    },
+    {
+      "enteredSign": "Capricorn",
+      "planet": "Mercury",
+    },
+  ],
+  "retrogradePlanets": [
+    "Saturn",
+    "True North Node",
+    "True South Node",
+  ],
 }
 `;

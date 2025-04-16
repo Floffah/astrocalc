@@ -62,6 +62,16 @@ describe("Valid", () => {
                     planet,
             ),
         ).toMatchSnapshot();
+
+        expect(
+            body.data.aspects.map(({ orb: _, ...aspect }) => aspect),
+        ).toMatchSnapshot();
+
+        expect(
+            body.data.declinations.map(
+                ({ orb: _, ...declination }) => declination,
+            ),
+        ).toMatchSnapshot();
     });
 });
 

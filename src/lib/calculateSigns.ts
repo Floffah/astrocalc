@@ -7,11 +7,7 @@ import { deg } from "@/lib/degrees.ts";
 import { getMoonPhase } from "@/lib/getMoonElongation.ts";
 import { getZodiacSignCusp, getZodiacSignForDegrees } from "@/lib/zodiac.ts";
 
-export function calculateSigns(
-    jde: number,
-    latitude: astronomia.sexagesimal.Angle,
-    longitude: astronomia.sexagesimal.Angle,
-) {
+export function calculateSunAndMoon(jde: number) {
     const sunVsopCoord = astronomia.solar.trueVSOP87(
         new astronomia.planetposition.Planet(data.earth),
         jde,
@@ -42,6 +38,33 @@ export function calculateSigns(
         return moonCusp;
     }
 
+    return ok({
+        sun: {
+            value: sunSign.value,
+            degree: sunLongitude,
+            cuspWarning: sunCusp.value,
+        } satisfies ZodiacSignObject,
+        moon: {
+            value: moonSign.value,
+            degree: moonLongitude,
+            cuspWarning: moonCusp.value,
+            phase: moonPhase,
+            isVoidOfCourse: false, // TODO: calculate moon VoC properly
+        } satisfies ZodiacMoonSignObject,
+    });
+}
+
+export function calculateSigns(
+    jde: number,
+    latitude: astronomia.sexagesimal.Angle,
+    longitude: astronomia.sexagesimal.Angle,
+) {
+    const sunAndMoon = calculateSunAndMoon(jde);
+
+    if (sunAndMoon.isErr()) {
+        return sunAndMoon;
+    }
+
     const obliquity = astronomia.nutation.meanObliquity(jde);
     const sidereal = astronomia.sidereal.mean(jde);
 
@@ -70,18 +93,7 @@ export function calculateSigns(
     }
 
     return ok({
-        sun: {
-            value: sunSign.value,
-            degree: sunLongitude,
-            cuspWarning: sunCusp.value,
-        } satisfies ZodiacSignObject,
-        moon: {
-            value: moonSign.value,
-            degree: moonLongitude,
-            cuspWarning: moonCusp.value,
-            phase: moonPhase,
-            isVoidOfCourse: false, // TODO: calculate moon VoC properly
-        } satisfies ZodiacMoonSignObject,
+        ...sunAndMoon.value,
         ascendant: {
             value: ascendantSign.value,
             degree: ascDeg,
