@@ -3,6 +3,23 @@ import { describe, expect, test } from "bun:test";
 import type { CalculateBirthChartResponse } from "@/defs/responses.ts";
 import app from "@/index.ts";
 
+function expectIssuePaths(body: unknown, paths: string[]) {
+    expect(body).toBeObject();
+    expect(body).toHaveProperty("success", false);
+    expect(body).toHaveProperty("error");
+
+    const issues = (body as { error: { issues: { path: string[] }[] } }).error
+        .issues;
+
+    expect(issues).toBeArray();
+
+    const actualPaths = issues.map((issue) => issue.path.join("."));
+
+    for (const path of paths) {
+        expect(actualPaths).toContain(path);
+    }
+}
+
 describe("Valid", () => {
     test("Call calculateBirthChart with valid parameters", async () => {
         const params = new URLSearchParams();
@@ -87,7 +104,8 @@ describe("Invalid", () => {
 
         const res = await app.request("/birth-chart?" + params.toString());
 
-        expect(await res.json()).toMatchSnapshot();
+        expect(res.status).toBe(400);
+        expectIssuePaths(await res.json(), ["latitude", "longitude"]);
     });
 
     test("Call calculateBirthChart with invalid parameters", async () => {
@@ -104,6 +122,7 @@ describe("Invalid", () => {
 
         const res = await app.request("/birth-chart?" + params.toString());
 
-        expect(await res.json()).toMatchSnapshot();
+        expect(res.status).toBe(400);
+        expectIssuePaths(await res.json(), ["year", "month", "day", "hour"]);
     });
 });

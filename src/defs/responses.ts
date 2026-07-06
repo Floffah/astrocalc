@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "@hono/zod-openapi";
 
 import {
     aspectObject,
@@ -28,9 +28,7 @@ export const calculateBirthChartResponse = z
         aspects: z.array(aspectObject),
         declinations: z.array(aspectObject),
     })
-    .openapi({
-        ref: "CalculateBirthChartResponse",
-    });
+    .openapi("CalculateBirthChartResponse");
 
 export type CalculateBirthChartResponse = z.infer<
     typeof calculateBirthChartResponse
@@ -45,9 +43,7 @@ export const calculateDailyTransitsResponse = z
             ingresses: z.array(ingressObject),
         }),
     })
-    .openapi({
-        ref: "CalculateDailyTransitsResponse",
-    });
+    .openapi("CalculateDailyTransitsResponse");
 
 export type CalculateDailyTransitsResponse = z.infer<
     typeof calculateDailyTransitsResponse
@@ -63,9 +59,7 @@ export const calculateGenericChartResponse = z
         aspects: z.array(aspectObject),
         declinations: z.array(aspectObject),
     })
-    .openapi({
-        ref: "CalculateGenericChartResponse",
-    });
+    .openapi("CalculateGenericChartResponse");
 
 export type CalculateGenericChartResponse = z.infer<
     typeof calculateGenericChartResponse
@@ -79,9 +73,7 @@ export const calculateGenericTransitChartResponse = z
             ingresses: z.array(ingressObject),
         }),
     })
-    .openapi({
-        ref: "CalculateGenericTransitChartResponse",
-    });
+    .openapi("CalculateGenericTransitChartResponse");
 
 export type CalculateGenericTransitChartResponse = z.infer<
     typeof calculateGenericTransitChartResponse
@@ -109,12 +101,9 @@ export const errorResponse = z
                         title: "ZodError input validation error",
                     }),
             ])
-            .openapi({
-                unionOneOf: true,
-            }),
+            .openapi({}),
     })
-    .openapi({
-        ref: "ErrorResponse",
+    .openapi("ErrorResponse", {
         description:
             "An error response. Note that 'error' can be a string, or a ZodError object.",
     });

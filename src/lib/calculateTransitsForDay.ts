@@ -26,13 +26,16 @@ export function calculateTransitsForDay(
         return transitChart;
     }
 
-    let birthNatalChart: ReturnType<typeof calculateBirthChart> | null = null;
     let transitNatalAspects: ReturnType<
         typeof computeAspectsBetweenCharts
     > | null = null;
 
     if (birthDate && birthLat && birthLon) {
-        birthNatalChart = calculateBirthChart(birthDate, birthLat, birthLon);
+        const birthNatalChart = calculateBirthChart(
+            birthDate,
+            birthLat,
+            birthLon,
+        );
 
         if (birthNatalChart.isErr()) {
             return birthNatalChart;
