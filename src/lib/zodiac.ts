@@ -1,39 +1,14 @@
-import { err, ok } from "neverthrow";
-
 import type { ZodiacDetailsObject } from "@/defs";
 import { Planet, ZodiacSign } from "@/defs/enums.ts";
 
 export function getZodiacSignForDegrees(degrees: number) {
-    const idx = Math.floor(degrees / 30);
+    const sign = zodiacSigns[Math.floor(degrees / 30)]?.name;
 
-    switch (idx) {
-        case 0:
-            return ok(ZodiacSign.Aries);
-        case 1:
-            return ok(ZodiacSign.Taurus);
-        case 2:
-            return ok(ZodiacSign.Gemini);
-        case 3:
-            return ok(ZodiacSign.Cancer);
-        case 4:
-            return ok(ZodiacSign.Leo);
-        case 5:
-            return ok(ZodiacSign.Virgo);
-        case 6:
-            return ok(ZodiacSign.Libra);
-        case 7:
-            return ok(ZodiacSign.Scorpio);
-        case 8:
-            return ok(ZodiacSign.Sagittarius);
-        case 9:
-            return ok(ZodiacSign.Capricorn);
-        case 10:
-            return ok(ZodiacSign.Aquarius);
-        case 11:
-            return ok(ZodiacSign.Pisces);
-        default:
-            return err("Invalid degrees");
+    if (!sign) {
+        throw new RangeError("Invalid degrees");
     }
+
+    return sign;
 }
 
 export function getZodiacSignCusp(degrees: number) {
@@ -44,7 +19,7 @@ export function getZodiacSignCusp(degrees: number) {
     } else if (remainder < 2) {
         return getZodiacSignForDegrees((degrees + 355) % 360);
     } else {
-        return ok(null);
+        return null;
     }
 }
 

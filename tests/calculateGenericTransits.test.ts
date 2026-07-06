@@ -15,12 +15,10 @@ describe("Valid", () => {
 
         const res = await app.request("/generic-chart?" + params.toString());
 
-        const body = (await res.json()) as {
-            data: CalculateGenericTransitChartResponse;
-        };
+        const body = (await res.json()) as CalculateGenericTransitChartResponse;
 
-        expect(body.data).toBeObject();
-        expect(body.data.chart.signs).toMatchObject({
+        expect(body).toBeObject();
+        expect(body.chart.signs).toMatchObject({
             moon: {
                 cuspWarning: null,
                 isVoidOfCourse: false,
@@ -34,22 +32,22 @@ describe("Valid", () => {
         });
 
         expect(
-            body.data.chart.planets.map(
+            body.chart.planets.map(
                 ({ degree: _, latitude: _1, longitude: _2, ...planet }) =>
                     planet,
             ),
         ).toMatchSnapshot();
 
         expect(
-            body.data.chart.aspects.map(({ orb: _, ...aspect }) => aspect),
+            body.chart.aspects.map(({ orb: _, ...aspect }) => aspect),
         ).toMatchSnapshot();
 
         expect(
-            body.data.chart.declinations.map(
+            body.chart.declinations.map(
                 ({ orb: _, ...declination }) => declination,
             ),
         ).toMatchSnapshot();
 
-        expect(body.data.notableEvents).toMatchSnapshot();
+        expect(body.notableEvents).toMatchSnapshot();
     });
 });

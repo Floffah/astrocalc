@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "@hono/zod-openapi";
 
 import {
     Aspect,
@@ -8,9 +8,7 @@ import {
     ZodiacSign,
 } from "@/defs/enums.ts";
 
-export const zodiacSignEnum = z.nativeEnum(ZodiacSign).openapi({
-    ref: "ZodiacSign",
-});
+export const zodiacSignEnum = z.nativeEnum(ZodiacSign).openapi("ZodiacSign");
 
 export const zodiacSignObject = z
     .object({
@@ -18,34 +16,24 @@ export const zodiacSignObject = z
         degree: z.number(),
         cuspWarning: zodiacSignEnum.nullable(),
     })
-    .openapi({
-        ref: "ZodiacSignObject",
-    });
+    .openapi("ZodiacSignObject");
 
 export type ZodiacSignObject = z.infer<typeof zodiacSignObject>;
 
-export const moonPhaseEnum = z.nativeEnum(MoonPhase).openapi({
-    ref: "MoonPhase",
-});
+export const moonPhaseEnum = z.nativeEnum(MoonPhase).openapi("MoonPhase");
 
 export const zodiacMoonSignObject = zodiacSignObject
     .extend({
         phase: moonPhaseEnum,
         isVoidOfCourse: z.boolean(),
     })
-    .openapi({
-        ref: "ZodiacMoonSignObject",
-    });
+    .openapi("ZodiacMoonSignObject");
 
 export type ZodiacMoonSignObject = z.infer<typeof zodiacMoonSignObject>;
 
-export const planetEnum = z.nativeEnum(Planet).openapi({
-    ref: "Planet",
-});
+export const planetEnum = z.nativeEnum(Planet).openapi("Planet");
 
-export const planetIdEnum = z.nativeEnum(PlanetId).openapi({
-    ref: "PlanetId",
-});
+export const planetIdEnum = z.nativeEnum(PlanetId).openapi("PlanetId");
 
 export const zodiacDetailsObject = z
     .object({
@@ -56,9 +44,7 @@ export const zodiacDetailsObject = z
             name: planetEnum,
         }),
     })
-    .openapi({
-        ref: "ZodiacDetailsObject",
-    });
+    .openapi("ZodiacDetailsObject");
 
 export type ZodiacDetailsObject = z.infer<typeof zodiacDetailsObject>;
 
@@ -68,9 +54,7 @@ export const zodiacPositionObject = z
         degree: z.number().min(0).max(30),
         zodiac: zodiacDetailsObject,
     })
-    .openapi({
-        ref: "ZodiacPositionObject",
-    });
+    .openapi("ZodiacPositionObject");
 
 export const houseObject = z
     .object({
@@ -78,9 +62,7 @@ export const houseObject = z
         number: z.number().min(1).max(12),
         cusp: zodiacPositionObject,
     })
-    .openapi({
-        ref: "HouseObject",
-    });
+    .openapi("HouseObject");
 
 export const genericPlanetPositionObject = z
     .object({
@@ -92,9 +74,7 @@ export const genericPlanetPositionObject = z
         degree: z.number().min(0).max(30),
         zodiac: zodiacDetailsObject,
     })
-    .openapi({
-        ref: "GenericPlanetPositionObject",
-    });
+    .openapi("GenericPlanetPositionObject");
 
 export type GenericPlanetPositionObject = z.infer<
     typeof genericPlanetPositionObject
@@ -104,21 +84,15 @@ export const planetPositionObject = genericPlanetPositionObject
     .extend({
         houseNumber: z.number().min(1).max(12),
     })
-    .openapi({
-        ref: "PlanetPositionObject",
-    });
+    .openapi("PlanetPositionObject");
 
 export type PlanetPositionObject = z.infer<typeof planetPositionObject>;
 
-export const aspectEnum = z.nativeEnum(Aspect).openapi({
-    ref: "Aspect",
-});
+export const aspectEnum = z.nativeEnum(Aspect).openapi("Aspect");
 
 export const typeOfAspect = z
     .enum(["transit-to-natal", "natal-to-natal", "transit-to-transit"])
-    .openapi({
-        ref: "TypeOfAspect",
-    });
+    .openapi("TypeOfAspect");
 
 export type TypeOfAspect = z.infer<typeof typeOfAspect>;
 
@@ -141,9 +115,7 @@ export const aspectObject = z
         orb: z.number(),
         typeOfAspect,
     })
-    .openapi({
-        ref: "AspectObject",
-    });
+    .openapi("AspectObject");
 
 export type AspectObject = z.infer<typeof aspectObject>;
 
@@ -153,9 +125,7 @@ export const declinationObject = z
         name: planetEnum,
         declination: z.number(),
     })
-    .openapi({
-        ref: "DeclinationObject",
-    });
+    .openapi("DeclinationObject");
 
 export type DeclinationObject = z.infer<typeof declinationObject>;
 
@@ -164,8 +134,6 @@ export const ingressObject = z
         planet: planetEnum,
         enteredSign: zodiacSignEnum,
     })
-    .openapi({
-        ref: "IngressObject",
-    });
+    .openapi("IngressObject");
 
 export type IngressObject = z.infer<typeof ingressObject>;

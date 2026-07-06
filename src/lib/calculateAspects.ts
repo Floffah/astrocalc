@@ -1,11 +1,9 @@
 import * as astronomia from "astronomia";
-import { Err, Result, ok } from "neverthrow";
 
 import type { AspectObject, TypeOfAspect } from "@/defs";
 import { Aspect, Planet, PlanetId } from "@/defs/enums.ts";
 import { getAnglesForDate } from "@/lib/calculateAngles.ts";
 import { getPlanetaryPositionsForDateAndLocation } from "@/lib/calculatePlanetPositions.ts";
-import type { ExtractError } from "@/types/neverthrow.ts";
 
 const ASPECTS = [
     { id: 0, name: Aspect.Conjunction, angle: 0, orb: 10 },
@@ -53,7 +51,7 @@ export function computeAspects(
         }
     }
 
-    return ok(aspects);
+    return aspects;
 }
 
 export function computeAspectsBetweenCharts(
@@ -93,7 +91,7 @@ export function computeAspectsBetweenCharts(
         }
     }
 
-    return ok(aspects);
+    return aspects;
 }
 
 export function getAspectsForDate(
@@ -108,14 +106,6 @@ export function getAspectsForDate(
     );
     const angleResults = getAnglesForDate(jde, lat, lon);
 
-    if (planetResults.isErr() || angleResults.isErr()) {
-        return Result.combine([planetResults, angleResults]) as Err<
-            never,
-            | ExtractError<typeof planetResults>
-            | ExtractError<typeof angleResults>
-        >;
-    }
-
-    const celestialBodies = [...planetResults.value, ...angleResults.value];
+    const celestialBodies = [...planetResults, ...angleResults];
     return computeAspects(celestialBodies);
 }

@@ -1,5 +1,4 @@
 import * as astronomia from "astronomia";
-import { Result, err, ok } from "neverthrow";
 import sweph from "sweph";
 
 import type { GenericPlanetPositionObject, PlanetPositionObject } from "@/defs";
@@ -78,36 +77,30 @@ function getPlanetPositionsForHouses(
     _lon: astronomia.sexagesimal.Angle,
     houses: number[],
 ) {
-    return Result.combine(
-        PLANETS.map((planet) => {
-            const ut = sweph.calc_ut(
-                jde,
-                planet.flag,
-                sweph.constants.SEFLG_SPEED,
-            );
+    return PLANETS.map((planet) => {
+        const ut = sweph.calc_ut(jde, planet.flag, sweph.constants.SEFLG_SPEED);
 
-            if (ut.error) {
-                return err(ut.error);
-            }
+        if (ut.error) {
+            throw new Error(ut.error);
+        }
 
-            const [lon, lat, , lonSpd] = ut.data;
+        const [lon, lat, , lonSpd] = ut.data;
 
-            const isRetrograde = lonSpd < 0;
-            const zodiacInfo = getZodiacFromLongitude(lon);
-            const houseNumber = getHouseForPlanet(lon, houses);
+        const isRetrograde = lonSpd < 0;
+        const zodiacInfo = getZodiacFromLongitude(lon);
+        const houseNumber = getHouseForPlanet(lon, houses);
 
-            return ok({
-                id: planet.id,
-                name: planet.name,
-                longitude: lon,
-                latitude: planet.name === Planet.TrueSouthNode ? -lat : lat,
-                isRetrograde: isRetrograde,
-                degree: zodiacInfo.degree,
-                houseNumber: houseNumber,
-                zodiac: zodiacInfo.zodiac,
-            } satisfies PlanetPositionObject);
-        }),
-    );
+        return {
+            id: planet.id,
+            name: planet.name,
+            longitude: lon,
+            latitude: planet.name === Planet.TrueSouthNode ? -lat : lat,
+            isRetrograde: isRetrograde,
+            degree: zodiacInfo.degree,
+            houseNumber: houseNumber,
+            zodiac: zodiacInfo.zodiac,
+        } satisfies PlanetPositionObject;
+    });
 }
 
 export function getPlanetaryPositionsForDateAndLocation(
@@ -121,31 +114,25 @@ export function getPlanetaryPositionsForDateAndLocation(
 }
 
 export function getPlanetaryPositionsForDate(jde: number) {
-    return Result.combine(
-        PLANETS.map((planet) => {
-            const ut = sweph.calc_ut(
-                jde,
-                planet.flag,
-                sweph.constants.SEFLG_SPEED,
-            );
+    return PLANETS.map((planet) => {
+        const ut = sweph.calc_ut(jde, planet.flag, sweph.constants.SEFLG_SPEED);
 
-            if (ut.error) {
-                return err(ut.error);
-            }
+        if (ut.error) {
+            throw new Error(ut.error);
+        }
 
-            const [lon, lat, , lonSpd] = ut.data;
-            const isRetrograde = lonSpd < 0;
-            const zodiacInfo = getZodiacFromLongitude(lon);
+        const [lon, lat, , lonSpd] = ut.data;
+        const isRetrograde = lonSpd < 0;
+        const zodiacInfo = getZodiacFromLongitude(lon);
 
-            return ok({
-                id: planet.id,
-                name: planet.name,
-                longitude: lon,
-                latitude: planet.name === Planet.TrueSouthNode ? -lat : lat,
-                isRetrograde,
-                degree: zodiacInfo.degree,
-                zodiac: zodiacInfo.zodiac,
-            } satisfies GenericPlanetPositionObject);
-        }),
-    );
+        return {
+            id: planet.id,
+            name: planet.name,
+            longitude: lon,
+            latitude: planet.name === Planet.TrueSouthNode ? -lat : lat,
+            isRetrograde,
+            degree: zodiacInfo.degree,
+            zodiac: zodiacInfo.zodiac,
+        } satisfies GenericPlanetPositionObject;
+    });
 }

@@ -1,4 +1,4 @@
-FROM oven/bun AS build
+FROM oven/bun:latest AS build
 
 WORKDIR /usr/src/app
 
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y build-essential python3
 RUN bun install
 RUN bun run build
 
-FROM oven/bun
+FROM oven/bun:latest
 
 WORKDIR /usr/src/app
 
@@ -28,6 +28,7 @@ COPY ./bun.lock ./bun.lock
 COPY ./swisseph/ephe ./swisseph/ephe
 
 COPY --from=build /usr/src/app/dist ./dist
-COPY --from=build /usr/src/app/node_modules/sweph/build /usr/src/app/dist/build
+COPY --from=build /usr/src/app/node_modules/node-gyp-build ./node_modules/node-gyp-build
+COPY --from=build /usr/src/app/node_modules/sweph/prebuilds ./dist/prebuilds
 
 CMD [ "bun", "run", "dist/index.js" ]

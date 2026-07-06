@@ -1,5 +1,4 @@
 import * as astronomia from "astronomia";
-import { err, ok } from "neverthrow";
 
 import type { CalculateBirthChartResponse } from "@/defs/responses.ts";
 import { calculateHouses } from "@/lib/birthCharts/calculateHouses.ts";
@@ -16,7 +15,7 @@ export function calculateBirthChart(
     longitude: number,
 ) {
     if (!date || isNaN(latitude) || isNaN(longitude)) {
-        return err("Invalid input");
+        throw new Error("Invalid input");
     }
 
     const jde = astronomia.julian.DateToJDE(date);
@@ -25,51 +24,22 @@ export function calculateBirthChart(
     const lonAngle = new astronomia.sexagesimal.Angle(rad(longitude));
 
     const signs = calculateSigns(jde, latAngle, lonAngle);
-
-    if (signs.isErr()) {
-        return signs;
-    }
-
     const houses = calculateHouses(jde, latAngle, lonAngle);
-
-    if (houses.isErr()) {
-        return houses;
-    }
-
     const planetPositions = getPlanetaryPositionsForDateAndLocation(
         jde,
         latAngle,
         lonAngle,
     );
-
-    if (planetPositions.isErr()) {
-        return planetPositions;
-    }
-
     const angles = getAnglesForDate(jde, latAngle, lonAngle);
-
-    if (angles.isErr()) {
-        return angles;
-    }
-
     const aspects = getAspectsForDate(jde, latAngle, lonAngle);
-
-    if (aspects.isErr()) {
-        return aspects;
-    }
-
     const declinations = getDeclinationsForDate(jde);
 
-    if (declinations.isErr()) {
-        return declinations;
-    }
-
-    return ok({
-        signs: signs.value,
-        houses: houses.value,
-        planets: planetPositions.value,
-        angles: angles.value,
-        aspects: aspects.value,
-        declinations: declinations.value,
-    } satisfies CalculateBirthChartResponse);
+    return {
+        signs,
+        houses,
+        planets: planetPositions,
+        angles,
+        aspects,
+        declinations,
+    } satisfies CalculateBirthChartResponse;
 }
