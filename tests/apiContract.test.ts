@@ -279,7 +279,130 @@ describe("Daily transits endpoint contract", () => {
 
         const body = await expectJson<ErrorBody>(res, 400);
 
-        expectValidationIssuePaths(body, ["transitLatitude", "transitLongitude"]);
+        expectValidationIssuePaths(body, [
+            "transitLatitude",
+            "transitLongitude",
+        ]);
+    });
+});
+
+describe("Transit range endpoint contract", () => {
+    const validRangeParams = {
+        birthYear: "2000",
+        birthMonth: "1",
+        birthDay: "1",
+        birthHour: "5",
+        birthMinute: "30",
+        birthLatitude: "50.123456",
+        birthLongitude: "3.123456",
+        transitStartYear: "2025",
+        transitStartMonth: "3",
+        transitStartDay: "10",
+        transitEndYear: "2025",
+        transitEndMonth: "3",
+        transitEndDay: "16",
+        transitLatitude: "50.123456",
+        transitLongitude: "3.123456",
+        timezone: "UTC",
+    };
+
+    test("returns de-duplicated ranged transit data", async () => {
+        const res = await app.request(
+            "/transits/range?" + query(validRangeParams),
+        );
+
+        const body = await expectJson<{
+            range: { startDate: string; endDate: string; timezone: string };
+            summaryData: {
+                dominantPlanets: unknown[];
+                dominantHouses: unknown[];
+                dominantSigns: unknown[];
+                dominantAspectTypes: unknown[];
+                overallToneScore: number | null;
+                sampleCount: number;
+            };
+            transitNatalEvents: {
+                transitPlanet: string;
+                natalBody: string;
+                activeFrom: string;
+                activeUntil: string;
+                minimumOrb: number;
+                samples: unknown[];
+                rank: number;
+            }[];
+            transitTransitEvents: unknown[];
+            ingresses: unknown[];
+            retrogrades: unknown[];
+            moonEvents: unknown[];
+        }>(res, 200);
+
+        expect(body.range).toEqual({
+            startDate: "2025-03-10",
+            endDate: "2025-03-16",
+            timezone: "UTC",
+        });
+        expect(body.summaryData.sampleCount).toBe(7);
+        expect(body.summaryData.dominantPlanets).toBeArray();
+        expect(body.summaryData.dominantHouses).toBeArray();
+        expect(body.summaryData.dominantSigns).toBeArray();
+        expect(body.summaryData.dominantAspectTypes).toBeArray();
+        expect(body.transitNatalEvents.length).toBeGreaterThan(0);
+        expect(body.transitTransitEvents).toBeArray();
+        expect(body.ingresses).toBeArray();
+        expect(body.retrogrades).toBeArray();
+        expect(body.moonEvents).toHaveLength(7);
+
+        const topNatalEvent = body.transitNatalEvents[0]!;
+        expect(topNatalEvent.rank).toBe(1);
+        expect(topNatalEvent.activeFrom >= "2025-03-10").toBe(true);
+        expect(topNatalEvent.activeUntil <= "2025-03-16").toBe(true);
+        expect(topNatalEvent.minimumOrb).toBeNumber();
+        expect(topNatalEvent.samples.length).toBeGreaterThan(0);
+    });
+
+    test("rejects missing required birth and range parameters", async () => {
+        const res = await app.request(
+            "/transits/range?" +
+                query({
+                    birthYear: "2000",
+                    birthMonth: "1",
+                    birthDay: "1",
+                    transitLatitude: "50.123456",
+                    transitLongitude: "3.123456",
+                }),
+        );
+
+        const body = await expectJson<ErrorBody>(res, 400);
+
+        expectValidationIssuePaths(body, [
+            "birthHour",
+            "birthMinute",
+            "birthLatitude",
+            "birthLongitude",
+            "transitStartYear",
+            "transitStartMonth",
+            "transitStartDay",
+            "transitEndYear",
+            "transitEndMonth",
+            "transitEndDay",
+        ]);
+    });
+
+    test("rejects reversed transit date ranges", async () => {
+        const res = await app.request(
+            "/transits/range?" +
+                query({
+                    ...validRangeParams,
+                    transitStartDay: "16",
+                    transitEndDay: "10",
+                }),
+        );
+
+        const body = await expectJson<{ error: string }>(res, 400);
+
+        expect(body.error).toBe(
+            "Transit start date must be before or equal to end date",
+        );
     });
 });
 
@@ -306,7 +429,11 @@ describe("Documentation contract", () => {
                     get?: {
                         operationId?: string;
                         responses?: Record<string, unknown>;
-                        parameters?: { name: string; in: string; required?: boolean }[];
+                        parameters?: {
+                            name: string;
+                            in: string;
+                            required?: boolean;
+                        }[];
                     };
                 }
             >;
@@ -332,6 +459,7 @@ describe("Documentation contract", () => {
             "/birth-chart",
             "/daily-transits",
             "/generic-chart",
+            "/transits/range",
         ]);
 
         expect(body.paths["/birth-chart"]?.get?.operationId).toBe(
@@ -343,11 +471,15 @@ describe("Documentation contract", () => {
         expect(body.paths["/generic-chart"]?.get?.operationId).toBe(
             "calculateGenericTransitChart",
         );
+        expect(body.paths["/transits/range"]?.get?.operationId).toBe(
+            "calculateTransitRange",
+        );
 
         for (const path of [
             "/birth-chart",
             "/daily-transits",
             "/generic-chart",
+            "/transits/range",
         ]) {
             expect(body.paths[path]?.get?.responses).toHaveProperty("200");
             expect(body.paths[path]?.get?.responses).toHaveProperty("400");
@@ -361,6 +493,9 @@ describe("Documentation contract", () => {
         );
         expect(body.components?.schemas).toHaveProperty(
             "CalculateGenericTransitChartResponse",
+        );
+        expect(body.components?.schemas).toHaveProperty(
+            "CalculateTransitRangeResponse",
         );
         expect(body.components?.schemas).toHaveProperty("ErrorResponse");
     });

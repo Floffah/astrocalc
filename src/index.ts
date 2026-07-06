@@ -6,11 +6,16 @@ import {
     calculateBirthChartResponse,
     calculateDailyTransitsResponse,
     calculateGenericTransitChartResponse,
+    calculateTransitRangeResponse,
     errorResponse,
 } from "@/defs/responses.ts";
 import { calculateBirthChart } from "@/lib/birthCharts/calculateBirthChart.ts";
 import { calculateGenericTransitChart } from "@/lib/calculateGenericChart.ts";
 import { calculateTransitsForDay } from "@/lib/calculateTransitsForDay.ts";
+import {
+    calculateTransitsForRange,
+    createUtcDate,
+} from "@/lib/calculateTransitsForRange.ts";
 import { setSwissephPath } from "@/lib/swisseph.ts";
 
 setSwissephPath();
@@ -388,6 +393,214 @@ app.openapi(
                 new Date(
                     Date.UTC(year, month - 1, day, hour ?? 12, minute ?? 0),
                 ),
+            ),
+            200,
+        );
+    },
+);
+
+app.openapi(
+    createRoute({
+        method: "get",
+        path: "/transits/range",
+        operationId: "calculateTransitRange",
+        description:
+            "This endpoint calculates de-duplicated transit events across a UTC date range. It samples daily charts and returns one event per aspect with active dates, minimum orb, daily orb samples, summary metadata, ingresses, retrograde stations, and moon data.",
+        summary: "Calculate ranged transits",
+        request: {
+            query: z.object({
+                birthYear: z.coerce
+                    .number()
+                    .min(1900)
+                    .max(2100)
+                    .describe("The UTC year of birth"),
+                birthMonth: z.coerce
+                    .number()
+                    .min(1)
+                    .max(12)
+                    .describe("The UTC month of birth. NOT zero-indexed"),
+                birthDay: z.coerce
+                    .number()
+                    .min(1)
+                    .max(31)
+                    .describe("The UTC day of birth"),
+                birthHour: z.coerce
+                    .number()
+                    .min(0)
+                    .max(23)
+                    .describe("The UTC hour of birth"),
+                birthMinute: z.coerce
+                    .number()
+                    .min(0)
+                    .max(59)
+                    .describe("The UTC minute of birth"),
+                birthLatitude: z.coerce
+                    .number()
+                    .min(-90)
+                    .max(90)
+                    .describe("The latitude of the birth location"),
+                birthLongitude: z.coerce
+                    .number()
+                    .min(-180)
+                    .max(180)
+                    .describe("The longitude of the birth location"),
+                transitStartYear: z.coerce
+                    .number()
+                    .min(1900)
+                    .max(2100)
+                    .describe("The UTC start year for the transit range"),
+                transitStartMonth: z.coerce
+                    .number()
+                    .min(1)
+                    .max(12)
+                    .describe(
+                        "The UTC start month for the transit range. NOT zero-indexed",
+                    ),
+                transitStartDay: z.coerce
+                    .number()
+                    .min(1)
+                    .max(31)
+                    .describe("The UTC start day for the transit range"),
+                transitEndYear: z.coerce
+                    .number()
+                    .min(1900)
+                    .max(2100)
+                    .describe("The UTC end year for the transit range"),
+                transitEndMonth: z.coerce
+                    .number()
+                    .min(1)
+                    .max(12)
+                    .describe(
+                        "The UTC end month for the transit range. NOT zero-indexed",
+                    ),
+                transitEndDay: z.coerce
+                    .number()
+                    .min(1)
+                    .max(31)
+                    .describe("The UTC end day for the transit range"),
+                transitLatitude: z.coerce
+                    .number()
+                    .min(-90)
+                    .max(90)
+                    .describe(
+                        "The latitude of the location to calculate transits for",
+                    ),
+                transitLongitude: z.coerce
+                    .number()
+                    .min(-180)
+                    .max(180)
+                    .describe(
+                        "The longitude of the location to calculate transits for",
+                    ),
+                timezone: z
+                    .string()
+                    .default("UTC")
+                    .optional()
+                    .describe(
+                        "Timezone label for the requested range. Event timestamps are currently UTC.",
+                    ),
+            }),
+        },
+        responses: {
+            200: {
+                description: "OK",
+                content: {
+                    "application/json": {
+                        schema: calculateTransitRangeResponse,
+                    },
+                },
+            },
+            400: {
+                description: "User Error",
+                content: {
+                    "application/json": {
+                        schema: errorResponse,
+                    },
+                },
+            },
+            500: {
+                description: "Calculation Error",
+                content: {
+                    "application/json": {
+                        schema: errorResponse,
+                    },
+                },
+            },
+        },
+    }),
+    (c) => {
+        const {
+            birthYear,
+            birthMinute,
+            birthDay,
+            birthHour,
+            birthMonth,
+            birthLatitude,
+            birthLongitude,
+            transitStartYear,
+            transitStartMonth,
+            transitStartDay,
+            transitEndYear,
+            transitEndMonth,
+            transitEndDay,
+            transitLatitude,
+            transitLongitude,
+            timezone,
+        } = c.req.valid("query");
+
+        const transitStartDate = createUtcDate(
+            transitStartYear,
+            transitStartMonth,
+            transitStartDay,
+        );
+        const transitEndDate = createUtcDate(
+            transitEndYear,
+            transitEndMonth,
+            transitEndDay,
+        );
+        const rangeDays =
+            (transitEndDate.getTime() - transitStartDate.getTime()) /
+            1000 /
+            60 /
+            60 /
+            24;
+
+        if (transitStartDate > transitEndDate) {
+            return c.json(
+                {
+                    error: "Transit start date must be before or equal to end date",
+                },
+                400,
+            );
+        }
+
+        if (rangeDays > 31) {
+            return c.json(
+                {
+                    error: "Transit range cannot exceed 31 days",
+                },
+                400,
+            );
+        }
+
+        return c.json(
+            calculateTransitsForRange(
+                new Date(
+                    Date.UTC(
+                        birthYear,
+                        birthMonth - 1,
+                        birthDay,
+                        birthHour,
+                        birthMinute,
+                    ),
+                ),
+                birthLatitude,
+                birthLongitude,
+                transitStartDate,
+                transitEndDate,
+                transitLatitude,
+                transitLongitude,
+                timezone ?? "UTC",
             ),
             200,
         );

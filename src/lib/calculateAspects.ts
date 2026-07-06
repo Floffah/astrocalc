@@ -5,7 +5,7 @@ import { Aspect, Planet, PlanetId } from "@/defs/enums.ts";
 import { getAnglesForDate } from "@/lib/calculateAngles.ts";
 import { getPlanetaryPositionsForDateAndLocation } from "@/lib/calculatePlanetPositions.ts";
 
-const ASPECTS = [
+export const ASPECTS = [
     { id: 0, name: Aspect.Conjunction, angle: 0, orb: 10 },
     { id: 1, name: Aspect.Opposition, angle: 180, orb: 10 },
     { id: 2, name: Aspect.Square, angle: 90, orb: 8 },
