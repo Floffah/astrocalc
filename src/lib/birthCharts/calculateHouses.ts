@@ -1,5 +1,4 @@
 import * as astronomia from "astronomia";
-import { ok } from "neverthrow";
 import sweph from "sweph";
 
 import { getZodiacFromLongitude } from "@/lib/zodiac.ts";
@@ -16,13 +15,11 @@ export function calculateHouses(
         "P",
     );
 
-    const houses = swissEphHouseCusps.data.houses.map((house, id) => {
+    return swissEphHouseCusps.data.houses.map((house, id) => {
         return {
             id,
             number: id + 1,
             cusp: getZodiacFromLongitude(house),
         };
     });
-
-    return ok(houses);
 }

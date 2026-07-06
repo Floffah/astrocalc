@@ -11,10 +11,6 @@ import {
     zodiacSignObject,
 } from "@/defs/index.ts";
 
-export const baseResponse = z.object({
-    success: z.boolean(),
-});
-
 export const calculateBirthChartResponse = z
     .object({
         signs: z.object({
@@ -81,7 +77,6 @@ export type CalculateGenericTransitChartResponse = z.infer<
 
 export const errorResponse = z
     .object({
-        success: z.literal(false),
         error: z
             .union([
                 z.string().openapi({

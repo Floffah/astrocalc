@@ -1,6 +1,5 @@
 import * as astronomia from "astronomia";
 import { addDays } from "date-fns";
-import { ok } from "neverthrow";
 
 import type { IngressObject } from "@/defs";
 import type { CalculateDailyTransitsResponse } from "@/defs/responses.ts";
@@ -22,10 +21,6 @@ export function calculateTransitsForDay(
 
     const transitChart = calculateBirthChart(date, transitLat, transitLon);
 
-    if (transitChart.isErr()) {
-        return transitChart;
-    }
-
     let transitNatalAspects: ReturnType<
         typeof computeAspectsBetweenCharts
     > | null = null;
@@ -37,21 +32,13 @@ export function calculateTransitsForDay(
             birthLon,
         );
 
-        if (birthNatalChart.isErr()) {
-            return birthNatalChart;
-        }
-
         transitNatalAspects = computeAspectsBetweenCharts(
-            [...birthNatalChart.value.planets, ...birthNatalChart.value.angles],
-            transitChart.value.planets,
+            [...birthNatalChart.planets, ...birthNatalChart.angles],
+            transitChart.planets,
         );
-
-        if (transitNatalAspects.isErr()) {
-            return transitNatalAspects;
-        }
     }
 
-    const retrogradePlanets = transitChart.value.planets
+    const retrogradePlanets = transitChart.planets
         .map((planet) => (planet.isRetrograde ? planet.name : undefined))
         .filter((name) => name !== undefined);
 
@@ -64,14 +51,10 @@ export function calculateTransitsForDay(
         transitLonAngle,
     );
 
-    if (yesterdayPlanets.isErr()) {
-        return yesterdayPlanets;
-    }
-
     const ingresses: IngressObject[] = [];
 
-    for (const planet of transitChart.value.planets) {
-        const yesterdayPlanet = yesterdayPlanets.value.find(
+    for (const planet of transitChart.planets) {
+        const yesterdayPlanet = yesterdayPlanets.find(
             (p) => p.id === planet.id,
         );
 
@@ -83,12 +66,12 @@ export function calculateTransitsForDay(
         }
     }
 
-    return ok({
-        transitChart: transitChart.value,
-        transitNatalAspects: transitNatalAspects?.value ?? null,
+    return {
+        transitChart,
+        transitNatalAspects: transitNatalAspects ?? null,
         notableEvents: {
             retrogradePlanets,
             ingresses,
         },
-    } satisfies CalculateDailyTransitsResponse);
+    } satisfies CalculateDailyTransitsResponse;
 }

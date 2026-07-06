@@ -1,4 +1,3 @@
-import { ok } from "neverthrow";
 import sweph from "sweph";
 
 import type { AspectObject, DeclinationObject } from "@/defs";
@@ -50,7 +49,7 @@ export function computeDeclinations(
         }
     }
 
-    return ok(declinations);
+    return declinations;
 }
 
 export function getDeclinationsForDate(jde: number) {

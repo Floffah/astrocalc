@@ -5,7 +5,6 @@ import app from "@/index.ts";
 
 function expectIssuePaths(body: unknown, paths: string[]) {
     expect(body).toBeObject();
-    expect(body).toHaveProperty("success", false);
     expect(body).toHaveProperty("error");
 
     const issues = (body as { error: { issues: { path: string[] }[] } }).error
@@ -37,16 +36,14 @@ describe("Valid", () => {
         params.set("transitLongitude", "3.123456");
 
         const res = await app.request("/daily-transits?" + params.toString());
-        const body = (await res.json()) as {
-            data: CalculateDailyTransitsResponse;
-        };
+        const body = (await res.json()) as CalculateDailyTransitsResponse;
 
-        expect(body.data.transitNatalAspects).toBeArray();
+        expect(body.transitNatalAspects).toBeArray();
         expect(
-            body.data.transitNatalAspects?.map(({ orb: _, ...value }) => value),
+            body.transitNatalAspects?.map(({ orb: _, ...value }) => value),
         ).toMatchSnapshot();
 
-        expect(body.data.notableEvents).toMatchSnapshot();
+        expect(body.notableEvents).toMatchSnapshot();
     });
 });
 

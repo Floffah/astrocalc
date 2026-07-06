@@ -1,6 +1,5 @@
 import * as astronomia from "astronomia";
 import { addDays } from "date-fns";
-import { err, ok } from "neverthrow";
 
 import type { IngressObject } from "@/defs";
 import type {
@@ -14,49 +13,28 @@ import { calculateSunAndMoon } from "@/lib/calculateSigns.ts";
 
 export function calculateGenericChart(date: Date) {
     if (!date) {
-        return err("Invalid input");
+        throw new Error("Invalid input");
     }
 
     const jde = astronomia.julian.DateToJDE(date);
 
     const sunAndMoon = calculateSunAndMoon(jde);
-    if (sunAndMoon.isErr()) {
-        return sunAndMoon;
-    }
-
     const planetaryPositions = getPlanetaryPositionsForDate(jde);
-    if (planetaryPositions.isErr()) {
-        return planetaryPositions;
-    }
-
-    const aspects = computeAspects(
-        planetaryPositions.value,
-        "transit-to-transit",
-    );
-    if (aspects.isErr()) {
-        return aspects;
-    }
-
+    const aspects = computeAspects(planetaryPositions, "transit-to-transit");
     const declinations = getDeclinationsForDate(jde);
-    if (declinations.isErr()) {
-        return declinations;
-    }
 
-    return ok({
-        signs: sunAndMoon.value,
-        planets: planetaryPositions.value,
-        aspects: aspects.value,
-        declinations: declinations.value,
-    } satisfies CalculateGenericChartResponse);
+    return {
+        signs: sunAndMoon,
+        planets: planetaryPositions,
+        aspects,
+        declinations,
+    } satisfies CalculateGenericChartResponse;
 }
 
 export function calculateGenericTransitChart(date: Date) {
     const chart = calculateGenericChart(date);
-    if (chart.isErr()) {
-        return chart;
-    }
 
-    const retrogradePlanets = chart.value.planets
+    const retrogradePlanets = chart.planets
         .map((planet) => (planet.isRetrograde ? planet.name : undefined))
         .filter((name) => name !== undefined);
 
@@ -64,14 +42,11 @@ export function calculateGenericTransitChart(date: Date) {
     const yesterdayJd = astronomia.julian.DateToJD(yesterday);
 
     const yesterdayPlanets = getPlanetaryPositionsForDate(yesterdayJd);
-    if (yesterdayPlanets.isErr()) {
-        return yesterdayPlanets;
-    }
 
     const ingresses: IngressObject[] = [];
 
-    for (const planet of chart.value.planets) {
-        const yesterdayPlanet = yesterdayPlanets.value.find(
+    for (const planet of chart.planets) {
+        const yesterdayPlanet = yesterdayPlanets.find(
             (p) => p.id === planet.id,
         );
 
@@ -83,11 +58,11 @@ export function calculateGenericTransitChart(date: Date) {
         }
     }
 
-    return ok({
-        chart: chart.value,
+    return {
+        chart,
         notableEvents: {
             retrogradePlanets,
             ingresses,
         },
-    } satisfies CalculateGenericTransitChartResponse);
+    } satisfies CalculateGenericTransitChartResponse;
 }

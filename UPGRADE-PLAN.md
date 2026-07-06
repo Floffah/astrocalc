@@ -2,11 +2,11 @@
 
 Created: 2026-07-06
 
-This plan records the dependency and `neverthrow` modernization investigation. It is intentionally documentation-only; package, lockfile, and source changes should happen in later implementation steps.
+This plan records the dependency and `neverthrow` modernization investigation, plus the implementation notes as each phase lands.
 
-## Current Baseline
+## Original Baseline
 
-The current codebase passes the existing quality gates before any upgrade work:
+The codebase passed the existing quality gates before upgrade work began:
 
 ```sh
 bun run typecheck
@@ -48,34 +48,22 @@ Package metadata checked on 2026-07-06.
 
 ## Neverthrow Decision
 
-`neverthrow` is already up to date. The modernization question is whether the project still benefits from explicit `Result` values.
+`neverthrow` was already up to date, so the modernization question was whether the project still benefited from explicit `Result` values.
 
-Current usage is mostly synchronous early-return control flow:
+Observed usage was mostly synchronous early-return control flow:
 
 - Route handlers call `.isErr()` and unwrap `.value` / `.error`.
 - Calculation functions repeatedly do `if (x.isErr()) return x`.
 - Several infallible helpers return `ok(...)`, which adds ceremony without meaningful failure information.
 - There is no `ResultAsync` usage.
 
-Recommended decision path:
+Decision:
 
-1. Keep `neverthrow` if explicit typed failure is a project convention.
-2. If keeping it, modernize syntax with `safeTry`, `.andThen()`, and `.match()`.
-3. Remove `ok(...)` wrappers from helpers that cannot fail.
-4. If explicit typed failure is not valuable, replace `neverthrow` with plain returns plus a single HTTP error boundary.
-
-Candidate functions to simplify first:
-
-- `computeAspects`
-- `computeAspectsBetweenCharts`
-- `computeDeclinations`
-- `calculateHouses`
-- `getAnglesForDate`, if Swiss Ephemeris house calculation is treated as non-failing
-
-Candidate boundary changes:
-
-- Use `.match()` in Hono route handlers instead of manual `.isErr()` branches.
-- Keep Swiss Ephemeris failures represented explicitly while simplifying pure transformations.
+- Remove `neverthrow` entirely.
+- Return plain values from successful calculation paths.
+- Throw standard errors for exceptional calculation failures.
+- Format errors once at the Hono boundary.
+- Return successful API payloads directly instead of wrapping them in `{ success, data }`.
 
 ## Upgrade Phases
 
@@ -180,19 +168,18 @@ OpenAPI-specific checks:
 
 Goal: reduce error-handling ceremony after dependency churn has settled.
 
-Option A: keep `neverthrow`.
+Status: completed 2026-07-06.
 
-- Convert nested `if (result.isErr()) return result` chains to `safeTry` or `.andThen()`.
-- Use `.match()` in route handlers.
-- Return plain values from infallible helpers.
-- Consider adding `eslint-plugin-neverthrow` if the project wants enforced result consumption.
+Migration notes:
 
-Option B: remove `neverthrow`.
-
-- Introduce a small domain error type for calculation failures.
-- Throw or return plain discriminated unions internally.
-- Catch and format errors once at the Hono boundary.
-- Remove `src/types/neverthrow.ts`.
+- Removed `neverthrow` and deleted `src/types/neverthrow.ts`.
+- Calculation helpers now return plain values and throw standard `Error` or `RangeError` instances for exceptional failures.
+- Hono validation errors return `{ error: { issues } }`.
+- Uncaught calculation errors are caught at the Hono boundary and returned as `{ error: string }`.
+- Successful API responses now return their payload directly instead of `{ success, data }`.
+- Error responses no longer include a `success` property.
+- Route declarations now live inline with their `app.openapi(...)` registrations.
+- Removed unnecessary response helpers such as `jsonContent`.
 
 Validation after this phase:
 

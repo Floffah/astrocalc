@@ -9,7 +9,6 @@ type ApiIssue = {
 };
 
 type ErrorBody = {
-    success: false;
     error: {
         issues: ApiIssue[];
     };
@@ -26,14 +25,7 @@ async function expectJson<T>(res: Response, status: number) {
     return (await res.json()) as T;
 }
 
-function expectSuccessfulEnvelope(body: unknown) {
-    expect(body).toBeObject();
-    expect(body).toHaveProperty("success", true);
-    expect(body).toHaveProperty("data");
-}
-
 function expectValidationIssuePaths(body: ErrorBody, paths: string[]) {
-    expect(body.success).toBe(false);
     expect(body.error.issues).toBeArray();
 
     const actualPaths = body.error.issues.map((issue) => issue.path.join("."));
@@ -78,45 +70,41 @@ describe("Birth chart endpoint contract", () => {
         );
 
         const body = await expectJson<{
-            success: true;
-            data: {
-                signs: {
-                    sun: { value: string; cuspWarning: string | null };
-                    moon: {
-                        value: string;
-                        cuspWarning: string | null;
-                        phase: string;
-                        isVoidOfCourse: boolean;
-                    };
-                    ascendant: { value: string; cuspWarning: string | null };
+            signs: {
+                sun: { value: string; cuspWarning: string | null };
+                moon: {
+                    value: string;
+                    cuspWarning: string | null;
+                    phase: string;
+                    isVoidOfCourse: boolean;
                 };
-                houses: unknown[];
-                planets: {
-                    id: number;
-                    name: string;
-                    houseNumber: number;
-                    isRetrograde: boolean;
-                }[];
-                angles: unknown[];
-                aspects: unknown[];
-                declinations: unknown[];
+                ascendant: { value: string; cuspWarning: string | null };
             };
+            houses: unknown[];
+            planets: {
+                id: number;
+                name: string;
+                houseNumber: number;
+                isRetrograde: boolean;
+            }[];
+            angles: unknown[];
+            aspects: unknown[];
+            declinations: unknown[];
         }>(res, 200);
 
-        expectSuccessfulEnvelope(body);
-        expect(body.data.signs.sun.value).toBe("Capricorn");
-        expect(body.data.signs.moon).toMatchObject({
+        expect(body.signs.sun.value).toBe("Capricorn");
+        expect(body.signs.moon).toMatchObject({
             value: "Scorpio",
             phase: "Waxing Crescent",
             isVoidOfCourse: false,
         });
-        expect(body.data.houses).toHaveLength(12);
-        expect(body.data.planets).toHaveLength(14);
-        expect(body.data.angles).toHaveLength(4);
-        expect(body.data.aspects.length).toBeGreaterThan(0);
-        expect(body.data.declinations.length).toBeGreaterThan(0);
+        expect(body.houses).toHaveLength(12);
+        expect(body.planets).toHaveLength(14);
+        expect(body.angles).toHaveLength(4);
+        expect(body.aspects.length).toBeGreaterThan(0);
+        expect(body.declinations.length).toBeGreaterThan(0);
 
-        for (const planet of body.data.planets) {
+        for (const planet of body.planets) {
             expect(planet.houseNumber).toBeGreaterThanOrEqual(1);
             expect(planet.houseNumber).toBeLessThanOrEqual(12);
         }
@@ -177,36 +165,32 @@ describe("Generic chart endpoint contract", () => {
         );
 
         const body = await expectJson<{
-            success: true;
-            data: {
-                chart: {
-                    signs: {
-                        sun: { value: string };
-                        moon: { value: string; phase: string };
-                    };
-                    planets: { name: string; houseNumber?: number }[];
-                    aspects: unknown[];
-                    declinations: unknown[];
+            chart: {
+                signs: {
+                    sun: { value: string };
+                    moon: { value: string; phase: string };
                 };
-                notableEvents: {
-                    retrogradePlanets: string[];
-                    ingresses: unknown[];
-                };
+                planets: { name: string; houseNumber?: number }[];
+                aspects: unknown[];
+                declinations: unknown[];
+            };
+            notableEvents: {
+                retrogradePlanets: string[];
+                ingresses: unknown[];
             };
         }>(res, 200);
 
-        expectSuccessfulEnvelope(body);
-        expect(body.data.chart.signs.sun.value).toBe("Capricorn");
-        expect(body.data.chart.signs.moon).toMatchObject({
+        expect(body.chart.signs.sun.value).toBe("Capricorn");
+        expect(body.chart.signs.moon).toMatchObject({
             value: "Scorpio",
             phase: "Waxing Crescent",
         });
-        expect(body.data.chart.planets).toHaveLength(14);
-        expect(body.data.chart.planets[0]).not.toHaveProperty("houseNumber");
-        expect(body.data.chart.aspects.length).toBeGreaterThan(0);
-        expect(body.data.chart.declinations.length).toBeGreaterThan(0);
-        expect(body.data.notableEvents.retrogradePlanets).toBeArray();
-        expect(body.data.notableEvents.ingresses).toBeArray();
+        expect(body.chart.planets).toHaveLength(14);
+        expect(body.chart.planets[0]).not.toHaveProperty("houseNumber");
+        expect(body.chart.aspects.length).toBeGreaterThan(0);
+        expect(body.chart.declinations.length).toBeGreaterThan(0);
+        expect(body.notableEvents.retrogradePlanets).toBeArray();
+        expect(body.notableEvents.ingresses).toBeArray();
     });
 
     test("rejects missing required date parameters", async () => {
@@ -238,28 +222,24 @@ describe("Daily transits endpoint contract", () => {
         );
 
         const body = await expectJson<{
-            success: true;
-            data: {
-                transitChart: {
-                    houses: unknown[];
-                    planets: unknown[];
-                    angles: unknown[];
-                };
-                transitNatalAspects: unknown[] | null;
-                notableEvents: {
-                    retrogradePlanets: string[];
-                    ingresses: unknown[];
-                };
+            transitChart: {
+                houses: unknown[];
+                planets: unknown[];
+                angles: unknown[];
+            };
+            transitNatalAspects: unknown[] | null;
+            notableEvents: {
+                retrogradePlanets: string[];
+                ingresses: unknown[];
             };
         }>(res, 200);
 
-        expectSuccessfulEnvelope(body);
-        expect(body.data.transitChart.houses).toHaveLength(12);
-        expect(body.data.transitChart.planets).toHaveLength(14);
-        expect(body.data.transitChart.angles).toHaveLength(4);
-        expect(body.data.transitNatalAspects).toBeNull();
-        expect(body.data.notableEvents.retrogradePlanets).toBeArray();
-        expect(body.data.notableEvents.ingresses).toBeArray();
+        expect(body.transitChart.houses).toHaveLength(12);
+        expect(body.transitChart.planets).toHaveLength(14);
+        expect(body.transitChart.angles).toHaveLength(4);
+        expect(body.transitNatalAspects).toBeNull();
+        expect(body.notableEvents.retrogradePlanets).toBeArray();
+        expect(body.notableEvents.ingresses).toBeArray();
     });
 
     test("returns natal comparison aspects when full birth data is supplied", async () => {
@@ -280,15 +260,11 @@ describe("Daily transits endpoint contract", () => {
         );
 
         const body = await expectJson<{
-            success: true;
-            data: {
-                transitNatalAspects: unknown[] | null;
-            };
+            transitNatalAspects: unknown[] | null;
         }>(res, 200);
 
-        expectSuccessfulEnvelope(body);
-        expect(body.data.transitNatalAspects).toBeArray();
-        expect(body.data.transitNatalAspects?.length).toBeGreaterThan(0);
+        expect(body.transitNatalAspects).toBeArray();
+        expect(body.transitNatalAspects?.length).toBeGreaterThan(0);
     });
 
     test("rejects missing transit location parameters", async () => {

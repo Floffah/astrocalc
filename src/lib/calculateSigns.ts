@@ -1,6 +1,5 @@
 import * as astronomia from "astronomia";
 import data from "astronomia/data";
-import { ok } from "neverthrow";
 
 import type { ZodiacMoonSignObject, ZodiacSignObject } from "@/defs";
 import { deg } from "@/lib/degrees.ts";
@@ -16,13 +15,6 @@ export function calculateSunAndMoon(jde: number) {
     const sunSign = getZodiacSignForDegrees(sunLongitude);
     const sunCusp = getZodiacSignCusp(sunLongitude);
 
-    if (sunSign.isErr()) {
-        return sunSign;
-    }
-    if (sunCusp.isErr()) {
-        return sunCusp;
-    }
-
     const moonPosition = astronomia.moonposition.position(jde);
     const moonLongitude = deg(moonPosition.lon);
     const moonSign = getZodiacSignForDegrees(moonLongitude);
@@ -31,27 +23,20 @@ export function calculateSunAndMoon(jde: number) {
     const moonElongation = moonSunDiff > 180 ? 360 - moonSunDiff : moonSunDiff;
     const moonPhase = getMoonPhase(moonElongation);
 
-    if (moonSign.isErr()) {
-        return moonSign;
-    }
-    if (moonCusp.isErr()) {
-        return moonCusp;
-    }
-
-    return ok({
+    return {
         sun: {
-            value: sunSign.value,
+            value: sunSign,
             degree: sunLongitude,
-            cuspWarning: sunCusp.value,
+            cuspWarning: sunCusp,
         } satisfies ZodiacSignObject,
         moon: {
-            value: moonSign.value,
+            value: moonSign,
             degree: moonLongitude,
-            cuspWarning: moonCusp.value,
+            cuspWarning: moonCusp,
             phase: moonPhase,
             isVoidOfCourse: false, // TODO: calculate moon VoC properly
         } satisfies ZodiacMoonSignObject,
-    });
+    };
 }
 
 export function calculateSigns(
@@ -60,10 +45,6 @@ export function calculateSigns(
     longitude: astronomia.sexagesimal.Angle,
 ) {
     const sunAndMoon = calculateSunAndMoon(jde);
-
-    if (sunAndMoon.isErr()) {
-        return sunAndMoon;
-    }
 
     const obliquity = astronomia.nutation.meanObliquity(jde);
     const sidereal = astronomia.sidereal.mean(jde);
@@ -85,19 +66,12 @@ export function calculateSigns(
     const ascendantSign = getZodiacSignForDegrees(ascDeg);
     const ascendantCusp = getZodiacSignCusp(ascDeg);
 
-    if (ascendantSign.isErr()) {
-        return ascendantSign;
-    }
-    if (ascendantCusp.isErr()) {
-        return ascendantCusp;
-    }
-
-    return ok({
-        ...sunAndMoon.value,
+    return {
+        ...sunAndMoon,
         ascendant: {
-            value: ascendantSign.value,
+            value: ascendantSign,
             degree: ascDeg,
-            cuspWarning: ascendantCusp.value,
+            cuspWarning: ascendantCusp,
         } satisfies ZodiacSignObject,
-    });
+    };
 }

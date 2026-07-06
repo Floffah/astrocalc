@@ -1,5 +1,4 @@
 import * as astronomia from "astronomia";
-import { Result, ok } from "neverthrow";
 import sweph from "sweph";
 
 import { Planet, PlanetId } from "@/defs/enums.ts";
@@ -37,19 +36,17 @@ export function getAnglesForDate(
         },
     ];
 
-    return Result.combine(
-        angles.map((angle) => {
-            const zodiacInfo = getZodiacFromLongitude(angle.longitude);
+    return angles.map((angle) => {
+        const zodiacInfo = getZodiacFromLongitude(angle.longitude);
 
-            return ok({
-                id: angle.id,
-                name: angle.name,
-                longitude: angle.longitude,
-                isRetrograde: false,
-                degree: zodiacInfo.degree,
-                houseNumber: getHouseForPlanet(angle.longitude, houseCusps),
-                zodiac: zodiacInfo.zodiac,
-            });
-        }),
-    );
+        return {
+            id: angle.id,
+            name: angle.name,
+            longitude: angle.longitude,
+            isRetrograde: false,
+            degree: zodiacInfo.degree,
+            houseNumber: getHouseForPlanet(angle.longitude, houseCusps),
+            zodiac: zodiacInfo.zodiac,
+        };
+    });
 }
